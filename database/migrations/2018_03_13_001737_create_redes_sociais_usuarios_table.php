@@ -15,6 +15,12 @@ class CreateRedesSociaisUsuariosTable extends Migration
     {
         Schema::create('redes_sociais_usuarios', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('facebook', 100);
+            $table->string('twitter', 100);
+            $table->string('google_plus', 100);
+            $table->string('instagram', 100);
+            $table->string('tumblr', 100);
+            $table->string('blog', 100);
             $table->timestamps();
         });
     }

@@ -15,6 +15,11 @@ class CreateUsuariosTable extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nome', 300);
+            $table->string('url_amigavel', 500);
+            $table->string('senha', 64);
+            $table->email('senha')->unique();
+            $table->string('tipo_usuario', 20);            
             $table->timestamps();
         });
     }

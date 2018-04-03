@@ -15,6 +15,13 @@ class CreateLivrosTable extends Migration
     {
         Schema::create('livros', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titulo', 150);
+            $table->string('ano', 4);
+            $table->text('descricao');
+            $table->decimal('preco', 8, 2);            
+            $table->integer('isbn', 10);   
+            $table->string('arquivo_previo');
+            $table->string('arquivo');            
             $table->timestamps();
         });
     }
