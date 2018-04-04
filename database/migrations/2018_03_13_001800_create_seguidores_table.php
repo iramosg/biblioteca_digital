@@ -15,6 +15,9 @@ class CreateSeguidoresTable extends Migration
     {
         Schema::create('seguidores', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_usuario')->length(8);    
+            $table->integer('seguidor')->length(8);                                                                                           
+                                                                                                   
             $table->timestamps();
         });
     }
