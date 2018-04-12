@@ -15,8 +15,13 @@ class CreateFavoritarLivrosTable extends Migration
     {
         Schema::create('favoritar_livros', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_usuario')->length(8);            
-            $table->integer('id_livro')->length(8);            
+
+            $table->integer('id_usuario')->unsigned();
+            $table->foreign('id_usuario')->references('id')->on('usuarios'); 
+            
+            $table->integer('id_livro')->unsigned();
+            $table->foreign('id_livro')->references('id')->on('livro');    
+                    
             $table->timestamps();
         });
     }

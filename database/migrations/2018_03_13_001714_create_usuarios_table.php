@@ -24,7 +24,8 @@ class CreateUsuariosTable extends Migration
             $table->string('capa', 100);            
             $table->string('assinatura', 25);            
             $table->string('url_amigavel', 30);            
-                       
+
+            $table->boolean('actived')->default(true);
             $table->timestamps();
         });
     }

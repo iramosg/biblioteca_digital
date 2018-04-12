@@ -15,9 +15,13 @@ class CreateSeguidoresTable extends Migration
     {
         Schema::create('seguidores', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_usuario')->length(8);    
-            $table->integer('seguidor')->length(8);                                                                                           
-                                                                                                   
+
+            $table->integer('id_usuario')->unsigned();
+            $table->foreign('id_usuario')->references('id')->on('usuarios');   
+
+            $table->integer('seguidor')->unsigned();
+            $table->foreign('seguidor')->references('id')->on('usuarios');                                                                                           
+            
             $table->timestamps();
         });
     }
