@@ -25,10 +25,13 @@ class CreateLivrosTable extends Migration
             $table->decimal('preco', 8, 2);  
             $table->string('download_previo');            	
             $table->string('download');            	            
-            $table->string('isbn', 13);  
+            $table->string('isbn', 13)->nullable();  
             
             $table->boolean('actived')->default(true);          	                       	            
-            $table->timestamps();
+            $table->timestamp('created')->userCurrent();
+            $table->timestamp('updated')->nullable();
+            $table->integer('userIdCreated');
+            $table->integer('userIdUpdated')->nullable();
         });
     }
 

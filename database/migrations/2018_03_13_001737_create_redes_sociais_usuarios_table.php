@@ -29,7 +29,10 @@ class CreateRedesSociaisUsuariosTable extends Migration
             $table->string('linkedin', 100)->nullable();                                                                              
             $table->string('vk', 100)->nullable();                                                                           
 
-            $table->timestamps();
+            $table->timestamp('created')->userCurrent();
+            $table->timestamp('updated')->nullable();
+            $table->integer('userIdCreated');
+            $table->integer('userIdUpdated')->nullable();
         });
     }
 

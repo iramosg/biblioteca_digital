@@ -22,7 +22,8 @@ class CreateSeguidoresTable extends Migration
             $table->integer('seguidor')->unsigned();
             $table->foreign('seguidor')->references('id')->on('usuarios');                                                                                           
             
-            $table->timestamps();
+            $table->timestamp('created')->userCurrent();
+            $table->timestamp('updated')->nullable();
         });
     }
 

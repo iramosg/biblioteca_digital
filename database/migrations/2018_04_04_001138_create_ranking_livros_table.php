@@ -24,7 +24,8 @@ class CreateRankingLivrosTable extends Migration
 
             $table->integer('ranking'); 
             
-            $table->timestamps();
+            $table->timestamp('created')->userCurrent();
+            $table->timestamp('updated')->nullable();
         });
     }
 

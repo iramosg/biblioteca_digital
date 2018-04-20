@@ -26,7 +26,10 @@ class CreateUsuariosTable extends Migration
             $table->string('url_amigavel', 50);            
             
             $table->boolean('actived')->default(true);
-            $table->timestamps();
+            $table->timestamp('created')->userCurrent();
+            $table->timestamp('updated')->nullable();
+            $table->integer('userIdCreated');
+            $table->integer('userIdUpdated')->nullable();
         });
     }
     

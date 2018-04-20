@@ -19,7 +19,10 @@ class CreateCategoriasTable extends Migration
             $table->integer('bid')->nullable();      
 
             $table->boolean('actived')->default(true);               
-            $table->timestamps();
+            $table->timestamp('created')->userCurrent();
+            $table->timestamp('updated')->nullable();
+            $table->integer('userIdCreated');
+            $table->integer('userIdUpdated')->nullable();
         });
     }
 

@@ -22,7 +22,8 @@ class CreateFavoritarLivrosTable extends Migration
             $table->integer('id_livro')->unsigned();
             $table->foreign('id_livro')->references('id')->on('livro');    
                     
-            $table->timestamps();
+            $table->timestamp('created')->userCurrent();
+            $table->timestamp('updated')->nullable();
         });
     }
 
