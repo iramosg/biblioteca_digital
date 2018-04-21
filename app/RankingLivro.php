@@ -4,23 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RedesSociaisUsuarios extends Model
+class RankingLivro extends Model
 {
-    protected $table = 'redes_sociais_usuarios';
+    protected $table = 'ranking_livros';
     
     protected $fillable = [
         
         'id_usuario',
-        'facebook',
-        'twitter',
-        'google_plus',
-        'instagram',            
-        'tumblr',
-        'blog',
-        'site',
-        'linkedin',
-        'vk',            
+        'id_livro',
+        'ranking',            
         
+        'actived',
         'userIdCreated',
         'userIdUpdated'
     ];
@@ -29,5 +23,9 @@ class RedesSociaisUsuarios extends Model
     
     public function usuario(){
         return $this->belongsTo('App\Usuarios');
+    }
+    
+    public function livro(){
+        return $this->belongsTo('App\Livros');
     }
 }

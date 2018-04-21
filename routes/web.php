@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('login')->as('login.')->group(function(){
+	Route::get('', 'LoginController@Index')->name('login');    
+	Route::post('entrar', 'LoginController@Entrar')->name('entrar');
+	Route::post('esqueci-minha-senha', 'LoginController@EsqueciSenha')->name('esqueciminhasenha');
+});

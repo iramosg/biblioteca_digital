@@ -15,13 +15,24 @@ class CreateRedesSociaisUsuariosTable extends Migration
     {
         Schema::create('redes_sociais_usuarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('facebook', 100);
-            $table->string('twitter', 100);
-            $table->string('google_plus', 100);
-            $table->string('instagram', 100);
-            $table->string('tumblr', 100);
-            $table->string('blog', 100);
-            $table->timestamps();
+
+            $table->integer('id_usuario')->unsigned();
+            $table->foreign('id_usuario')->references('id')->on('usuarios');
+
+            $table->string('facebook', 100)->nullable();                                               
+            $table->string('twitter', 100)->nullable();                                               
+            $table->string('google_plus', 100)->nullable();
+            $table->string('instragram', 100)->nullable();  
+            $table->string('tumblr', 100)->nullable();                                               
+            $table->string('blog', 100)->nullable();                                                
+            $table->string('site', 100)->nullable();                                                
+            $table->string('linkedin', 100)->nullable();                                                                              
+            $table->string('vk', 100)->nullable();                                                                           
+
+            $table->timestamp('created')->userCurrent();
+            $table->timestamp('updated')->nullable();
+            $table->integer('userIdCreated');
+            $table->integer('userIdUpdated')->nullable();
         });
     }
 

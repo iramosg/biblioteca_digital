@@ -15,14 +15,23 @@ class CreateLivrosTable extends Migration
     {
         Schema::create('livros', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('titulo', 150);
-            $table->string('ano', 4);
-            $table->text('descricao');
-            $table->decimal('preco', 8, 2);            
-            $table->integer('isbn', 10);   
-            $table->string('arquivo_previo');
-            $table->string('arquivo');            
-            $table->timestamps();
+
+            $table->integer('id_autor')->unsigned();
+            $table->foreign('id_autor')->references('id')->on('autores'); 
+
+            $table->string('titulo', 300);
+            $table->year('ano');
+            $table->text('descricao');            	
+            $table->decimal('preco', 8, 2);  
+            $table->string('download_previo');            	
+            $table->string('download');            	            
+            $table->string('isbn', 13)->nullable();  
+            
+            $table->boolean('actived')->default(true);          	                       	            
+            $table->timestamp('created')->userCurrent();
+            $table->timestamp('updated')->nullable();
+            $table->integer('userIdCreated');
+            $table->integer('userIdUpdated')->nullable();
         });
     }
 
