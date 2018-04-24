@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FavoritarLivro extends Model
+class FavoritarLivro extends SuperModel
 {
     protected $table = 'favoritar_livros';
     

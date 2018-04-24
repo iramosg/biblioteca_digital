@@ -10,12 +10,35 @@ use App\Http\Controllers\Controller;
 use Session;
 use Redirect;
 use Auth;
-
+use Socialite;
 
 use App\Mail\EsqueciMinhaSenha;
 
 class LoginController extends Controller
 {
+    /**
+    * Redirect the user to the Facebook authentication page.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+    
+    /**
+    * Obtain the user information from Facebook.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+        
+        $user->name;
+    }
+    
+    
     public function Index()
     {
         return view('login.login');
@@ -34,7 +57,7 @@ class LoginController extends Controller
             if($user)
             {
                 $user_ok = Hash::check($request->get('senha'), $user->senha);
-
+                
                 //dd($user_ok);
             } else
             {

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RankingLivro extends Model
+class RankingLivro extends SuperModel
 {
     protected $table = 'ranking_livros';
     

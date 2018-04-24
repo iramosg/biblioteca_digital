@@ -7,19 +7,19 @@ use Illuminate\Database\Migrations\Migration;
 class CreateLivrosTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    * Run the migrations.
+    *
+    * @return void
+    */
     public function up()
     {
         Schema::create('livros', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->integer('id_autor')->unsigned();
-            $table->foreign('id_autor')->references('id')->on('autores'); 
-
-            $table->string('titulo', 300);
+            
+            $table->integer('autor_id')->unsigned();
+            $table->foreign('autor_id')->references('id')->on('autores'); 
+            
+            $table->string('titulo');
             $table->year('ano');
             $table->text('descricao');            	
             $table->decimal('preco', 8, 2);  
@@ -34,12 +34,12 @@ class CreateLivrosTable extends Migration
             $table->integer('userIdUpdated')->nullable();
         });
     }
-
+    
     /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    * Reverse the migrations.
+    *
+    * @return void
+    */
     public function down()
     {
         Schema::dropIfExists('livros');

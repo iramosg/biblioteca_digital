@@ -18,9 +18,11 @@ class UsuariosTableSeeder extends Seeder
             'sobrenome' => 'Ramos',
             'email' => 'igor.ramos@live.com',
             'senha' => Hash::make('17081996'),
-            'tipo' => 'admin',
+            'tipo_usuario_id' => 1,
+            'assinatura_id' => 1,
             'url_amigavel' => 'igorrg',
-            'assinatura' => 'admin'],
+            'remember_token' => str_random(20),
+            'userIdCreated' => 1]
         ]);
     }
 }

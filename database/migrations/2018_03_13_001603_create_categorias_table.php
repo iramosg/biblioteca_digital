@@ -7,17 +7,17 @@ use Illuminate\Database\Migrations\Migration;
 class CreateCategoriasTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    * Run the migrations.
+    *
+    * @return void
+    */
     public function up()
     {
         Schema::create('categorias', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('categoria', 300);
+            $table->string('categoria');
             $table->integer('bid')->nullable();      
-
+            
             $table->boolean('actived')->default(true);               
             $table->timestamp('created')->userCurrent();
             $table->timestamp('updated')->nullable();
@@ -25,12 +25,12 @@ class CreateCategoriasTable extends Migration
             $table->integer('userIdUpdated')->nullable();
         });
     }
-
+    
     /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    * Reverse the migrations.
+    *
+    * @return void
+    */
     public function down()
     {
         Schema::dropIfExists('categorias');

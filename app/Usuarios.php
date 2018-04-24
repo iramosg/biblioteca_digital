@@ -11,7 +11,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Support\Facades\Hash;
 
-class Usuarios extends Model implements AuthenticatableContract, CanResetPasswordContract
+class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPasswordContract
 {
     protected $table = 'usuarios';
 
