@@ -22,7 +22,7 @@ class CreateRedesSociaisUsuariosTable extends Migration
             $table->string('facebook')->nullable();                                               
             $table->string('twitter')->nullable();                                               
             $table->string('google_plus')->nullable();
-            $table->string('instragram')->nullable();  
+            $table->string('instagram')->nullable();  
             $table->string('tumblr')->nullable();                                               
             $table->string('blog')->nullable();                                                
             $table->string('site')->nullable();                                                

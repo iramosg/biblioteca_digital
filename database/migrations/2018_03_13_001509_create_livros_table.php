@@ -27,7 +27,7 @@ class CreateLivrosTable extends Migration
             $table->string('download');            	            
             $table->string('isbn', 13)->nullable();  
             
-            $table->boolean('actived')->default(true);          	                       	            
+            $table->boolean('activated')->default(true);          	                       	            
             $table->timestamp('created')->userCurrent();
             $table->timestamp('updated')->nullable();
             $table->integer('userIdCreated');

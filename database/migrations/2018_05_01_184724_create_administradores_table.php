@@ -4,23 +4,18 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsuariosTable extends Migration
+class CreateAdministradoresTable extends Migration
 {
     /**
-    * Run the migrations.
-    *
-    * @return void
-    */
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('administradores', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('tipo_usuario_id')->unsigned();
-            $table->foreign('tipo_usuario_id')->references('id')->on('tipos_usuarios');
-            
-            $table->integer('assinatura_id')->unsigned();
-            $table->foreign('assinatura_id')->references('id')->on('tipos_assinaturas');
-            
+
             $table->string('nome');            
             $table->string('sobrenome');            
             $table->string('senha');            
@@ -35,16 +30,17 @@ class CreateUsuariosTable extends Migration
             $table->timestamp('updated')->nullable();
             $table->integer('userIdCreated');
             $table->integer('userIdUpdated')->nullable();
+
         });
     }
-    
+
     /**
-    * Reverse the migrations.
-    *
-    * @return void
-    */
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('administradores');
     }
 }

@@ -17,4 +17,18 @@ class Categorias extends SuperModel
         'userIdCreated',
         'userIdUpdated'
     ];
+    
+    
+    
+    public static function lista()
+    {
+        return Categorias::all();
+    }
+    
+    public static function carregar($id)
+    {
+        return Categorias::find($id);
+    }
+
+    
 }

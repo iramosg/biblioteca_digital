@@ -30,4 +30,33 @@ class RedesSociaisUsuarios extends Model
     public function usuario(){
         return $this->belongsTo('App\Usuarios');
     }
+
+    public static function salvar(Request $request, $userId, $id = null)
+    {
+        
+        if($id == null){
+            $salvar = new RedesSociaisUsuarios();
+            $salvar->userIdCreated = $userId;
+        } else {
+            $salvar = RedesSociaisUsuarios::carregar($id);
+            $salvar->userIdUpdated = $userId;            
+        }
+        
+        $salvar->usuario_id = $userId;
+        $salvar->facebook = $request->$facebook;
+        $salvar->twitter = $request->twiiter;
+        $salvar->google_plus = $request->google_plus;
+        $salvar->instagram = $request->instagram;
+        $salvar->tumblr = $request->tumblr;
+        $salvar->blog = $request->blog;
+        $salvar->site = $request->site;
+        $salvar->linkedin = $request->linkedin;
+        $salvar->vk = $request->vk;
+        //Falta salvar os arquivos
+        
+        $salvar->save();
+        
+        return $salvar;
+    }
+
 }
