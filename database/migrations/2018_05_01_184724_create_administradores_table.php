@@ -19,10 +19,7 @@ class CreateAdministradoresTable extends Migration
             $table->string('nome');            
             $table->string('sobrenome');            
             $table->string('senha');            
-            $table->string('email')->unique();            
-            $table->string('foto')->nullable();            
-            $table->string('capa')->nullable();                       
-            $table->string('url_amigavel', 30);   
+            $table->string('email')->unique();              
             $table->rememberToken();     
             
             $table->boolean('activated')->default(true);

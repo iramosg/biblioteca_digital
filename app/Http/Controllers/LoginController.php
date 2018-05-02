@@ -39,14 +39,14 @@ class LoginController extends Controller
     }
     
     
-    public function Index()
+    public function index()
     {
         return view('login.login');
     }
     
     
     
-    public function Entrar(Request $request)
+    public function entrar(Request $request)
     {
         try {
             

@@ -14,7 +14,7 @@ class RankingLivro extends SuperModel
         'id_livro',
         'ranking',            
         
-        'actived',
+        'activated',
         'userIdCreated',
         'userIdUpdated'
     ];

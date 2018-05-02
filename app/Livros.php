@@ -19,7 +19,7 @@ class Livros extends SuperModel
         'download',
         'isbn',            
         
-        'actived',
+        'activated',
         'userIdCreated',
         'userIdUpdated'
     ];

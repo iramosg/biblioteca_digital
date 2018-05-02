@@ -29,7 +29,7 @@ class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPa
             'assinatura',
             'url_amigavel',           
             
-            'actived',
+            'activated',
             'userIdCreated',
             'userIdUpdated'
     ];

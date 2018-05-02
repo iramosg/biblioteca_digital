@@ -13,7 +13,7 @@ class Seguidores extends Model
         'id_usuario',
         'seguidor',         
         
-        'actived',
+        'activated',
         'userIdCreated',
         'userIdUpdated'
     ];

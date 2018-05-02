@@ -13,7 +13,7 @@ class Categorias extends SuperModel
         'categoria',
         'bid',            
         
-        'actived',
+        'activated',
         'userIdCreated',
         'userIdUpdated'
     ];
@@ -30,5 +30,5 @@ class Categorias extends SuperModel
         return Categorias::find($id);
     }
 
-    
+
 }
