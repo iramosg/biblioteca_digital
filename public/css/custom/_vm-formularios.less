@@ -1,0 +1,47 @@
+.input-group {
+	position: relative;
+
+	.input-group-label {
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+
+		~ .input-group-field {
+			border-top-left-radius: 0 !important;
+			border-bottom-left-radius: 0 !important;
+		}
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="password"],
+	select {
+		position: relative;
+		padding: 0.7rem;
+		background-color: #FFF;
+		border-radius: 3px;
+		outline: none;
+		font-size: 0.9rem;
+		color: @cor-neutra-principal;
+	}
+
+	.label-animado {
+	    position: absolute;
+	    top: 10px;
+	    left: 60px;
+	    z-index: 1;
+		width: 100%;
+	    padding: 0;
+	    font-size: 14px;
+	    .transition();
+
+	    &.up-label {
+	    	top: -22px;
+	    	left: 0;
+	    	font-size: 0.75rem;
+	    }
+
+	    .obrigatorio {
+    		color: @cor-danger;
+	    }
+	}
+}

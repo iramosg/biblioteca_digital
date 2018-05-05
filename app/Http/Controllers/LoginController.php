@@ -38,14 +38,19 @@ class LoginController extends Controller
         dd($user);
     }
     
-    
+    //Views
     public function index()
     {
         return view('login.login');
     }
+
+    public function esqueciminhasenha()
+    {
+        return view('login.esqueciminhasenha');
+    }
+    //End Views
     
-    
-    
+    //Posts
     public function entrar(Request $request)
     {
         try {
@@ -85,5 +90,6 @@ class LoginController extends Controller
             
         }
     }
+    //End Posts
     
 }

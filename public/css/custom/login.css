@@ -1,0 +1,398 @@
+/* line 12, _vm-variaveis-mixins.less */
+.center-full {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* line 27, _vm-variaveis-mixins.less */
+.gap {
+  margin-bottom: 25px;
+}
+/* line 31, _vm-variaveis-mixins.less */
+.gap-big {
+  margin-bottom: 50px;
+}
+/* line 2, _tipografias.less */
+.no-text {
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+}
+/* line 10, _tipografias.less */
+a {
+  text-decoration: none;
+}
+/* line 16, _tipografias.less */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+span {
+  color: #575757;
+}
+/* line 19, _tipografias.less */
+p {
+  margin: 0 !important;
+}
+/* line 22, _tipografias.less */
+.txt {
+  line-height: 1.4rem !important;
+  margin-bottom: 0.5rem !important;
+}
+/* line 26, _tipografias.less */
+.help-text {
+  position: absolute;
+  bottom: -20px;
+  right: 10px;
+}
+/* line 31, _tipografias.less */
+.help-text.danger {
+  color: #c10f0f;
+}
+/* line 38, _tipografias.less */
+.cabecalho-cta {
+  text-transform: uppercase;
+}
+/* line 41, _tipografias.less */
+.cabecalho-cta p:not(.subheader) {
+  color: #333333;
+}
+/* line 36, _vm-botoes.less */
+.btn-principal {
+  top: -1.5px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  padding: 1rem 2rem;
+  border: 1px solid;
+  border-radius: 3px !important;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  background-color: #63c3a0;
+  border-color: #63c3a0;
+  box-shadow: 0 3px 0 #308264;
+  color: #FFF;
+}
+/* line 24, _vm-botoes.less */
+.btn-principal:hover,
+.btn-principal:focus {
+  background-color: #4eb992;
+  border-color: #4eb992;
+  box-shadow: #217355;
+}
+/* line 31, _vm-botoes.less */
+.btn-principal:active {
+  top: 3px;
+  box-shadow: none;
+}
+/* line 62, _vm-botoes.less */
+.btn-secundario {
+  top: -1.5px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  padding: 1rem 2rem;
+  border: 1px solid;
+  border-radius: 3px !important;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  background-color: #82a5d6;
+  border-color: #82a5d6;
+  box-shadow: 0 3px 0 #4b668b;
+  color: #FFF;
+}
+/* line 49, _vm-botoes.less */
+.btn-secundario:hover,
+.btn-secundario:focus {
+  background-color: #6b93cb;
+  border-color: #6b93cb;
+  box-shadow: #3b5981;
+  color: #FFF;
+}
+/* line 57, _vm-botoes.less */
+.btn-secundario:active {
+  top: 3px;
+  box-shadow: none;
+}
+/* line 80, _vm-botoes.less */
+.btn-apoio {
+  width: 100%;
+  position: relative;
+  top: 0;
+  padding: 1rem 2rem;
+  border: 1px solid;
+  border-radius: 3px !important;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  background-color: #FFF;
+  border-color: #63c3a0;
+  color: #63c3a0;
+}
+/* line 73, _vm-botoes.less */
+.btn-apoio:hover,
+.btn-apoio:focus {
+  background-color: #FFF;
+  border-color: #4eb992;
+  color: #4eb992;
+}
+/* line 93, _vm-botoes.less */
+.btn-neutro {
+  color: #575757;
+}
+/* line 88, _vm-botoes.less */
+.btn-neutro:hover,
+.btn-neutro:focus {
+  color: #6b93cb;
+}
+/* line 1, _vm-formularios.less */
+.input-group {
+  position: relative;
+}
+/* line 4, _vm-formularios.less */
+.input-group .input-group-label {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+/* line 8, _vm-formularios.less */
+.input-group .input-group-label ~ .input-group-field {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+/* line 14, _vm-formularios.less */
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"],
+.input-group select {
+  position: relative;
+  padding: 0.7rem;
+  background-color: #FFF;
+  border-radius: 3px;
+  outline: none;
+  font-size: 0.9rem;
+  color: #575757;
+}
+/* line 27, _vm-formularios.less */
+.input-group .label-animado {
+  position: absolute;
+  top: 10px;
+  left: 60px;
+  z-index: 1;
+  width: 100%;
+  padding: 0;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+/* line 37, _vm-formularios.less */
+.input-group .label-animado.up-label {
+  top: -22px;
+  left: 0;
+  font-size: 0.75rem;
+}
+/* line 43, _vm-formularios.less */
+.input-group .label-animado .obrigatorio {
+  color: #c10f0f;
+}
+/* line 1, _header.less */
+header {
+  position: fixed;
+  right: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 10px 32px -15px rgba(0, 0, 0, 0.75);
+}
+/* line 8, _header.less */
+header .box-logo {
+  padding: 0.3rem 0;
+}
+/* line 13, _header.less */
+header .menu .item-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* line 16, _header.less */
+header .menu .item-menu .link {
+  margin: 0 1rem;
+  color: #575757;
+  padding: 1.8rem 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+}
+/* line 54, _tipografias.less */
+header .menu .item-menu .link:hover,
+header .menu .item-menu .link:focus {
+  color: #4b668b;
+  border-color: #4b668b;
+}
+/* line 20, _header.less */
+header .menu .item-menu .link.cadastro {
+  top: -1.5px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  padding: 1rem 2rem;
+  border: 1px solid;
+  border-radius: 3px !important;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  background-color: #82a5d6;
+  border-color: #82a5d6;
+  box-shadow: 0 3px 0 #4b668b;
+  color: #FFF;
+}
+/* line 49, _vm-botoes.less */
+header .menu .item-menu .link.cadastro:hover,
+header .menu .item-menu .link.cadastro:focus {
+  background-color: #6b93cb;
+  border-color: #6b93cb;
+  box-shadow: #3b5981;
+  color: #FFF;
+}
+/* line 57, _vm-botoes.less */
+header .menu .item-menu .link.cadastro:active {
+  top: 3px;
+  box-shadow: none;
+}
+/* line 49, _vm-botoes.less */
+header .menu .item-menu .link.cadastro:hover,
+header .menu .item-menu .link.cadastro:focus {
+  background-color: #6b93cb;
+  border-color: #6b93cb;
+  box-shadow: #3b5981;
+  color: #FFF;
+}
+/* line 57, _vm-botoes.less */
+header .menu .item-menu .link.cadastro:active {
+  top: 3px;
+  box-shadow: none;
+}
+/* line 24, _header.less */
+header .menu .item-menu .link.entrar {
+  top: -1.5px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  padding: 1rem 2rem;
+  border: 1px solid;
+  border-radius: 3px !important;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  background-color: #63c3a0;
+  border-color: #63c3a0;
+  box-shadow: 0 3px 0 #308264;
+  color: #FFF;
+}
+/* line 24, _vm-botoes.less */
+header .menu .item-menu .link.entrar:hover,
+header .menu .item-menu .link.entrar:focus {
+  background-color: #4eb992;
+  border-color: #4eb992;
+  box-shadow: #217355;
+}
+/* line 31, _vm-botoes.less */
+header .menu .item-menu .link.entrar:active {
+  top: 3px;
+  box-shadow: none;
+}
+/* line 24, _vm-botoes.less */
+header .menu .item-menu .link.entrar:hover,
+header .menu .item-menu .link.entrar:focus {
+  background-color: #4eb992;
+  border-color: #4eb992;
+  box-shadow: #217355;
+}
+/* line 31, _vm-botoes.less */
+header .menu .item-menu .link.entrar:active {
+  top: 3px;
+  box-shadow: none;
+}
+/* line 31, _header.less */
+header .top-bar-right {
+  margin: 0 -1rem;
+}
+/* line 1, _footer.less */
+footer {
+  background: #333333;
+}
+/* line 4, _footer.less */
+footer .copyright {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem 0;
+}
+/* line 8, _footer.less */
+footer .copyright .txt-copyright {
+  margin: 0;
+  color: #FFF;
+  font-size: 0.8rem;
+}
+/* line 14, _footer.less */
+footer .copyright .box-sociais {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* line 17, _footer.less */
+footer .copyright .box-sociais .item {
+  margin: 0 0.5rem;
+  height: 30px;
+  overflow: hidden;
+}
+/* line 23, _footer.less */
+footer .copyright .box-sociais .item a img {
+  position: relative;
+  top: 5px;
+  transition: all 0.3s;
+}
+/* line 30, _footer.less */
+footer .copyright .box-sociais .item a:hover img {
+  top: -26px;
+}
+/* line 3, login.less */
+#login {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../../images/login/background-login.jpg);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+/* line 12, login.less */
+#login .grid-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
+}
+/* line 17, login.less */
+#login .grid-container .box-center {
+  width: 100%;
+  max-width: 39rem;
+  height: 100%;
+  padding: 3.2rem 4.4rem;
+  background: rgba(255, 255, 255, 0.8);
+}

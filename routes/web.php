@@ -11,14 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
+//Página Inicial
+Route::get('/', 'HomeController@index')->name('index');
 
+
+//Rotas referente ao Login
 Route::prefix('login')->as('login.')->group(function(){
-	Route::get('', 'LoginController@Index')->name('login');    
-	Route::post('entrar', 'LoginController@Entrar')->name('entrar');
-	Route::post('esqueci-minha-senha', 'LoginController@EsqueciSenha')->name('esqueciminhasenha');
+	//Página de Login
+	Route::get('', 'LoginController@index')->name('index');
+	//Página de Esqueci Minha Senha
+	Route::get('esqueci-minha-senha', 'LoginController@esqueciminhasenha')->name('esqueciminhasenha'); 
+	//Página de Cadastro
+	Route::get('cadastrar', 'UsuariosController@cadastrar')->name('cadastrar'); 
+
+
+	//Método para Entrar
+	Route::post('entrar', 'LoginController@entrar')->name('entrar'); 
+	
 	
 	Route::get('facebook', 'LoginController@redirectToProvider');
 	Route::get('facebook/callback', 'LoginController@handleProviderCallback');
@@ -26,6 +35,7 @@ Route::prefix('login')->as('login.')->group(function(){
 
 
 
+//Rotas do Painel Administrativo
 Route::prefix('admin')->as('admin.')->group(function(){
 	Route::get('', 'Admin\HomeController@index')->name('index');  
 
