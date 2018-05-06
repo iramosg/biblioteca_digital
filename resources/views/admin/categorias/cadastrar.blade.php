@@ -12,7 +12,7 @@
     <div class="box-header with-border">
         <h3 class="box-title">Categoria</h3>
     </div>
-    <form action="{{ route('admin.categorias.save') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.categorias.store') }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="box-body">
             <div class="row">

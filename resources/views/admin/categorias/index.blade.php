@@ -25,6 +25,7 @@
                 <tr>
                     <th>Categoria</th>
                     <th>Subcategoria</th>
+                    <th>Ícone</th>
                     <th>Status</th>
                     <th>Ações</th>
                 </tr>
@@ -35,6 +36,7 @@
                 <tr>
                     <td>{{$c->categoria}}</td>
                     <td>{{$c->bid}}</td>
+                    <td><img src="{{ asset("public/" . "$c->icone") }}" alt="" width="100"></td>
                     <td>{{$c->activated}}</td>
                     <td>
                         <a class="btn btn-block btn-warning" href="#">EDITAR</a>
@@ -47,6 +49,7 @@
                 <tr>
                    <th>Categoria</th>
                     <th>Subcategoria</th>
+                    <th>Ícone</th>
                     <th>Status</th>
                     <th>Ações</th>
                 </tr>
