@@ -54,7 +54,8 @@ Route::prefix('admin')->as('admin.')->group(function(){
 	Route::prefix('categorias')->as('categorias.')->group(function(){
 		Route::get('', 'Admin\CategoriasController@index')->name('index');    
 		Route::get('editar/{id}', 'Admin\CategoriasController@editar')->name('editar');    
-		Route::get('cadastrar', 'Admin\CategoriasController@editar')->name('cadastrar');    
+		Route::get('cadastrar', 'Admin\CategoriasController@cadastrar')->name('cadastrar');    
+		Route::post('save', 'Admin\CategoriasController@save')->name('save');    
 	});
 	
 	Route::prefix('usuarios')->as('usuarios.')->group(function(){

@@ -16,6 +16,7 @@ class CreateCategoriasTable extends Migration
         Schema::create('categorias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('categoria');
+            $table->string('icone');
             $table->integer('bid')->nullable();      
             
             $table->boolean('activated')->default(true);               

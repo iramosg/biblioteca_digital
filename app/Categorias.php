@@ -12,6 +12,7 @@ class Categorias extends SuperModel
         
         'categoria',
         'bid',            
+        'icone',            
         
         'activated',
         'userIdCreated',
@@ -30,5 +31,34 @@ class Categorias extends SuperModel
         return Categorias::find($id);
     }
 
+    public static function salvar(Request $request, $userId, $id = null)
+    {
+
+        if($id == null){
+            $salvar = new Categorias();
+            $salvar->userIdCreated = $userId;
+        } else {
+            $salvar = Categorias::carregar($id);
+            $salvar->userIdUpdated = $userId;            
+        }
+
+        $icone = $request->file('icone');
+        $ext = ['docx', 'jpg', 'png', 'jpeg'];
+
+        if($icone->isValid() && in_array($icone->extension(), $ext))
+        {
+            $icone->store('categorias/icones');
+        }
+        
+        $salvar->nome = $request->nome;
+        $salvar->bid = $request->bid;
+        $salvar->icone = $icone;
+        $salvar->activated = $request->activated;
+        //Falta salvar os arquivos
+        
+        $salvar->save();
+        
+        return $salvar;
+    }
 
 }
