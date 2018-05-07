@@ -17,7 +17,6 @@ class CreateCategoriasTable extends Migration
             $table->increments('id');
             $table->string('categoria');
             $table->string('icone');
-            $table->integer('bid')->nullable();      
             
             $table->boolean('activated')->default(true);               
             $table->timestamp('created')->userCurrent();

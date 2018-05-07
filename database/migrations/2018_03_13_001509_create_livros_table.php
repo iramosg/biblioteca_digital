@@ -20,6 +20,7 @@ class CreateLivrosTable extends Migration
             $table->foreign('autor_id')->references('id')->on('autores'); 
             
             $table->string('titulo');
+            $table->string('capa');
             $table->year('ano');
             $table->text('descricao');            	
             $table->decimal('preco', 8, 2);  

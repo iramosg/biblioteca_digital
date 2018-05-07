@@ -16,9 +16,6 @@ class CreateRedesSociaisUsuariosTable extends Migration
         Schema::create('redes_sociais_usuarios', function (Blueprint $table) {
             $table->increments('id');
             
-            $table->integer('usuario_id')->unsigned();
-            $table->foreign('usuario_id')->references('id')->on('usuarios');
-            
             $table->string('facebook')->nullable();                                               
             $table->string('twitter')->nullable();                                               
             $table->string('google_plus')->nullable();
