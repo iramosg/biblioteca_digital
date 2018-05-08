@@ -7,6 +7,15 @@
 @endsection
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <div class="box box-primary">
     <div class="box-header with-border">
@@ -18,8 +27,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="nome">Nome</label>
-                        <input class="form-control" type="text" name="nome" placeholder="Nome">
+                        <label for="categoria">Categoria</label>
+                        <input class="form-control" type="text" name="categoria" placeholder="Categoria" value="{{ old('categoria') }}">
                     </div>
                 </div>
                 <div class="col-md-6">

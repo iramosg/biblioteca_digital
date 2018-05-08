@@ -67,7 +67,7 @@ class LivrosController extends Controller
             return redirect()->route('anunciantes.editar', $request->id);
         }
     }
-
+    
     //Função para deletar o livro no banco de dados
     public function destroy(Livros $livros)
     {

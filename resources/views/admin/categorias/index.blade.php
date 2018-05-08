@@ -8,7 +8,7 @@
         <h1>Categorias</h1>
     </div>
     <div class="col-md-6 text-right" style="align-self: flex-end; ">
-        <a class="btn btn-success btn-lg" href="#">NOVA CATEGORIA</a>
+        <a class="btn btn-success btn-lg" href="{{ route('admin.categorias.cadastrar') }}">NOVA CATEGORIA</a>
     </div>
 </div>
 @endsection
@@ -39,7 +39,7 @@
                     <td><img src="{{ asset("public/" . "$c->icone") }}" alt="" width="100"></td>
                     <td>{{$c->activated}}</td>
                     <td>
-                        <a class="btn btn-block btn-warning" href="#">EDITAR</a>
+                        <a class="btn btn-block btn-warning" href="{{ route('admin.categorias.editar', ['id' => $c->id]) }}">EDITAR</a>
                     </td>
                 </tr>
                 @endforeach

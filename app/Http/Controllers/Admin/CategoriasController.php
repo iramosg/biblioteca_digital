@@ -11,39 +11,25 @@ use Session;
 
 class CategoriasController extends Controller
 {
-    
-    //Views
-    
-    //Retorna a lista de categorias no painel administrativo
+
+    //View que lista as categorias
     public function index()
     {
         $categorias = Categorias::lista();
         return view('admin.categorias.index', compact('categorias'));
     }
     
-    //Função que chama a página de cadastrar categoria
-    public function cadastrar()
+    //View para salvar categoria
+    public function create()
     {
         return view('admin.categorias.cadastrar');
     }
-    
-    //Função que chama a página de editar categoria
-    public function editar()
-    {
-        return view('admin.categorias.editar');
-    }
-    
-    //End Views
-    
-    
-    //Posts
     
     //Função para cadastrar categoria no banco de dados
     public function store(Request $request)
     {
         try
         {
-            //dd();
             $categoria = Categorias::salvar($request, Auth::guard('admin')->id());
             
             if($categoria->id > 0)
@@ -63,5 +49,41 @@ class CategoriasController extends Controller
         }
     }
     
-    //End Posts
+    //View para editar uma categoria
+    public function edit($id)
+    {
+        $categoria = Categorias::carregar($id);
+        return view('admin.categorias.editar', compact('categoria'));
+    }
+    
+    //Função para editar uma categoria no banco de dados
+    public function update(Request $request)
+    {
+        try{
+            //dd($request);
+            $categoria = Categorias::salvar($request, Auth::guard('admin')->id(), $request->id);
+            
+            if($categoria->id > 0)
+            {
+                Session::put("sucesso", true); 
+                return redirect()->route('admin.categorias.index');
+            }
+            
+            Session::put("erro", true); 
+            return redirect()->route('admin.categorias.editar', $request->id);   
+            
+        } catch(\Exception $e)
+        {
+            $this->saveErros($e, Auth::id());
+            Session::put("erro", true); 
+            return redirect()->route('admin.categorias.editar', $request->id);
+        }
+    }
+    
+    //Função para deletar uma categoria no banco de dados
+    public function destroy(Categorias $categoria)
+    {
+        //Falta fazer a função
+    }
+
 }
