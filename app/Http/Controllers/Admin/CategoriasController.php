@@ -61,7 +61,7 @@ class CategoriasController extends Controller
     {
         try{
             //dd($request->id);
-            $categoria = Categorias::salvar($request, Auth::guard('admin')->id(), $request->id);
+            $categoria = Categorias::editar($request, Auth::guard('admin')->id(), $request->id);
             //dd($categoria);
             if($categoria->id > 0)
             {
