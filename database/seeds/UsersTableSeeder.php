@@ -15,9 +15,10 @@ class UsersTableSeeder extends Seeder
 
         $faker = Faker\Factory::create();
 
-        for ($i = 0; $i <= 10; $i++){
+        for ($i = 1; $i <= 10; $i++){
 
         DB::table('usuarios')->insert([
+            'redes_sociais_id' => $i,  
             'nome' => $faker->firstName,
             'sobrenome' => $faker->lastName,
             'senha' => Hash::make('123'),
@@ -25,10 +26,9 @@ class UsersTableSeeder extends Seeder
             'foto' => 'http://lorempixel.com/256/256',
             'capa' => 'http://lorempixel.com/1920/1080/',
             'remember_token' => str_random(20),
-            'userIdCreated' => 1,
-            'tipo_usuario_id' => 2,
-            'assinatura_id' => 1,
-            'url_amigavel' => str_random(5)            
+            'userIdCreated' => $i,
+            'url_amigavel' => str_random(5)
+                      
         ]);
         }
     }
