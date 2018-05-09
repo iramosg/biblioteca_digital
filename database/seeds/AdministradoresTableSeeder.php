@@ -21,5 +21,32 @@ class AdministradoresTableSeeder extends Seeder
             'remember_token' => str_random(20),
             'userIdCreated' => 1]
         ]);
+
+        DB::table('administradores')->insert([
+            ['nome' => 'Felipe',
+            'sobrenome' => 'Miconi',
+            'email' => 'felipe_miconi@hotmail.com',
+            'senha' => Hash::make('123456'),
+            'remember_token' => str_random(20),
+            'userIdCreated' => 1]
+        ]);
+
+        DB::table('administradores')->insert([
+            ['nome' => 'Fernando',
+            'sobrenome' => 'Hideki',
+            'email' => 'fehiya@gmail.com',
+            'senha' => Hash::make('123456'),
+            'remember_token' => str_random(20),
+            'userIdCreated' => 1]
+        ]);
+
+        DB::table('administradores')->insert([
+            ['nome' => 'Bruno',
+            'sobrenome' => 'Nunes',
+            'email' => 'brunonunessantos919@gmail.com',
+            'senha' => Hash::make('123456'),
+            'remember_token' => str_random(20),
+            'userIdCreated' => 1]
+        ]);
     }
 }
