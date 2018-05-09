@@ -60,9 +60,9 @@ class CategoriasController extends Controller
     public function update(Request $request)
     {
         try{
-            //dd($request);
+            //dd($request->id);
             $categoria = Categorias::salvar($request, Auth::guard('admin')->id(), $request->id);
-            
+            //dd($categoria);
             if($categoria->id > 0)
             {
                 Session::put("sucesso", true); 

@@ -25,7 +25,7 @@ class CreateUsuariosTable extends Migration
             $table->string('email')->unique();            
             $table->string('foto')->nullable();            
             $table->string('capa')->nullable();                       
-            $table->string('url_amigavel', 30)->unique();   
+            $table->string('url_amigavel', 30)->unique()->nullable();   
             $table->rememberToken();     
             
             $table->boolean('activated')->default(true);
