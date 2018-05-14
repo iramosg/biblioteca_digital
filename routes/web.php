@@ -61,7 +61,13 @@ Route::prefix('admin')->as('admin.')->group(function(){
 	});
 	
 	Route::prefix('usuarios')->as('usuarios.')->group(function(){
-		Route::get('admin', 'Admin\UsuariosController@admin')->name('admin');    
-		Route::get('usuarios', 'Admin\UsuariosController@editar')->name('usuarios');        
+		Route::get('administradores', 'Admin\UsuariosController@admin')->name('admin');    
+		Route::get('usuarios', 'Admin\UsuariosController@usuarios')->name('usuarios');
+		Route::get('editar/{id}', 'Admin\UsuariosController@editar')->name('editar');    
+		Route::get('cadastrar', 'Admin\UsuariosController@create')->name('cadastrar'); 
+
+		Route::post('edit', 'Admin\UsuariosController@update')->name('edit');    
+		Route::post('save', 'Admin\UsuariosController@store')->name('save');    
+		
 	});
 });

@@ -10,8 +10,10 @@ class Livros extends SuperModel
     
     protected $fillable = [
         
-        'id_usuario',
+        'autor_id',
+        'categoria_id',
         'titulo',
+        'capa',
         'ano',
         'descricao',
         'preco',
@@ -26,8 +28,12 @@ class Livros extends SuperModel
     
     //Chaves
     
-    public function usuario(){
+    public function autor(){
         return $this->belongsTo('App\Usuarios');
+    }
+
+    public function categoria(){
+        return $this->belongsTo('App\Admin\Categorias');
     }
     
     public static function lista()

@@ -23,8 +23,8 @@ class UsersTableSeeder extends Seeder
             'sobrenome' => $faker->lastName,
             'senha' => Hash::make('123'),
             'email' => $faker->email,
-            'foto' => 'http://lorempixel.com/256/256',
-            'capa' => 'http://lorempixel.com/1920/1080/',
+            'foto' => 'https://picsum.photos/256/256',
+            'capa' => 'https://picsum.photos/1920/1080',
             'remember_token' => str_random(20),
             'userIdCreated' => $i,
             'url_amigavel' => str_random(5)

@@ -53,11 +53,13 @@ class LoginController extends Controller
     //Posts
     public function entrar(Request $request)
     {
+        //dd($request);
         try {
             
             $user = Usuarios::where('email', '=', $request->get('email'))
-            ->where('actived', '=', true)
+            ->where('activated', '=', true)
             ->first();
+            //dd($user);
             
             if($user)
             {
@@ -67,7 +69,7 @@ class LoginController extends Controller
             } else
             {
                 Session::put("error", true);
-                return redirect('/');
+                return redirect()->route('login.index');
             }
             
             if($user_ok)
@@ -76,17 +78,17 @@ class LoginController extends Controller
                 Auth::login($user);
                 Session::put("success", true);
                 //dd('agora vai :D');          
-                return redirect('/');
+                return redirect()->route('index');
             }
             
             Session::put("error", true);
-            return redirect('/');
+            return redirect()->route('login.index');
             
         } catch(\Exception $ex)
         {
             //dd($ex);
             Session::put("error", true);
-            return redirect('/');
+            return redirect()->route('login.index');
             
         }
     }

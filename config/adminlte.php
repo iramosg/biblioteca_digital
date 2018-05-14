@@ -137,6 +137,25 @@ return [
             'url'  => 'admin/categorias/cadastrar',
             'icon' => 'clone',
         ],
+
+
+        'USUÁRIOS',
+        [
+            'text' => 'Cadastrar',
+            'url'  => 'admin/usuarios/cadastrar',
+            'icon' => 'user',
+        ],
+        [
+            'text' => 'Administradores',
+            'url'  => 'admin/usuarios/administradores',
+            'icon' => 'user',
+        ],
+        [
+            'text' => 'Plataforma',
+            'url'  => 'admin/usuarios/usuarios',
+            'icon' => 'user',
+        ],
+        
     ],
 
     /*
