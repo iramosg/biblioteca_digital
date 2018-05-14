@@ -61,6 +61,9 @@
 		<!-- Apresentacao -->
 		<section class="bg-full">
 			<div class="grid-container">
+			@isset(Auth::user()->nome)
+			<h1>Bem-vindo, {{ Auth::user()->nome }}</h1>
+			@endisset
 				<div class="box-categorias">
 					<div class="item animais">
 						<a href="#" class="link-categ">

@@ -33,4 +33,14 @@ class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPa
             'userIdCreated',
             'userIdUpdated'
     ];
+
+    public static function lista()
+    {
+        return Usuarios::all();
+    }
+    
+    public static function carregar($id)
+    {
+        return Usuarios::find($id);
+    }
 }

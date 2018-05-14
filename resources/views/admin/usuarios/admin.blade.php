@@ -5,10 +5,10 @@
 @section('content_header')
 <div class="row" style="display: flex;">
     <div class="col-md-6">
-        <h1>Livros</h1>
+        <h1>Usuários Administradores</h1>
     </div>
     <div class="col-md-6 text-right" style="align-self: flex-end; ">
-        <a class="btn btn-success btn-lg" href="#">NOVO USUÁRIO</a>
+        <a class="btn btn-success btn-lg" href="{{ route('admin.usuarios.cadastrar') }}">NOVO USUÁRIO</a>
     </div>
 </div>
 @endsection
@@ -16,7 +16,7 @@
 @section('content')
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title">Livros</h3>
+        <h3 class="box-title">Usuários Administradores</h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
@@ -30,15 +30,14 @@
                 </tr>
             </thead>
             <tbody>
-                @if(!empty($anunciantes))
-                @foreach($anunciantes as $a)
+                @if(!empty($administradores))
+                @foreach($administradores as $a)
                 <tr>
-                    <td>{{$a->nome}}</td>
-                    <td>{{$a->razao_social}}</td>
-                    <td>{{$a->responsavel->nome}}</td>
+                    <td>{{$a->nome}} {{ $a->sobrenome }}</td>
+                    <td>{{$a->email}}</td>
+                    <td>{{$a->activated}}</td>
                     <td>
-                        <a class="btn btn-block btn-info" href="{{ route('anunciantes.show', ['id' => $a->id]) }}">VER</a>
-                        <a class="btn btn-block btn-warning" href="{{ route('anunciantes.edit', ['id' => $a->id]) }}">EDITAR</a>
+                        <a class="btn btn-block btn-warning" href="{{ route('admin.usuarios.editar', ['id' => $a->id]) }}">EDITAR</a>
                     </td>
                 </tr>
                 @endforeach

@@ -31,17 +31,18 @@
 						<p class="h5">Seja Bem Vindo à Biblioteka Digital</p>
 						<p class="h6 subheader">Preencha os Campos Abaixo para Realizar seu Login</p>
 					</div>
-					<form action="" method="" id="formLogin">
+					<form action="{{ route('login.entrar') }}" method="POST" id="formLogin">
+					{{ csrf_field() }}
 						<div class="input-group gap">
 							<span class="input-group-label"><i class="fas fa-user"></i></span>
-							<input class="input-group-field" type="text" id="txtEmail" name="txtEmail" require>
+							<input class="input-group-field" type="text" id="txtEmail" name="email" require>
 							<label for="txtEmail" class="label-animado"><span class="obrigatorio">*</span> E-mail:</label>
 							<p class="help-text danger">Por favor, digite um e-mail válido!</p>
 						</div>
 
 						<div class="input-group gap">
 							<span class="input-group-label"><i class="fas fa-lock"></i></span>
-							<input class="input-group-field" type="password" id="txtSenha" name="txtSenha" require>
+							<input class="input-group-field" type="password" id="txtSenha" name="senha" require>
 							<label for="txtSenha" class="label-animado"><span class="obrigatorio">*</span> Senha:</label>
 						</div>
 						<div class="input-group grid-x center-full">
