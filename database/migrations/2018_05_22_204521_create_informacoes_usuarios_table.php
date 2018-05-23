@@ -4,36 +4,37 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriasTable extends Migration
+class CreateInformacoesUsuariosTable extends Migration
 {
     /**
-    * Run the migrations.
-    *
-    * @return void
-    */
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
-        Schema::create('categorias', function (Blueprint $table) {
+        Schema::create('informacoes_usuarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('categoria');
-            $table->string('icone');
-            $table->string('banner');
+            $table->string('idiomas');
+            $table->string('formacao_academica');
+            $table->string('experiencia_profissional');
             
-            $table->boolean('activated')->default(true);               
+            
+            
             $table->timestamp('created')->userCurrent();
             $table->timestamp('updated')->nullable();
             $table->integer('userIdCreated');
             $table->integer('userIdUpdated')->nullable();
         });
     }
-    
+
     /**
-    * Reverse the migrations.
-    *
-    * @return void
-    */
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('categorias');
+        Schema::dropIfExists('informacoes_usuarios');
     }
 }

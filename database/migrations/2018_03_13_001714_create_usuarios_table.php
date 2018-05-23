@@ -21,6 +21,9 @@ class CreateUsuariosTable extends Migration
             
             $table->string('nome');            
             $table->string('sobrenome');            
+            $table->string('sobre');            
+            $table->string('data_nascimento');            
+            $table->string('telefone');            
             $table->string('senha');            
             $table->string('email')->unique();            
             $table->string('foto')->nullable();            

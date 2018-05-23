@@ -18,6 +18,9 @@ class CreateLivrosTable extends Migration
             
             $table->integer('autor_id')->unsigned();
             $table->foreign('autor_id')->references('id')->on('autores'); 
+
+            $table->integer('categoria_id')->unsigned();
+            $table->foreign('categoria_id')->references('id')->on('categorias'); 
             
             $table->string('titulo');
             $table->string('capa');

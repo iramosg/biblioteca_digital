@@ -24,6 +24,7 @@
             <thead>
                 <tr>
                     <th>Título</th>
+                    <th>Capa</th>
                     <th>Autor</th>
                     <th>Categoria</th>
                     <th>Preço</th>
@@ -36,6 +37,7 @@
                 @foreach($livros as $l)
                 <tr>
                     <td>{{$l->titulo}}</td>
+                    <td><img src="{{$l->capa}}" alt="" width="150"></td>
                     <td>{{$l->autor->nome}}</td>
                     <td>{{$l->categoria->categoria}}</td>
                     <td>{{$l->preco}}</td>
@@ -51,6 +53,7 @@
             <tfoot>
                 <tr>
                     <th>Título</th>
+                    <th>Capa</th>
                     <th>Autor</th>
                     <th>Categoria</th>
                     <th>Preço</th>
