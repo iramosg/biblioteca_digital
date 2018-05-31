@@ -97,7 +97,7 @@ class Categorias extends SuperModel
         {
             
             $validator = Validator::make($request->all(), [
-                'categoria' => 'required|unique:categorias|max:255',
+                'categoria' => 'required|max:255',
                 'icone' => 'dimensions:max_width=47,max_height=47',
                 
             ],
@@ -112,17 +112,11 @@ class Categorias extends SuperModel
                     ->withErrors($validator)
                     ->withInput();
                 }
-                
-                
-                if($id == null){
-                    $salvar = new Categorias();
-                    $salvar->userIdCreated = $userId;
-                } else {
+
                     $salvar = Categorias::carregar($id);
                     //dd($salvar);
                     $salvar->userIdUpdated = $userId;            
-                }
-                
+
                 if($request->icone != null)
                 {
                     $icone = $request->file('icone');

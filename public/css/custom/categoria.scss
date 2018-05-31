@@ -1,0 +1,62 @@
+@import "_custom.scss";
+
+#categoria {
+	.banner {
+		min-height: 200px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		background-position: center;
+
+		.grid-container {
+			width: 100%;
+
+			.informacoes {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				p {
+					color: #FFF !important;
+					margin: 0 0 -15px !important;
+					@include fonte-destaque;
+					line-height: 45px;
+					font-size: 5rem;
+				}
+
+				img {
+					filter: invert(100%);
+					margin: 0 0 -5px;
+				}
+			}
+		}
+	}
+
+	.top-10-products {
+		.owl-item {
+			.action {
+				position: relative;
+				top: -3px;
+			}
+		}
+	}
+
+	.grid-produtos {
+		display: flex;
+		align-items: stretch;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin: 0 -7.5px;
+
+		.item {
+			width: calc(20% - 15px);
+			margin: 7.5px;
+
+			.capa {
+				img {
+					width: 100%;;
+				}
+			}
+		}
+	}
+}

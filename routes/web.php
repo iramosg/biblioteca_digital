@@ -33,6 +33,15 @@ Route::prefix('login')->as('login.')->group(function(){
 	Route::get('facebook/callback', 'LoginController@handleProviderCallback');
 });
 
+Route::prefix('categoria')->as('categoria.')->group(function(){
+	//Página de Login
+	Route::get('categoria/{id}/{nome}', 'CategoriaController@index');
+	
+	
+	Route::get('facebook', 'LoginController@redirectToProvider');
+	Route::get('facebook/callback', 'LoginController@handleProviderCallback');
+});
+
 
 
 //Rotas do Painel Administrativo

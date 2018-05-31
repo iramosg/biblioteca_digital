@@ -1,0 +1,79 @@
+@import "_custom.scss";
+
+#perfil {
+	background-color: $cor-neutra-clara;
+	padding: 30px 0;
+	
+	.apresentacao-usario {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		position: relative;
+		background: #FFF;
+
+		.capa {
+			width: 100%;
+			height: 300px;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.infos-user {
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+
+			.foto-perfil {
+				width: 150px;
+				height: 150px;
+				overflow: hidden;
+				border-radius: 100%;
+     			border: 4px solid #FFF;
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.data {
+				text-align: center;
+
+				.cidade {
+					margin: -5px 0 0 !important;
+				}
+			}
+		}
+
+		.menu-user {
+			width: 100%;
+			height: 100px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			ul {
+				width: 100%;
+				list-style: none;
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+				margin: 0;
+
+				&.menu-esquerda {
+					margin-right: 100px;
+				}
+
+				&.menu-direita {
+					margin-left: 100px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,124 @@
+@import "_custom.scss";
+
+
+#cadastro-livro {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/login/background-login.jpg);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+    
+  .grid-container {
+    width: 100%;
+    height: 100%;
+    @include center-full-collum();
+
+    .box-center {
+      width: 100%;
+      max-width: 39rem;
+      height: 100%;
+      padding: 3.2rem 4.4rem;
+      background: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+.input-group .label-animado {
+  left: 15px;
+}
+
+
+#multiple_upload {
+  position:relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#uploadChange {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 46px;
+  opacity: 0.01;
+  z-index: 1;
+  cursor: pointer;
+  margin: 0;
+}
+#message {
+  overflow:hidden;
+  padding: 0.7rem;
+  background-color: #FFF;
+  border-radius: 3px;
+  outline: none;
+  font-size: 0.9rem;
+  color: $cor-neutra-principal;
+  border: 1px solid #cacaca;
+  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+  -webkit-appearance: none;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  font-weight: normal;
+  line-height: 1.5;
+  box-sizing: border-box;
+  width: calc(100% - 165px);
+  margin: 0 15px 0 0;
+}
+#botao {
+  @include btn-secundario();
+  width: 150px;
+  padding: 0.8rem 2rem;
+}
+#lista {
+  width: 100%;
+}
+#lista ol {
+  margin-bottom: 0;
+}
+#lista ol li {
+ border-bottom:1px solid #eee;
+ padding:10px;
+ display:block;
+ clear:left;
+ margin-bottom:2px;
+}
+#lista ol li.item_grey{
+ background:#f9f9f9;
+}
+a.remove {
+ text-decoration:none;
+ color:#ff7b00;   
+ display:block;
+ font-size: 16px;
+ width:20px;
+ float:right;
+ font-weight:bold;
+}
+a.remove:hover {
+  color:red;
+}
+img.item {
+
+
+}
+img.item {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.box-images {
+  height: 30px;
+  width: 30px;
+  background-color: #eee;
+  border:1px solid #eee;
+  margin-bottom:15px;
+  /* Centralizando imagens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float:left;
+  margin:0 10px 20px 0;
+}

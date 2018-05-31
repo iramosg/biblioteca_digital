@@ -1,0 +1,107 @@
+@mixin padrao-formato {
+    width: 100%;
+	position: relative;
+	top: 0;
+    padding: 1rem 2rem;
+    border: 1px solid;
+    border-radius: 3px !important;
+    outline: none;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: block;
+}
+
+// Principal
+@mixin btn-principal {
+	top: -1.5px;
+	@include padrao-formato;
+	background-color: $cor-principal;
+	border-color: $cor-principal;
+  	box-shadow: 0 3px 0 $cor-principal-escura;
+    color: #FFF;
+
+    &:hover,
+    &:focus {
+    	background-color: $cor-principal-2;
+    	border-color: $cor-principal-2;
+    	box-shadow: $cor-principal-escura-2;
+        color: #FFF;
+    }
+
+    &:active {
+    	top: 3px;
+    	box-shadow: none;
+    }
+}
+.btn-principal {
+    @include btn-principal;
+}
+
+// Secundario
+@mixin btn-secundario {
+	top: -1.5px;
+	@include padrao-formato;
+	background-color: $cor-secundaria;
+	border-color: $cor-secundaria;
+  	box-shadow: 0 3px 0 $cor-secundaria-escura;
+    color: #FFF;
+
+    &:hover,
+    &:focus {
+    	background-color: $cor-secundaria-2;
+    	border-color: $cor-secundaria-2;
+    	box-shadow: $cor-secundaria-escura-2;
+        color: #FFF;
+    }
+
+    &:active {
+    	top: 3px;
+    	box-shadow: none;
+    }
+}
+.btn-secundario {
+    @include btn-secundario;
+}
+
+// Apoio
+@mixin btn-apoio{
+    @include padrao-formato;
+    background-color: #FFF;
+    border-color: $cor-principal;
+    color: $cor-principal;
+
+    &:hover,
+    &:focus {
+        background-color: #FFF;
+        border-color: $cor-principal-2;
+        color: $cor-principal-2;
+    }
+}
+.btn-apoio {
+    @include btn-apoio;
+}
+
+// Apoio
+@mixin btn-neutro {
+    color: $cor-neutra-principal;
+
+    &:hover,
+    &:focus {
+        color: $cor-secundaria-2;
+    }
+}
+.btn-neutro {
+    @include btn-neutro;
+}
+
+
+// Setas
+.pagination-previous a::before,
+.pagination-previous.disabled::before {
+    display: none !important;
+}
+.pagination-next a:after,
+.pagination-next.disabled a:after {
+    display: none !important;
+}

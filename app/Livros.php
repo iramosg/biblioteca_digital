@@ -45,6 +45,11 @@ class Livros extends SuperModel
     {
         return Livros::find($id);
     }
+
+    public static function livrosCategoria($id)
+    {
+        return Livros::where('categoria_id', $id)->get();
+    }
     
     public static function salvar(Request $request, $userId, $id = null)
     {

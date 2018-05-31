@@ -1,0 +1,282 @@
+@import "_custom.scss";
+
+.bg-full {
+	width: 100%;
+	height: 100vh;
+	background-image: url(../../images/homepage/banner-apresentacao.jpg);
+	background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  @include center-full;
+
+    .grid-container {
+    	width: 100%;
+    	@include center-full-collum;
+
+    	.box-categorias {
+    		@include center-full-wrap;
+    		width: 100%;
+    		margin: 0 -5px;
+
+    		.item {
+    			@include center-full;
+				width: calc(20% - 10px);
+				height: 150px;
+				margin: 5px;
+
+				a {
+					width: 100%;
+					height: 100%;
+					background-color: rgba(255, 255, 255, 0.7);
+					border: 1px solid #FFF;
+					border-radius: 3px;
+					padding: 5px;
+					text-align: center;
+					@include center-full-collum;
+					@include transition;
+
+					p {
+						margin: 5px 0 0;
+					}
+
+					&:hover {
+						background-color: rgba(255, 255, 255, 0.9);
+						box-shadow: 0px 0px 40px -10px rgba(0,0,0,0.75);
+					}
+				}
+    		}
+    	}
+
+    	.box-cta {
+    		@include center-full;
+    		margin: 50px 0 -45px;
+
+    		.btn-cta {
+    			display: block;
+    			@include btn-principal;
+    		}
+    	}
+    }
+}
+
+
+.apresentacao-user {
+
+	.apresentacao {
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+
+		.item {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			text-align: center;
+			width: 33.33%;
+			margin: 15px;
+			padding: 15px;
+			// background: $cor-secundaria;
+			border-radius: 3px;
+
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, from($cor-principal), to($cor-secundaria));
+			background-image: -webkit-linear-gradient($cor-principal, $cor-secundaria);
+			background-image:
+				-moz-linear-gradient($cor-principal, $cor-secundaria),
+				-moz-linear-gradient($cor-principal, $cor-secundaria);
+			background-image:
+				-o-linear-gradient($cor-principal, $cor-secundaria),
+				-o-linear-gradient($cor-principal, $cor-secundaria);
+			background-image:
+				linear-gradient($cor-principal, $cor-secundaria),
+				linear-gradient($cor-principal, $cor-secundaria);
+			-moz-background-size: 3px 100%;
+			// background-size: 3px 100%;
+			// background-position: 0 0, 100% 0;
+			background-repeat: no-repeat;
+
+			.icon {
+				background: #FFF;
+				border: 1px solid $cor-secundaria;
+				border-radius: 100%;
+				margin: 0 0 15px;
+				padding: 15px;
+				width: 150px;
+				height: 150px;
+			}
+
+			.conteudo {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+
+				.h4 {
+					max-width: 280px;
+					margin: 0 0 15px !important;
+					color: #FFF !important;
+					@include fonte-destaque;
+				}
+
+				.txt {
+					max-width: 290px;
+					color: #FFF !important;
+					@include fonte-destaque;
+				}
+			}
+
+
+			&:hover {
+				.icon {
+					img {
+						@include animation;
+					}
+				}
+			}
+		}
+	}
+
+	.action {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.button {
+			display: block;
+			max-width: 300px;
+		}
+	}
+}
+
+
+.planos {
+	padding: 50px 0;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from($cor-principal), to($cor-secundaria));
+	background-image: -webkit-linear-gradient($cor-principal, $cor-secundaria);
+	background-image:
+	-moz-linear-gradient($cor-principal, $cor-secundaria),
+	-moz-linear-gradient($cor-principal, $cor-secundaria);
+	background-image:
+	-o-linear-gradient($cor-principal, $cor-secundaria),
+	-o-linear-gradient($cor-principal, $cor-secundaria);
+	background-image:
+	linear-gradient($cor-principal, $cor-secundaria),
+	linear-gradient($cor-principal, $cor-secundaria);
+	-moz-background-size: 3px 100%;
+	// background-size: 3px 100%;
+	// background-position: 0 0, 100% 0;
+	background-repeat: no-repeat;
+
+	.cabecalho-apresentacao {
+		p {
+			color: #FFF !important;
+		}
+	}
+
+	.tipos-planos {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.item {
+		    float: left;
+		    padding: 15px;
+		    background-color: #fff;
+		    border: 1px solid #ccc;
+		    border-radius: 6px;
+		    box-shadow: 0 1px 4px rgba(0,0,0,.23);
+		    text-align: center;
+		    margin: 0 15px;
+		    transition: all 0.3s;
+
+				h3 {
+				    font-size: 38px;
+				    color: #000000;
+				    text-align: center;
+				    font-weight: 300;
+				    text-transform: capitalize;
+				    margin: 0;
+				}
+
+				.box-preco {
+						height:  80px;
+				    color: #000000;
+				    text-align: center;
+				    font-weight: 300;
+				    line-height: 50px;
+				    margin: 15px 0 0;
+
+						.txt-moeda {
+							font-size: 38px;
+						}
+
+						.preco {
+							height: 80px;
+							font-size: 65px;
+
+							.preco-lt {
+								font-size: 38px;
+							}
+						}
+
+						.txt-recorrencia {
+							font-weight: 100;
+							font-size: 14px;
+						}
+
+						.txt-preco-cheio {
+						    display: block;
+						    font-weight: 100;
+						    font-size: 16px;
+						    line-height: 20px;
+						    margin: -10px 0 0;
+						}
+				}
+
+				.item-vantagem {
+				    border-bottom: 1px solid #ccc;
+				    padding: 12px 0;
+				    font-size: 14px;
+				    text-align: center;
+				    margin: 0;
+				    font-weight: 300;
+
+						.destaque {
+							color: #e72938;
+						}
+
+						img {
+							display: inline-block;
+						}
+
+						&:last-child {
+							border-bottom: 0;
+						}
+
+						&.desativado {
+							text-decoration: line-through;
+						}
+				}
+
+				.box-pgmt {
+					.formas-pagamento {
+						text-align: center;
+
+						span {
+							display: block;
+						}
+
+						img {
+							display: inline-block;
+							width: 70px;
+							margin: 0 15px;
+						}
+					}
+				}
+
+				&:hover {
+					border-color: #000;
+				}
+		}
+	}
+}

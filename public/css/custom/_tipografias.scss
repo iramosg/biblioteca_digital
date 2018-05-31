@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@mixin fonte-normal {
+ font-family: 'Raleway', sans-serif !important;
+}
+@import url('https://fonts.googleapis.com/css?family=Cookie');
+@mixin fonte-destaque {
+ font-family: 'Cookie', cursive !important;
+}
+
+
+// Esconde Texto
+.no-text {
+	font-size: 0;
+	margin: 0;
+	padding: 0;
+}
+
+
+// Links
+a {
+	text-decoration: none;
+	color: $cor-secundaria;
+	@include fonte-normal;
+
+}
+
+
+// Textos
+h1, h2, h3, h4, h5, h6, p, label, span {
+	color: $cor-neutra-principal !important;
+	@include fonte-normal;
+}
+p {
+	margin: 0 !important;
+	@include fonte-normal;
+}
+.cabecalho-apresentacao {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	p {
+		text-align: center;
+		max-width: 780px;
+		@include fonte-destaque;
+	}
+}
+.box-title {
+	position: relative;
+	text-align: center;
+
+	&:before {
+		content: '';
+		display: block;
+		height: 1px;
+		width: 100%;
+		background: -moz-radial-gradient(center, ellipse cover, #fff 25%, $cor-principal 100%);
+		background: -webkit-gradient(radial, center center, 0, center center, 100%, color-stop(25%, #fff), color-stop(100%, $cor-principal));
+		background: -webkit-radial-gradient(center, ellipse cover, #fff 25%, $cor-principal 100%);
+		background: -ms-radial-gradient(center, ellipse cover, #fff 25%, $cor-principal 100%);
+		background: radial-gradient(ellipse at center, #fff 25%, $cor-principal 100%);
+		position: absolute;
+		top: 50%;
+		z-index: 0;
+	}
+
+	p {
+		position: relative;
+		color: $cor-principal !important;
+		@include fonte-destaque;
+	}
+
+	&.blue {
+		&:before {
+			background: -moz-radial-gradient(center, ellipse cover, #fff 25%, $cor-secundaria 100%);
+			background: -webkit-gradient(radial, center center, 0, center center, 100%, color-stop(25%, #fff), color-stop(100%, $cor-secundaria));
+			background: -webkit-radial-gradient(center, ellipse cover, #fff 25%, $cor-secundaria 100%);
+			background: -ms-radial-gradient(center, ellipse cover, #fff 25%, $cor-secundaria 100%);
+			background: radial-gradient(ellipse at center, #fff 25%, $cor-secundaria 100%);
+			}
+
+		p {
+			color: $cor-secundaria !important;
+		}
+	}
+}
+.txt {
+	line-height: 1.4rem !important;
+	margin-bottom: 0.5rem !important;
+}
+.help-text {
+    position: absolute;
+    bottom: -20px;
+    right: 10px;
+
+    &.danger {
+    	color: $cor-danger;
+    }
+}
+
+
+// Cabecalhos de Infosmacoes
+.cabecalho-cta {
+	text-transform: uppercase;
+
+	p:not(.subheader) {
+		color: $cor-neutra-escura;
+	}
+}
+
+
+// Link Menu
+@mixin link-menu {
+	color: $cor-neutra-principal;
+	padding: 1.8rem 0;
+	border-bottom: 2px solid transparent;
+	@include transition;
+
+	&:hover,
+	&:focus {
+		color: $cor-secundaria-escura;
+		border-color: $cor-secundaria-escura;
+	}
+}

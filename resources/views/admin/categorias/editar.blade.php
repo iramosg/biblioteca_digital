@@ -46,7 +46,7 @@
     </div>
     
 <div class="form-group text-center">
-    <a href="{{ route('admin.livros.index') }}" class="btn btn-lg btn-primary">Voltar</a>
+    <a href="{{ route('admin.categorias.index') }}" class="btn btn-lg btn-primary">Voltar</a>
     <input type="submit" class="btn btn-lg btn-success" value="Enviar">
     </form>
 </div>

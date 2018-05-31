@@ -1,0 +1,580 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+@import url("https://fonts.googleapis.com/css?family=Cookie");
+@-webkit-keyframes swing {
+  15% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px); }
+  30% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px); }
+  50% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px); }
+  65% {
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px); }
+  80% {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px); }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0); } }
+@keyframes swing {
+  15% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px); }
+  30% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px); }
+  50% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px); }
+  65% {
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px); }
+  80% {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px); }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0); } }
+/* line 86, _vm-variaveis-mixins.scss */
+.center-full {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+/* line 101, _vm-variaveis-mixins.scss */
+.gap {
+  margin-bottom: 25px; }
+
+/* line 105, _vm-variaveis-mixins.scss */
+.gap-big {
+  margin-bottom: 50px; }
+
+/* line 112, _vm-variaveis-mixins.scss */
+.box-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden; }
+
+/* line 119, _vm-variaveis-mixins.scss */
+.box-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+/* line 129, _vm-variaveis-mixins.scss */
+.breadcrumbs {
+  margin: 0;
+  padding: 1rem 0; }
+  /* line 133, _vm-variaveis-mixins.scss */
+  .breadcrumbs li {
+    font-size: 1rem;
+    text-transform: none; }
+
+/* line 12, _tipografias.scss */
+.no-text {
+  font-size: 0;
+  margin: 0;
+  padding: 0; }
+
+/* line 20, _tipografias.scss */
+a {
+  text-decoration: none;
+  color: #82a5d6;
+  font-family: 'Raleway', sans-serif !important; }
+
+/* line 29, _tipografias.scss */
+h1, h2, h3, h4, h5, h6, p, label, span {
+  color: #575757 !important;
+  font-family: 'Raleway', sans-serif !important; }
+
+/* line 33, _tipografias.scss */
+p {
+  margin: 0 !important;
+  font-family: 'Raleway', sans-serif !important; }
+
+/* line 37, _tipografias.scss */
+.cabecalho-apresentacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+  /* line 43, _tipografias.scss */
+  .cabecalho-apresentacao p {
+    text-align: center;
+    max-width: 780px;
+    font-family: 'Cookie', cursive !important; }
+
+/* line 49, _tipografias.scss */
+.box-title {
+  position: relative;
+  text-align: center; }
+  /* line 53, _tipografias.scss */
+  .box-title:before {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: -moz-radial-gradient(center, ellipse cover, #fff 25%, #63c3a0 100%);
+    background: -webkit-gradient(radial, center center, 0, center center, 100%, color-stop(25%, #fff), color-stop(100%, #63c3a0));
+    background: -webkit-radial-gradient(center, ellipse cover, #fff 25%, #63c3a0 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #fff 25%, #63c3a0 100%);
+    background: radial-gradient(ellipse at center, #fff 25%, #63c3a0 100%);
+    position: absolute;
+    top: 50%;
+    z-index: 0; }
+  /* line 68, _tipografias.scss */
+  .box-title p {
+    position: relative;
+    color: #63c3a0 !important;
+    font-family: 'Cookie', cursive !important; }
+  /* line 75, _tipografias.scss */
+  .box-title.blue:before {
+    background: -moz-radial-gradient(center, ellipse cover, #fff 25%, #82a5d6 100%);
+    background: -webkit-gradient(radial, center center, 0, center center, 100%, color-stop(25%, #fff), color-stop(100%, #82a5d6));
+    background: -webkit-radial-gradient(center, ellipse cover, #fff 25%, #82a5d6 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #fff 25%, #82a5d6 100%);
+    background: radial-gradient(ellipse at center, #fff 25%, #82a5d6 100%); }
+  /* line 83, _tipografias.scss */
+  .box-title.blue p {
+    color: #82a5d6 !important; }
+
+/* line 88, _tipografias.scss */
+.txt {
+  line-height: 1.4rem !important;
+  margin-bottom: 0.5rem !important; }
+
+/* line 92, _tipografias.scss */
+.help-text {
+  position: absolute;
+  bottom: -20px;
+  right: 10px; }
+  /* line 97, _tipografias.scss */
+  .help-text.danger {
+    color: #c10f0f; }
+
+/* line 104, _tipografias.scss */
+.cabecalho-cta {
+  text-transform: uppercase; }
+  /* line 107, _tipografias.scss */
+  .cabecalho-cta p:not(.subheader) {
+    color: #333333; }
+
+/* line 37, _vm-botoes.scss */
+.btn-principal {
+  top: -1.5px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  padding: 1rem 2rem;
+  border: 1px solid;
+  border-radius: 3px !important;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  background-color: #63c3a0;
+  border-color: #63c3a0;
+  box-shadow: 0 3px 0 #308264;
+  color: #FFF; }
+  /* line 24, _vm-botoes.scss */
+  .btn-principal:hover, .btn-principal:focus {
+    background-color: #4eb992;
+    border-color: #4eb992;
+    box-shadow: #217355;
+    color: #FFF; }
+  /* line 32, _vm-botoes.scss */
+  .btn-principal:active {
+    top: 3px;
+    box-shadow: none; }
+
+/* line 63, _vm-botoes.scss */
+.btn-secundario {
+  top: -1.5px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  padding: 1rem 2rem;
+  border: 1px solid;
+  border-radius: 3px !important;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  background-color: #82a5d6;
+  border-color: #82a5d6;
+  box-shadow: 0 3px 0 #4b668b;
+  color: #FFF; }
+  /* line 50, _vm-botoes.scss */
+  .btn-secundario:hover, .btn-secundario:focus {
+    background-color: #6b93cb;
+    border-color: #6b93cb;
+    box-shadow: #3b5981;
+    color: #FFF; }
+  /* line 58, _vm-botoes.scss */
+  .btn-secundario:active {
+    top: 3px;
+    box-shadow: none; }
+
+/* line 81, _vm-botoes.scss */
+.btn-apoio {
+  width: 100%;
+  position: relative;
+  top: 0;
+  padding: 1rem 2rem;
+  border: 1px solid;
+  border-radius: 3px !important;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  background-color: #FFF;
+  border-color: #63c3a0;
+  color: #63c3a0; }
+  /* line 74, _vm-botoes.scss */
+  .btn-apoio:hover, .btn-apoio:focus {
+    background-color: #FFF;
+    border-color: #4eb992;
+    color: #4eb992; }
+
+/* line 94, _vm-botoes.scss */
+.btn-neutro {
+  color: #575757; }
+  /* line 89, _vm-botoes.scss */
+  .btn-neutro:hover, .btn-neutro:focus {
+    color: #6b93cb; }
+
+/* line 100, _vm-botoes.scss */
+.pagination-previous a::before,
+.pagination-previous.disabled::before {
+  display: none !important; }
+
+/* line 104, _vm-botoes.scss */
+.pagination-next a:after,
+.pagination-next.disabled a:after {
+  display: none !important; }
+
+/* line 1, _vm-formularios.scss */
+.input-group {
+  position: relative; }
+  /* line 4, _vm-formularios.scss */
+  .input-group .input-group-label {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px; }
+    /* line 8, _vm-formularios.scss */
+    .input-group .input-group-label ~ .input-group-field {
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important; }
+  /* line 14, _vm-formularios.scss */
+  .input-group input[type="text"],
+  .input-group input[type="email"],
+  .input-group input[type="password"],
+  .input-group select {
+    position: relative;
+    padding: 0.7rem;
+    background-color: #FFF;
+    border-radius: 3px;
+    outline: none;
+    font-size: 0.9rem;
+    color: #575757; }
+  /* line 27, _vm-formularios.scss */
+  .input-group .label-animado {
+    position: absolute;
+    top: 10px;
+    left: 60px;
+    z-index: 1;
+    width: 100%;
+    padding: 0;
+    font-size: 14px;
+    transition: all 0.3s; }
+    /* line 37, _vm-formularios.scss */
+    .input-group .label-animado.up-label {
+      top: -22px;
+      left: 0;
+      font-size: 0.75rem; }
+    /* line 43, _vm-formularios.scss */
+    .input-group .label-animado .obrigatorio {
+      color: #c10f0f; }
+
+/* line 1, _header.scss */
+header {
+  position: fixed;
+  right: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 10px 32px -15px rgba(0, 0, 0, 0.75);
+  z-index: 1; }
+  /* line 9, _header.scss */
+  header .box-logo {
+    padding: 0.3rem 0; }
+  /* line 14, _header.scss */
+  header .menu .item-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    /* line 17, _header.scss */
+    header .menu .item-menu .link {
+      margin: 0 1rem;
+      color: #575757;
+      padding: 1.8rem 0;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s; }
+      /* line 120, _tipografias.scss */
+      header .menu .item-menu .link:hover, header .menu .item-menu .link:focus {
+        color: #4b668b;
+        border-color: #4b668b; }
+      /* line 21, _header.scss */
+      header .menu .item-menu .link.cadastro {
+        top: -1.5px;
+        width: 100%;
+        position: relative;
+        top: 0;
+        padding: 1rem 2rem;
+        border: 1px solid;
+        border-radius: 3px !important;
+        outline: none;
+        text-align: center;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: block;
+        background-color: #82a5d6;
+        border-color: #82a5d6;
+        box-shadow: 0 3px 0 #4b668b;
+        color: #FFF; }
+        /* line 50, _vm-botoes.scss */
+        header .menu .item-menu .link.cadastro:hover, header .menu .item-menu .link.cadastro:focus {
+          background-color: #6b93cb;
+          border-color: #6b93cb;
+          box-shadow: #3b5981;
+          color: #FFF; }
+        /* line 58, _vm-botoes.scss */
+        header .menu .item-menu .link.cadastro:active {
+          top: 3px;
+          box-shadow: none; }
+      /* line 25, _header.scss */
+      header .menu .item-menu .link.entrar {
+        top: -1.5px;
+        width: 100%;
+        position: relative;
+        top: 0;
+        padding: 1rem 2rem;
+        border: 1px solid;
+        border-radius: 3px !important;
+        outline: none;
+        text-align: center;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: block;
+        background-color: #63c3a0;
+        border-color: #63c3a0;
+        box-shadow: 0 3px 0 #308264;
+        color: #FFF; }
+        /* line 24, _vm-botoes.scss */
+        header .menu .item-menu .link.entrar:hover, header .menu .item-menu .link.entrar:focus {
+          background-color: #4eb992;
+          border-color: #4eb992;
+          box-shadow: #217355;
+          color: #FFF; }
+        /* line 32, _vm-botoes.scss */
+        header .menu .item-menu .link.entrar:active {
+          top: 3px;
+          box-shadow: none; }
+  /* line 32, _header.scss */
+  header .top-bar-right {
+    margin: 0 -1rem; }
+
+/* line 1, _footer.scss */
+footer {
+  background: #333333; }
+  /* line 4, _footer.scss */
+  footer .copyright {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.3rem 0; }
+    /* line 8, _footer.scss */
+    footer .copyright .txt-copyright {
+      margin: 0;
+      color: #FFF;
+      font-size: 0.8rem; }
+    /* line 14, _footer.scss */
+    footer .copyright .box-sociais {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; }
+      /* line 17, _footer.scss */
+      footer .copyright .box-sociais .item {
+        margin: 0 0.5rem;
+        height: 30px;
+        overflow: hidden; }
+        /* line 23, _footer.scss */
+        footer .copyright .box-sociais .item a img {
+          position: relative;
+          top: 5px;
+          transition: all 0.3s; }
+        /* line 30, _footer.scss */
+        footer .copyright .box-sociais .item a:hover img {
+          top: -26px; }
+
+/* line 4, cadastro-livro.scss */
+#cadastro-livro {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/login/background-login.jpg);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; }
+  /* line 13, cadastro-livro.scss */
+  #cadastro-livro .grid-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: center;
+    flex-direction: column; }
+    /* line 18, cadastro-livro.scss */
+    #cadastro-livro .grid-container .box-center {
+      width: 100%;
+      max-width: 39rem;
+      height: 100%;
+      padding: 3.2rem 4.4rem;
+      background: rgba(255, 255, 255, 0.8); }
+
+/* line 28, cadastro-livro.scss */
+.input-group .label-animado {
+  left: 15px; }
+
+/* line 33, cadastro-livro.scss */
+#multiple_upload {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+/* line 41, cadastro-livro.scss */
+#uploadChange {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 46px;
+  opacity: 0.01;
+  z-index: 1;
+  cursor: pointer;
+  margin: 0; }
+
+/* line 52, cadastro-livro.scss */
+#message {
+  overflow: hidden;
+  padding: 0.7rem;
+  background-color: #FFF;
+  border-radius: 3px;
+  outline: none;
+  font-size: 0.9rem;
+  color: #575757;
+  border: 1px solid #cacaca;
+  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+  -webkit-appearance: none;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  font-weight: normal;
+  line-height: 1.5;
+  box-sizing: border-box;
+  width: calc(100% - 165px);
+  margin: 0 15px 0 0; }
+
+/* line 70, cadastro-livro.scss */
+#botao {
+  top: -1.5px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  padding: 1rem 2rem;
+  border: 1px solid;
+  border-radius: 3px !important;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  background-color: #82a5d6;
+  border-color: #82a5d6;
+  box-shadow: 0 3px 0 #4b668b;
+  color: #FFF;
+  width: 150px;
+  padding: 0.8rem 2rem; }
+  /* line 50, _vm-botoes.scss */
+  #botao:hover, #botao:focus {
+    background-color: #6b93cb;
+    border-color: #6b93cb;
+    box-shadow: #3b5981;
+    color: #FFF; }
+  /* line 58, _vm-botoes.scss */
+  #botao:active {
+    top: 3px;
+    box-shadow: none; }
+
+/* line 75, cadastro-livro.scss */
+#lista {
+  width: 100%; }
+
+/* line 78, cadastro-livro.scss */
+#lista ol {
+  margin-bottom: 0; }
+
+/* line 81, cadastro-livro.scss */
+#lista ol li {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  display: block;
+  clear: left;
+  margin-bottom: 2px; }
+
+/* line 88, cadastro-livro.scss */
+#lista ol li.item_grey {
+  background: #f9f9f9; }
+
+/* line 91, cadastro-livro.scss */
+a.remove {
+  text-decoration: none;
+  color: #ff7b00;
+  display: block;
+  font-size: 16px;
+  width: 20px;
+  float: right;
+  font-weight: bold; }
+
+/* line 100, cadastro-livro.scss */
+a.remove:hover {
+  color: red; }
+
+/* line 107, cadastro-livro.scss */
+img.item {
+  max-width: 100%;
+  max-height: 100%; }
+
+/* line 112, cadastro-livro.scss */
+.box-images {
+  height: 30px;
+  width: 30px;
+  background-color: #eee;
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+  /* Centralizando imagens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  margin: 0 10px 20px 0; }
