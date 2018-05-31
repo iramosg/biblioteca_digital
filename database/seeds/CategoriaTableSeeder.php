@@ -17,62 +17,82 @@ class CategoriaTableSeeder extends Seeder
 
         DB::table('categorias')->insert([
             'categoria' => 'Animais',
-            'icone' => 'http://lorempixel.com/20/20',
-            'userIdCreated' => $faker->numberBetween($min = 1, $max = 10)
+            'icone' => 'https://picsum.photos/50/50',
+            'banner' => 'https://picsum.photos/1680/300',
+            'url_amigavel' => 'animais',
+            'userIdCreated' => 1
         ]);
 
         DB::table('categorias')->insert([
             'categoria' => 'Business',
-            'icone' => 'http://lorempixel.com/20/20',
-            'userIdCreated' => $faker->numberBetween($min = 1, $max = 10)
+            'icone' => 'https://picsum.photos/50/50',
+            'banner' => 'https://picsum.photos/1680/300',
+            'url_amigavel' => 'business',
+            'userIdCreated' => 1
         ]);
 
         DB::table('categorias')->insert([
-            'categoria' => 'Culinaria',
-            'icone' => 'http://lorempixel.com/20/20',
-            'userIdCreated' => $faker->numberBetween($min = 1, $max = 10)
+            'categoria' => 'Culinária',
+            'icone' => 'https://picsum.photos/50/50',
+            'banner' => 'https://picsum.photos/1680/300',
+            'url_amigavel' => 'culinaria',
+            'userIdCreated' => 1
         ]);
 
         DB::table('categorias')->insert([
             'categoria' => 'Cursos',
-            'icone' => 'http://lorempixel.com/20/20',
-            'userIdCreated' => $faker->numberBetween($min = 1, $max = 10)
+            'icone' => 'https://picsum.photos/50/50',
+            'banner' => 'https://picsum.photos/1680/300',
+            'url_amigavel' => 'cursos',
+            'userIdCreated' => 1
         ]);
 
         DB::table('categorias')->insert([
             'categoria' => 'Educacionais',
-            'icone' => 'http://lorempixel.com/20/20',
-            'userIdCreated' => $faker->numberBetween($min = 1, $max = 10)
+            'icone' => 'https://picsum.photos/50/50',
+            'banner' => 'https://picsum.photos/1680/300',
+            'url_amigavel' => 'educacionais',
+            'userIdCreated' => 1
         ]);
 
         DB::table('categorias')->insert([
             'categoria' => 'Estilo de Vida',
-            'icone' => 'http://lorempixel.com/20/20',
-            'userIdCreated' => $faker->numberBetween($min = 1, $max = 10)
+            'icone' => 'https://picsum.photos/50/50',
+            'banner' => 'https://picsum.photos/1680/300',
+            'url_amigavel' => 'estilo-de-vida',
+            'userIdCreated' => 1
         ]);
 
         DB::table('categorias')->insert([
-            'categoria' => 'Historias',
-            'icone' => 'http://lorempixel.com/20/20',
-            'userIdCreated' => $faker->numberBetween($min = 1, $max = 10)
+            'categoria' => 'Histórias',
+            'icone' => 'https://picsum.photos/50/50',
+            'banner' => 'https://picsum.photos/1680/300',
+            'url_amigavel' => 'historias',
+            'userIdCreated' => 1
         ]);
 
         DB::table('categorias')->insert([
             'categoria' => 'Idiomas',
-            'icone' => 'http://lorempixel.com/20/20',
-            'userIdCreated' => $faker->numberBetween($min = 1, $max = 10)
+            'icone' => 'https://picsum.photos/50/50',
+            'banner' => 'https://picsum.photos/1680/300',
+            'url_amigavel' => 'idiomas',
+            'userIdCreated' => 1
         ]);
 
         DB::table('categorias')->insert([
             'categoria' => 'Mais Vendidos',
-            'icone' => 'http://lorempixel.com/20/20',
-            'userIdCreated' => $faker->numberBetween($min = 1, $max = 10)
+            'icone' => 'https://picsum.photos/50/50',
+            'banner' => 'https://picsum.photos/1680/300',
+            'url_amigavel' => 'mais-vendidos',
+            'userIdCreated' => 1
         ]);
 
         DB::table('categorias')->insert([
             'categoria' => 'Outros',
-            'icone' => 'http://lorempixel.com/20/20',
-            'userIdCreated' => $faker->numberBetween($min = 1, $max = 10)
+            'icone' => 'https://picsum.photos/50/50',
+            'banner' => 'https://picsum.photos/1680/300',
+            'url_amigavel' => 'outros',
+            'userIdCreated' => 1
         ]);
       
     }

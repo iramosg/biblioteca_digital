@@ -17,7 +17,8 @@ class CreateCategoriasTable extends Migration
             $table->increments('id');
             $table->string('categoria');
             $table->string('icone');
-            $table->string('url_amigavel')->unique();
+            $table->string('banner');
+            $table->string('url_amigavel')->unique();            
             
             $table->boolean('activated')->default(true);               
             $table->timestamp('created')->userCurrent();

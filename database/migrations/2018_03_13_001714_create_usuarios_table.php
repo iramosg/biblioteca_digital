@@ -21,11 +21,14 @@ class CreateUsuariosTable extends Migration
             
             $table->string('nome');            
             $table->string('sobrenome');            
+            $table->text('sobre');            
+            $table->string('data_nascimento');            
+            $table->string('telefone');            
             $table->string('senha');            
             $table->string('email')->unique();            
             $table->string('foto')->nullable();            
             $table->string('capa')->nullable();                       
-            $table->string('url_amigavel', 30)->unique()->nullable();   
+            $table->string('url_amigavel', 30)->unique();   
             $table->rememberToken();     
             
             $table->boolean('activated')->default(true);

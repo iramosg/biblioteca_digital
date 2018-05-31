@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Livros extends SuperModel
 {
@@ -19,7 +20,8 @@ class Livros extends SuperModel
         'preco',
         'download_previo',
         'download',
-        'isbn',            
+        'isbn',  
+        'url_amigavel',          
         
         'activated',
         'userIdCreated',

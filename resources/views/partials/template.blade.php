@@ -24,8 +24,8 @@
 		<div class="grid-container center-full">
 			<!-- Logo -->
 			<div class="box-logo">
-				<a href="index.php" title="Biblioteka Digital">
-					<img src="images/biblioteca-digital-logo.png" alt="Biblioteka Digital" class="logo-img">
+				<a href="{{ route('index') }}" title="Biblioteka Digital">
+					<img src="{{ asset('images/biblioteca-digital-logo.png')}}" alt="Biblioteka Digital" class="logo-img">
 				</a>
 				<h1 class="no-text logo-txt">Biblioteka Digital</h1>
 			</div>
@@ -68,17 +68,17 @@
 				<div class="box-sociais">
 					<div class="item facebook">
 						<a href="#" title="Facebook Biblioteka Digital">
-							<img src="images/icones/icon-facebook.png" alt="Facebok Biblioteka Digital">
+							<img src="{{ asset('images/icones/icon-facebook.png')}}" alt="Facebok Biblioteka Digital">
 						</a>
 					</div>
 					<div class="item instagram">
 						<a href="#" title="Instagram Biblioteka Digital">
-							<img src="images/icones/icon-instagram.png" alt="Instagram Biblioteka Digital">
+							<img src="{{ asset('images/icones/icon-instagram.png')}}" alt="Instagram Biblioteka Digital">
 						</a>
 					</div>
 					<div class="item youtube">
 						<a href="#" title="YouTube Biblioteka Digital">
-							<img src="images/icones/icon-youtube.png" alt="YouTube Biblioteka Digital">
+							<img src="{{ asset('images/icones/icon-youtube.png')}}" alt="YouTube Biblioteka Digital">
 						</a>
 					</div>
 				</div>

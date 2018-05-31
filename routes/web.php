@@ -35,7 +35,7 @@ Route::prefix('login')->as('login.')->group(function(){
 
 Route::prefix('categoria')->as('categoria.')->group(function(){
 	//Página de Login
-	Route::get('categoria/{id}/{nome}', 'CategoriaController@index');
+	Route::get('{url_amigavel}', 'CategoriasController@index')->name('index');
 	
 	
 	Route::get('facebook', 'LoginController@redirectToProvider');

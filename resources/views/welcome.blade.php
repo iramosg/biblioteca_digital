@@ -16,7 +16,7 @@
 				@if(!empty($categorias))
 				@foreach($categorias as $c)
 				<div class="item animais">
-				<a href="{{ route('categoria', ['url_amigavel' => $c->url_amigavel]) }}" class="link-categ">
+				<a href="{{ route('categoria.index', ['url_amigavel' => $c->url_amigavel]) }}" class="link-categ">
 						<img src="{{ $c->icone }}" alt="Animais">
 						<p class="title-categ">{{ $c->categoria }}</p>
 					</a>

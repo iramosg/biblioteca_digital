@@ -18,6 +18,9 @@ class CreateLivrosTable extends Migration
             
             $table->integer('autor_id')->unsigned();
             $table->foreign('autor_id')->references('id')->on('autores'); 
+
+            $table->integer('categoria_id')->unsigned();
+            $table->foreign('categoria_id')->references('id')->on('categorias'); 
             
             $table->string('titulo');
             $table->string('capa');
@@ -27,6 +30,8 @@ class CreateLivrosTable extends Migration
             $table->string('download_previo');            	
             $table->string('download');            	            
             $table->string('isbn', 13)->nullable();  
+            $table->string('url_amigavel', 13)->unique();  
+
             
             $table->boolean('activated')->default(true);          	                       	            
             $table->timestamp('created')->userCurrent();

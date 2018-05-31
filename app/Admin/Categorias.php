@@ -16,7 +16,9 @@ class Categorias extends SuperModel
     protected $fillable = [
         
         'categoria',      
-        'icone',            
+        'icone',       
+        'banner',
+        'url_amigavel',     
         
         'activated',
         'userIdCreated',
@@ -33,6 +35,11 @@ class Categorias extends SuperModel
     public static function carregar($id)
     {
         return Categorias::find($id);
+    }
+
+    public static function carregarUrl($url)
+    {
+        return Categorias::where('url_amigavel', $url)->first();
     }
     
     public static function salvar(Request $request, $userId, $id = null)

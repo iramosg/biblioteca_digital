@@ -8,10 +8,13 @@ use App\Livros;
 
 class CategoriasController extends Controller
 {
-    public function index($id)
+    public function index($url_amigavel)
     {
-        $categoria = Categorias::carregar($id);
-        $livros = Livros::livrosCategoria($id);
+        $categoria = Categorias::carregarUrl($url_amigavel);
+        // dd($categoria->url_amigavel);
+
+        $livros = Livros::livrosCategoria($categoria->id);
+        //dd($livros);
 
         return view('categorias.categoria', compact(['categoria', 'livros']));
     }
