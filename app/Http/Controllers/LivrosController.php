@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Livros;
 
 class LivrosController extends Controller
 {
+
+    //View que retorna todos os livros
+    public function index()
+    {
+        $livros = Livros::listaPaginada();
+        return view('livros.index', compact('livros'));
+    }
     
     //View para salvar livro
     public function create()

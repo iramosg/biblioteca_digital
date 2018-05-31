@@ -40,7 +40,12 @@ class Livros extends SuperModel
     
     public static function lista()
     {
-        return Livros::all();
+        return Livros::where('activated', 1)->get();
+    }
+
+    public static function listaPaginada()
+    {
+        return Livros::where('activated', 1)->paginate(15);
     }
     
     public static function carregar($id)

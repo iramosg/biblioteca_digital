@@ -36,11 +36,22 @@ Route::prefix('login')->as('login.')->group(function(){
 Route::prefix('categoria')->as('categoria.')->group(function(){
 	//Página de Login
 	Route::get('{url_amigavel}', 'CategoriasController@index')->name('index');
-	
-	
-	Route::get('facebook', 'LoginController@redirectToProvider');
-	Route::get('facebook/callback', 'LoginController@handleProviderCallback');
+
 });
+
+
+Route::prefix('livros')->as('livros.')->group(function(){
+	//Página de Login
+	Route::get('', 'LivrosController@index')->name('index');
+
+});
+
+Route::prefix('perfil')->as('perfil.')->group(function(){
+	//Página de Login
+	Route::get('{url_amigavel}', 'PerfilController@index')->name('index');
+
+});
+
 
 
 

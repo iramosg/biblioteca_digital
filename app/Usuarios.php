@@ -43,4 +43,9 @@ class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPa
     {
         return Usuarios::find($id);
     }
+
+    public static function perfilUrl($url_amigavel)
+    {
+        return Usuarios::where('url_amigavel', $url_amigavel)->first();
+    }
 }
