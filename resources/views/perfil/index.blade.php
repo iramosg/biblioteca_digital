@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{{ asset('css/custom/perfil.css') }}">
 @endsection
 
+@section('titlepage')
+Perfil de {{ $perfil->nome}}
+@endsection
+
 
 @section('content')
 

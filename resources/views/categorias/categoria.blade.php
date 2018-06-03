@@ -9,11 +9,11 @@
 <!-- CONTEUDO -->
 <section id="categoria">
     <!-- Capa -->
-    <div class="banner" style="background-image: url({{ asset('images/banner-categorias/banner-animais.jpg')}});">
+    <div class="banner" style="background-image: url('{{ asset("$categoria->banner") }}');">
         <div class="grid-container">
             <div class="informacoes">
                 <p class="h1">{{ $categoria->categoria }}</p>
-                <img src="{{ $categoria->icone }}" alt="Icone Nome da Categoria">
+                <img src="{{ asset("$categoria->icone") }}" alt="Icone Nome da Categoria">
             </div>
         </div>
     </div>

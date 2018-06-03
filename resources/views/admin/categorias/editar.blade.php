@@ -36,11 +36,31 @@
                     </div>
                 </div>
                 <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="categoria">URL Amigável</label>
+                            <input class="form-control" type="text" name="url_amigavel" placeholder="URL Amigável" value="{{ $categoria->url_amigavel }}">
+                        </div>
+                    </div>
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="icone">Ícone</label>
                         <input class="form-control" type="file" name="icone">
                     </div>
                 </div>
+
+                <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="banner">Banner</label>
+                            <input class="form-control" type="file" name="banner">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="ativo">Ativo</label>
+                            <input id="activated" name="activated" type="checkbox"  {{ ($categoria->activated) ? "checked" : "" }}>
+                            </div>
+                        </div>
             </div>
         </div>
     </div>

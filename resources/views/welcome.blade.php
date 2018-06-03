@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{{ asset('css/custom/homepage.css') }}">
 @endsection
 
+@section('titlepage')
+Página Inicial
+@endsection
+
 
 @section('content')
 <!-- CONTEUDO -->

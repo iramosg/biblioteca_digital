@@ -8,13 +8,13 @@
 
 @section('content')
 @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
 @endif
 
 <div class="box box-primary">
@@ -31,19 +31,32 @@
                         <input class="form-control" type="text" name="categoria" placeholder="Categoria" value="{{ old('categoria') }}">
                     </div>
                 </div>
+                
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="categoria">URL Amigável</label>
+                        <input class="form-control" type="text" name="url_amigavel" placeholder="URL Amigável" value="{{ old('url_amigavel') }}">
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="icone">Ícone</label>
                         <input class="form-control" type="file" name="icone">
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="banner">Banner</label>
+                        <input class="form-control" type="file" name="banner">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     
-<div class="form-group text-center">
-    <a href="{{ route('admin.categorias.index') }}" class="btn btn-lg btn-primary">Voltar</a>
-    <input type="submit" class="btn btn-lg btn-success" value="Enviar">
+    <div class="form-group text-center">
+        <a href="{{ route('admin.categorias.index') }}" class="btn btn-lg btn-primary">Voltar</a>
+        <input type="submit" class="btn btn-lg btn-success" value="Enviar">
     </form>
 </div>
 

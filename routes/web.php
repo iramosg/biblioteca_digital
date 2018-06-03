@@ -24,11 +24,14 @@ Route::prefix('login')->as('login.')->group(function(){
 	//Página de Cadastro
 	Route::get('cadastrar', 'UsuariosController@cadastrar')->name('cadastrar'); 
 
-
+	//Método de Resetar a Senha
+	Route::post('resetarsenha', 'LoginController@resetarsenha')->name('resetarsenha');
+	//Método de Cadastro(Salvar)
+	Route::post('cadastrar', 'UsuariosController@store')->name('store');
 	//Método para Entrar
 	Route::post('entrar', 'LoginController@entrar')->name('entrar'); 
 	
-	
+	//API de Login com Rede Social
 	Route::get('facebook', 'LoginController@redirectToProvider');
 	Route::get('facebook/callback', 'LoginController@handleProviderCallback');
 });
@@ -90,4 +93,11 @@ Route::prefix('admin')->as('admin.')->group(function(){
 		Route::post('save', 'Admin\UsuariosController@store')->name('save');    
 		
 	});
+});
+
+//Rotas referente a envio de emails
+Route::prefix('mail')->as('mail.')->group(function(){
+	Route::post('sendbasicemail','MailController@resetarsenha')->name('resetarsenha');
+	Route::get('sendhtmlemail','MailController@html_email');
+	Route::get('sendattachmentemail','MailController@attachment_email');
 });

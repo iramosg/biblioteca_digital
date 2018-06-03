@@ -24,7 +24,7 @@
             <thead>
                 <tr>
                     <th>Categoria</th>
-                    <th>Ícone</th>
+                    <th>URL Amigável</th>
                     <th>Status</th>
                     <th>Ações</th>
                 </tr>
@@ -34,7 +34,7 @@
                 @foreach($categorias as $c)
                 <tr>
                     <td>{{$c->categoria}}</td>
-                    <td><img src="{{ asset("public/" . "$c->icone") }}" alt="" width="100"></td>
+                    <td><a href="#" target="_blank">{{$c->url_amigavel}}</a></td>
                     <td>{{$c->activated}}</td>
                     <td>
                         <a class="btn btn-block btn-warning" href="{{ route('admin.categorias.editar', ['id' => $c->id]) }}">EDITAR</a>
@@ -46,7 +46,7 @@
             <tfoot>
                 <tr>
                    <th>Categoria</th>
-                    <th>Ícone</th>
+                    <th>URL Amigável</th>
                     <th>Status</th>
                     <th>Ações</th>
                 </tr>

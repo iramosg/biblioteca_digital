@@ -36,7 +36,7 @@ class Categorias extends SuperModel
     {
         return Categorias::find($id);
     }
-
+    
     public static function carregarUrl($url)
     {
         return Categorias::where('url_amigavel', $url)->first();
@@ -48,12 +48,16 @@ class Categorias extends SuperModel
         $validator = Validator::make($request->all(), [
             'categoria' => 'required|unique:categorias|max:255',
             'icone' => 'required|dimensions:max_width=47,max_height=47',
+            'banner' => 'required|dimensions:max_width=1680,max_height=300',
+            'url_amigavel' => 'required|unique:categorias|max:255',            
             
         ],
         [
             'categoria.required' => 'Categoria tem que ser preenchido.',
             'icone.required' => 'Ícone tem que ser preenchido.',
             'icone.dimensions' => 'Seu ícone deve ter no máximo 47 x 47px.',
+            'banner.required' => 'Banner tem que ser preenchido.',
+            'banner.dimensions' => 'Seu banner deve ter no máximo 1680 x 300px.',
             ]);
             
             if ($validator->fails())
@@ -89,11 +93,21 @@ class Categorias extends SuperModel
                 //dd($icone);
             }
             
+            if($request->banner != null)
+            {
+                $banner = $request->file('banner');
+                $ext = ['jpg', 'png', 'jpeg', 'gif'];
+                
+                if($banner->isValid() && in_array($icone->extension(), $ext))
+                {
+                    $banner = $icone->store('categorias/banners');
+                    $salvar->icone = $banner;
+                }
+            }
             
             $salvar->categoria = $request->categoria;
-            
-            $salvar->activated = true;
-            //Falta salvar os arquivos
+            $salvar->activated = 1;
+            $salvar->$request->url_amigavel;
             
             $salvar->save();
             
@@ -103,48 +117,43 @@ class Categorias extends SuperModel
         public static function editar(Request $request, $userId, $id = null)
         {
             
-            $validator = Validator::make($request->all(), [
-                'categoria' => 'required|max:255',
-                'icone' => 'dimensions:max_width=47,max_height=47',
+            $salvar = Categorias::carregar($id);
+            //dd($salvar);
+            $salvar->userIdUpdated = $userId;            
+            
+            if($request->icone != null)
+            {
+                $icone = $request->file('icone');
+                $ext = ['jpg', 'png', 'jpeg', 'gif'];
                 
-            ],
-            [
-                'categoria.required' => 'Categoria tem que ser preenchido.',
-                'icone.dimensions' => 'Seu ícone deve ter no máximo 47 x 47px.',
-                ]);
-                
-                if ($validator->fails())
+                if($icone->isValid() && in_array($icone->extension(), $ext))
                 {
-                    return redirect()->route('admin.categorias.editar', $id)
-                    ->withErrors($validator)
-                    ->withInput();
+                    $icone = $icone->store('categorias/icones');
+                    $salvar->icone = $icone;
                 }
-
-                    $salvar = Categorias::carregar($id);
-                    //dd($salvar);
-                    $salvar->userIdUpdated = $userId;            
-
-                if($request->icone != null)
-                {
-                    $icone = $request->file('icone');
-                    $ext = ['jpg', 'png', 'jpeg', 'gif'];
-                    
-                    if($icone->isValid() && in_array($icone->extension(), $ext))
-                    {
-                        $icone = $icone->store('categorias/icones');
-                        $salvar->icone = $icone;
-                    }
-                }
-                
-                
-                $salvar->categoria = $request->categoria;
-                
-                $salvar->activated = true;
-                //Falta salvar os arquivos
-                
-                $salvar->save();
-                
-                return $salvar;
             }
+            
+            if($request->banner != null)
+            {
+                $banner = $request->file('banner');
+                $ext = ['jpg', 'png', 'jpeg', 'gif'];
+                
+                if($banner->isValid() && in_array($banner->extension(), $ext))
+                {
+                    $banner = $banner->store('categorias/banners');
+                    $salvar->banner = $banner;
+                }
+            }
+            
+            
+            $salvar->categoria = $request->categoria;
+            
+            //$salvar->activated = $request->activated;
+            $salvar->url_amigavel = $request->url_amigavel;
+            
+            $salvar->save();
+            
+            return $salvar;
         }
-        
+    }
+    

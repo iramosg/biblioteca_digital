@@ -4,6 +4,9 @@
 <link rel="stylesheet" href="{{ asset('css/custom/categoria.css') }}">
 @endsection
 
+@section('titlepage')
+Livros
+@endsection
 
 @section('content')
 <!-- CONTEUDO -->

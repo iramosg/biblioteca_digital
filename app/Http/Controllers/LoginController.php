@@ -11,7 +11,6 @@ use Session;
 use Redirect;
 use Auth;
 use Socialite;
-
 use App\Mail\EsqueciMinhaSenha;
 
 class LoginController extends Controller
@@ -43,7 +42,6 @@ class LoginController extends Controller
     {
         return view('login.login');
     }
-
     public function esqueciminhasenha()
     {
         return view('login.esqueciminhasenha');
@@ -93,5 +91,16 @@ class LoginController extends Controller
         }
     }
     //End Posts
-    
+    //Esqueci minha senha
+    //Rota View Esqueci minha senha
+    public function esquecisenha(){
+        return view('login.esqueciminhasenha');
+    }
+    //Medoto Esqueci minha senha
+    public function resetarsenha(Request $request){
+        // dd($request->all());
+            $reset = Usuarios::resetar($request);
+    }
+    //End Medoto Esqueci minha senha
+    //End Esqueci minha senha
 }
