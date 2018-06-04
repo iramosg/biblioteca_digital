@@ -27,7 +27,7 @@ Route::prefix('login')->as('login.')->group(function(){
 	//Método de Resetar a Senha
 	Route::post('resetarsenha', 'LoginController@resetarsenha')->name('resetarsenha');
 	//Método de Cadastro(Salvar)
-	Route::post('cadastrar', 'UsuariosController@store')->name('store');
+	Route::post('store', 'UsuariosController@store')->name('store');
 	//Método para Entrar
 	Route::post('entrar', 'LoginController@entrar')->name('entrar'); 
 	

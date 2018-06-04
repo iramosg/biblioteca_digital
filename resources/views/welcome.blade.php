@@ -16,7 +16,11 @@ Página Inicial
 	<!-- Apresentacao -->
 	<section class="bg-full gap">
 		<div class="grid-container">
+			@isset(Auth::user()->nome)
+			<h1>{{ Auth::user()->nome }}</h1>
+			@endisset
 			<div class="box-categorias">
+
 				@if(!empty($categorias))
 				@foreach($categorias as $c)
 				<div class="item animais">

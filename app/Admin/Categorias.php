@@ -100,8 +100,8 @@ class Categorias extends SuperModel
                 
                 if($banner->isValid() && in_array($icone->extension(), $ext))
                 {
-                    $banner = $icone->store('categorias/banners');
-                    $salvar->icone = $banner;
+                    $banner = $banner->store('categorias/banners');
+                    $salvar->banner = $banner;
                 }
             }
             

@@ -16,7 +16,7 @@ class CreateUsuariosTable extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('redes_sociais_id')->unsigned();
+            $table->integer('redes_sociais_id')->nullable()->unsigned();
             $table->foreign('redes_sociais_id')->references('id')->on('redes_sociais_usuarios');
             
             $table->string('nome');            

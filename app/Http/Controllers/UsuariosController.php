@@ -26,7 +26,7 @@ class UsuariosController extends Controller
 
             if($usuarios->id > 0){
                 Session::put("sucesso", true); 
-                return redirect()->route('login.cadastrar');
+                return redirect()->route('login.index');
             }
 
             Session::put("erro", true); 

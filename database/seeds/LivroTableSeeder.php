@@ -27,7 +27,7 @@ class LivroTableSeeder extends Seeder
             'preco' => $faker->numberBetween($min = 10, $max = 1000),
             'download_previo' => $faker->word,
             'download' => $faker->word,
-            'url_amigavel' => $faker->word,
+            'url_amigavel' => $faker->unique()->word(),
             'userIdCreated' => 1
 
         ]);

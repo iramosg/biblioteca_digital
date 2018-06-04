@@ -16,11 +16,11 @@ Perfil de {{ $perfil->nome}}
     <div class="grid-container">
         <section class="apresentacao-usario gap">
             <div class="capa">
-            <img src="{{ $perfil->capa }}" alt="{{ $perfil->nome}} {{ $perfil->sobrenome}}">
+            <img src="{{ asset("$perfil->capa") }}" alt="{{ $perfil->nome}} {{ $perfil->sobrenome}}">
             </div>
             <div class="infos-user">
                 <div class="foto-perfil">
-                    <img src="{{ $perfil->foto }}" alt="{{ $perfil->nome}} {{ $perfil->sobrenome}}">
+                    <img src="{{ asset("$perfil->foto") }}" alt="{{ $perfil->nome}} {{ $perfil->sobrenome}}">
                 </div>
                 <div class="data">
                     <p class="name">{{ $perfil->nome}} {{ $perfil->sobrenome}}</p>
