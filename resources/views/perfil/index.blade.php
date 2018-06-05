@@ -29,8 +29,8 @@ Perfil de {{ $perfil->nome}}
             </div>
             <nav class="menu-user">
                 <ul class="menu-esquerda">
-                    <li>9999+ Seguidores</li>
-                    <li>9999+ Seguindo</li>
+                    <li>{{ $totalSeguidores }} Seguidores</li>
+                    <li>{{ $totalSeguindo }} Seguindo</li>
                     <li>Publicações</li>
                 </ul>
                 
@@ -42,8 +42,12 @@ Perfil de {{ $perfil->nome}}
             </nav>
         </section>
         
-        <section class="conteudo">
-            
+        <section class="conteudo" style="height:300px;">
+                @if(!empty($seguidores))
+                @foreach($seguidores as $s)
+                    <p>{{ $s->usuario->nome }}</p>
+                @endforeach
+                @endif
         </section>
     </div>
 </section>

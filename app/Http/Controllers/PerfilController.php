@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Usuarios;
+use App\Seguidores;
 
 class PerfilController extends Controller
 {
@@ -12,6 +13,12 @@ class PerfilController extends Controller
     public function index($url_amigavel)
     {
         $perfil = Usuarios::perfilUrl($url_amigavel);
-        return view('perfil.index', compact('perfil'));
+        $seguidores = Seguidores::seguidoresUsuario($perfil->id);
+        $livros = Livros::livrosUsuario($perfil->id);
+
+        $totalSeguidores = Seguidores::seguidoresUsuarioCount($perfil->id);
+        $totalSeguindo = Seguidores::seguindoUsuarioCount($perfil->id);
+
+        return view('perfil.index', compact(['perfil', 'seguidores', 'totalSeguidores', 'totalSeguindo']));
     }
 }

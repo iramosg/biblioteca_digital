@@ -32,17 +32,17 @@ Livros
             </ul>
         </nav>
         
-        <form action="{{ route('livros.buscar') }}" method="POST">
-            {{ csrf_field() }}
-            <input type="text" name="busca" placeholder="Buscar">
-            <button>Enviar</button>
-        </form>
-        
         <div class="produtos">
             <div class="box-title blue">
                 <p class="h1">Livros</p>
             </div>
-            
+
+            <form action="{{ route('livros.buscar') }}" method="POST">
+                    {{ csrf_field() }}
+                    <input type="text" name="busca" placeholder="Buscar">
+                    <button>Enviar</button>
+                </form>
+
             <div class="grid-produtos">
                 @if(!empty($livros))
                 @foreach($livros as $l)
@@ -59,8 +59,6 @@ Livros
                 @endforeach
                 @endif
             </div>
-            
-            {{ $livros->links() }}
 		</div>
 	</section>
     @endsection

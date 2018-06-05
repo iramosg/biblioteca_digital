@@ -23,7 +23,7 @@ Route::prefix('login')->as('login.')->group(function(){
 	Route::get('esqueci-minha-senha', 'LoginController@esqueciminhasenha')->name('esqueciminhasenha'); 
 	//Página de Cadastro
 	Route::get('cadastrar', 'UsuariosController@cadastrar')->name('cadastrar'); 
-
+	
 	//Método de Resetar a Senha
 	Route::post('resetarsenha', 'LoginController@resetarsenha')->name('resetarsenha');
 	//Método de Cadastro(Salvar)
@@ -39,20 +39,26 @@ Route::prefix('login')->as('login.')->group(function(){
 Route::prefix('categoria')->as('categoria.')->group(function(){
 	//Página de Login
 	Route::get('{url_amigavel}', 'CategoriasController@index')->name('index');
-
+	
 });
 
 
 Route::prefix('livros')->as('livros.')->group(function(){
 	//Página de Login
 	Route::get('', 'LivrosController@index')->name('index');
-
+	Route::get('{url_amigavel}', 'LivrosController@livro')->name('livro');
+	Route::post('buscar', 'LivrosController@livroBusca')->name('buscar');
+	
 });
 
 Route::prefix('perfil')->as('perfil.')->group(function(){
 	//Página de Login
 	Route::get('{url_amigavel}', 'PerfilController@index')->name('index');
-
+	
+	Route::prefix('amigo')->as('amigo.')->group(function(){
+		Route::post('adicionar', 'SeguidoresController@adicionar')->name('adicionar');
+		Route::get('remover', 'SeguidoresController@remover')->name('remover');
+	});
 });
 
 
@@ -61,7 +67,7 @@ Route::prefix('perfil')->as('perfil.')->group(function(){
 //Rotas do Painel Administrativo
 Route::prefix('admin')->as('admin.')->group(function(){
 	Route::get('', 'Admin\HomeController@index')->name('index');  
-
+	
 	Route::prefix('login')->as('login.')->group(function(){
 		Route::get('', 'Admin\LoginController@index')->name('index');       
 		Route::get('logout', 'Admin\LoginController@logout')->name('logout');       
@@ -78,7 +84,7 @@ Route::prefix('admin')->as('admin.')->group(function(){
 		Route::get('', 'Admin\CategoriasController@index')->name('index');    
 		Route::get('editar/{id}', 'Admin\CategoriasController@edit')->name('editar');    
 		Route::get('cadastrar', 'Admin\CategoriasController@create')->name('cadastrar');
-
+		
 		Route::post('save', 'Admin\CategoriasController@store')->name('store');    
 		Route::post('edit', 'Admin\CategoriasController@update')->name('edit');    
 	});
@@ -88,7 +94,7 @@ Route::prefix('admin')->as('admin.')->group(function(){
 		Route::get('usuarios', 'Admin\UsuariosController@usuarios')->name('usuarios');
 		Route::get('editar/{id}', 'Admin\UsuariosController@editar')->name('editar');    
 		Route::get('cadastrar', 'Admin\UsuariosController@create')->name('cadastrar'); 
-
+		
 		Route::post('edit', 'Admin\UsuariosController@update')->name('edit');    
 		Route::post('save', 'Admin\UsuariosController@store')->name('save');    
 		

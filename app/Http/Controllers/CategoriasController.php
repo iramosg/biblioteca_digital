@@ -15,7 +15,6 @@ class CategoriasController extends Controller
 
         $livros = Livros::livrosCategoria($categoria->id);
         //dd($livros);
-
         return view('categorias.categoria', compact(['categoria', 'livros']));
     }
 }

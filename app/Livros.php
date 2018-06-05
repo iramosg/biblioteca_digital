@@ -53,6 +53,11 @@ class Livros extends SuperModel
         return Livros::find($id);
     }
 
+    public static function carregarLivroUrl($url_amigavel)
+    {
+        return Livros::where('url_amigavel', $url_amigavel)->first();
+    }
+
     public static function livrosCategoria($id)
     {
         return Livros::where('categoria_id', $id)->get();
@@ -61,6 +66,11 @@ class Livros extends SuperModel
     public static function livrosUsuario($id)
     {
         return Livros::where('autor_id', $id)->get();
+    }
+
+    public static function buscar($like)
+    {
+        return Livros::where('titulo', 'LIKE', "%{$like}%")->get();
     }
     
     public static function salvar(Request $request, $userId, $id = null)

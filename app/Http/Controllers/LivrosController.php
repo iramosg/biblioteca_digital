@@ -15,6 +15,21 @@ class LivrosController extends Controller
         return view('livros.index', compact('livros'));
     }
     
+    //View que retorna a visualização do livro (página interna)
+    public function livro($url_amigavel)
+    {
+        $livro = Livros::carregarLivroUrl($url_amigavel);
+        return view('livros.livro', compact('livro'));
+    }
+
+    public function livroBusca(Request $request)
+    {
+        //dd($request);
+        $livros = Livros::buscar($request->busca);
+        //dd($livros);
+        return view('livros.buscar', compact('livros'));
+    }
+
     //View para salvar livro
     public function create()
     {
