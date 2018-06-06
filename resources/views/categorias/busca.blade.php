@@ -5,7 +5,7 @@
 @endsection
 
 @section('titlepage')
-Você buscou por: {{ $busca }}
+Você buscou por: {{ $like }}
 @endsection
 
 @section('content')
@@ -34,7 +34,7 @@ Você buscou por: {{ $busca }}
         
         <div class="produtos">
             <div class="box-title blue">
-                <p class="h1">Você buscou por: {{ $busca }}</p>
+                <p class="h1">Você buscou por: {{ $like }}</p>
             </div>
 
             <form action="{{ route('livros.buscar') }}" method="POST">

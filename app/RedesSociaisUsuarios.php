@@ -31,6 +31,11 @@ class RedesSociaisUsuarios extends Model
         return $this->belongsTo('App\Usuarios');
     }
 
+    public static function carregar($id)
+    {
+        return RedesSociaisUsuarios::find($id);
+    }
+
     public static function salvar(Request $request, $userId, $id = null)
     {
         

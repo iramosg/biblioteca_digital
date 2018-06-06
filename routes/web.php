@@ -39,6 +39,7 @@ Route::prefix('login')->as('login.')->group(function(){
 Route::prefix('categoria')->as('categoria.')->group(function(){
 	//Página de Login
 	Route::get('{url_amigavel}', 'CategoriasController@index')->name('index');
+	Route::post('buscar', 'CategoriasController@buscarLivro')->name('buscar');
 	
 });
 
@@ -47,13 +48,16 @@ Route::prefix('livros')->as('livros.')->group(function(){
 	//Página de Login
 	Route::get('', 'LivrosController@index')->name('index');
 	Route::get('{url_amigavel}', 'LivrosController@livro')->name('livro');
-	Route::post('buscar', 'LivrosController@livroBusca')->name('buscar');
+	Route::post('buscar', 'LivrosController@buscarLivro')->name('buscar');
 	
 });
 
 Route::prefix('perfil')->as('perfil.')->group(function(){
-	//Página de Login
+	//Página de Perfil
 	Route::get('{url_amigavel}', 'PerfilController@index')->name('index');
+	Route::get('editar/{url_amigavel}', 'PerfilController@editar')->name('editar');
+
+	Route::post('edit', 'PerfilController@edit')->name('edit');
 	
 	Route::prefix('amigo')->as('amigo.')->group(function(){
 		Route::post('adicionar', 'SeguidoresController@adicionar')->name('adicionar');

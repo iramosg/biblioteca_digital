@@ -17,4 +17,12 @@ class CategoriasController extends Controller
         //dd($livros);
         return view('categorias.categoria', compact(['categoria', 'livros']));
     }
+
+    public function buscarLivro(Request $request)
+    {
+        $categoria  = $request->id;
+        $like = $request->busca;
+        $livros = Livros::buscarLivroCategoria($like, $categoria);
+        return view('categorias.busca', compact(['livros', 'categoria', 'like']));
+    }
 }

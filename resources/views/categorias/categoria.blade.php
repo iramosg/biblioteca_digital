@@ -32,7 +32,12 @@
             </ul>
         </nav>
         
-        
+        <form action="{{ route('categoria.buscar') }}" method="POST">
+                {{ csrf_field() }}
+                <input type="hidden" value="{{ $categoria->id }}" name="id">
+                <input type="text" name="busca" placeholder="Buscar">
+                <button>Enviar</button>
+            </form>
         
         <div class="produtos">
             <div class="box-title blue">
@@ -48,7 +53,7 @@
                         {{ $l->titulo }}
                     </div>
                     <div class="action">
-                        <a href="#" class="btn-secundario">Saiba Mais</a>
+                        <a href="{{ route('livros.livro', ['url_amigavel' => $l->url_amigavel]) }}" class="btn-secundario">Saiba Mais</a>
                     </div>					
                 </div>
                 @endforeach

@@ -72,6 +72,13 @@ class Livros extends SuperModel
     {
         return Livros::where('titulo', 'LIKE', "%{$like}%")->get();
     }
+
+    public static function buscarLivroCategoria($like, $categoria)
+    {
+        return Livros::where('titulo', 'LIKE', "%{$like}%")
+        ->where('categoria_id', $categoria)
+        ->get();
+    }
     
     public static function salvar(Request $request, $userId, $id = null)
     {

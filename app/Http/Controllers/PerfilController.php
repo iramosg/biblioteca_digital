@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Usuarios;
 use App\Seguidores;
+use App\Livros;
+use App\RedesSociaisUsuarios;
 
 class PerfilController extends Controller
 {
@@ -20,5 +22,13 @@ class PerfilController extends Controller
         $totalSeguindo = Seguidores::seguindoUsuarioCount($perfil->id);
 
         return view('perfil.index', compact(['perfil', 'seguidores', 'totalSeguidores', 'totalSeguindo']));
+    }
+
+    public function editar($url_amigavel)
+    {
+        $usuario = Usuarios::perfilUrl($url_amigavel);
+        $redes_sociais = RedesSociaisUsuarios::carregar($usuario->id);
+
+        return view('perfil.editar', compact(['usuario', 'redes_sociais']));
     }
 }

@@ -24,10 +24,11 @@ class LivrosController extends Controller
 
     public function livroBusca(Request $request)
     {
+        $busca = $request->busca;
         //dd($request);
         $livros = Livros::buscar($request->busca);
         //dd($livros);
-        return view('livros.buscar', compact('livros'));
+        return view('livros.buscar', compact(['livros', 'busca']));
     }
 
     //View para salvar livro
