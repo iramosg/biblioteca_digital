@@ -45,16 +45,23 @@
             </div>
 
             <div class="grid-produtos">
-                @if(!empty($livros))
-                @foreach($livros as $l)
-                <div class="item">
-                    <div class="capa">
+                    @if(!empty($livros))
+                    @foreach($livros as $l)
+                <div class="item produto">
+                    <div class="capa gap">
                         <img src="{{ $l->capa }}" alt="{{ $l->titulo }}">
-                        {{ $l->titulo }}
+                    </div>
+                    <div class="box-infos gap">
+                        <p class="book-name txt">{{ $l->titulo }}</p>
+                        <p class="user-name txt">{{ $l->autor->nome }}</p>
+                        <p class="category txt">
+                            <span class="txt lt">Publicado em:</span>
+                            {{ $l->categoria->categoria }}
+                        </p>
                     </div>
                     <div class="action">
-                        <a href="{{ route('livros.livro', ['url_amigavel' => $l->url_amigavel]) }}" class="btn-secundario">Saiba Mais</a>
-                    </div>					
+                        <a href="{{ route('livros.livro', ['url_amigavel' => $l->url_amigavel]) }}" class="btn-principal">Saiba Mais</a>
+                    </div>
                 </div>
                 @endforeach
                 @endif

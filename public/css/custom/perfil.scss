@@ -23,6 +23,15 @@
 			img {
 				width: 100%;
 			}
+
+			.btn-edit {
+				position: absolute;
+				top: 5px;
+				right: 5px;
+				width: auto;
+				padding: 0.5rem 1rem;
+				font-size: 12px;
+			}
 		}
 
 		.infos-user {
@@ -35,7 +44,7 @@
 				height: 150px;
 				overflow: hidden;
 				border-radius: 100%;
-     			border: 4px solid #FFF;
+				border: 4px solid #FFF;
 
 				img {
 					width: 100%;
@@ -66,6 +75,17 @@
 				justify-content: space-around;
 				margin: 0;
 
+				li {
+					a {
+						border-bottom: 2px solid transparent;
+
+						&.ativo {
+							border-bottom-color: #000;
+							color: #000;
+						}
+					}
+				}
+
 				&.menu-esquerda {
 					margin-right: 100px;
 				}
@@ -73,6 +93,155 @@
 				&.menu-direita {
 					margin-left: 100px;
 				}
+			}
+		}
+	}
+
+	.conteudo {
+
+		.user-grid {
+			@include center-full-wrap;
+			margin: 0 -7.5px;
+
+			.user {
+				width: calc(20% - 15px);
+				background: #FFF;
+				border-radius: 3px;
+				overflow: hidden;
+				position: relative;
+				margin: 0 7.5px 15px;
+
+				.capa {
+					width: 100%;
+					height: 120px;
+					background-size: 100%;
+					margin: 0 0 55px;
+				}
+
+				.face {
+					width: 100px;
+					height: 100px;
+					overflow: hidden;
+					border-radius: 100%;
+					border: 4px solid #FFF;
+					position: absolute;
+					left: 50%;
+					margin-left: -50px;
+					top: 65px;
+				}
+
+				.infos-user {
+					text-align: center;
+					padding: 0 20px 20px;
+
+					.user-identify {
+						.city {
+							margin: -5px 0 0 !important;
+						}
+					}
+
+					.user-social {
+						@include center-full;
+						justify-content: center;
+
+						.item {
+							margin: 0 15px;
+
+							.number {
+								font-weight: bold;
+							}
+
+							.txt {
+								font-size: 12px;
+								margin: -5px 0 0 !important;
+							}
+						}
+					}
+
+					.user-action {
+						@include center-full;
+						justify-content: center;
+
+						.btn-principal {
+							padding: 0.5rem 1rem;
+							max-width: 150px;
+						}
+					}
+				}
+			}
+		}
+
+		.about {
+			.center-full {
+				align-items: flex-start;
+			}
+
+			.box-infos {
+				background: #FFF;
+				border-radius: 3px;
+
+				&.box-apresentacao {
+					width: 75%;
+					margin: 0 25px 0 0;
+
+					.item-info {
+						flex-direction: column;
+					}
+				}
+
+				&.box-contato {
+					width: 25%;
+				}
+
+				> p.title {
+					border-bottom: 1px solid $cor-neutra-clara;
+					padding: 25px;
+					margin: 0 0 25px !important;
+				}
+
+				.item-info {
+					display: flex;
+					margin: 25px;
+					align-items: flex-start;
+					border-bottom: 1px solid $cor-neutra-clara;
+					padding: 10px;
+
+					&:last-child {
+						border-bottom: 0;
+					}
+
+					.title {
+						font-weight: bold;
+						color: $cor-neutra-escura;
+						margin: 0 15px 0 0 !important;
+					}
+
+					.txt {
+						text-align: left;
+					}
+				}
+			}
+
+			.sociais {
+				flex-wrap: wrap;
+				.item {
+					@include center-full;
+					justify-content: flex-start;
+					width: 100%;
+					margin: 0 0 25px;
+
+					img {
+						margin: 0 15px 0 0;
+					}
+				}
+			}
+		}
+		
+		.content {
+			display: none;
+
+			&#publicacoes {
+				display: block;
 			}
 		}
 	}

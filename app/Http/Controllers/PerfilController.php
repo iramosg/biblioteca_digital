@@ -21,7 +21,7 @@ class PerfilController extends Controller
         $totalSeguidores = Seguidores::seguidoresUsuarioCount($perfil->id);
         $totalSeguindo = Seguidores::seguindoUsuarioCount($perfil->id);
 
-        return view('perfil.index', compact(['perfil', 'seguidores', 'totalSeguidores', 'totalSeguindo']));
+        return view('perfil.index', compact(['perfil', 'livros', 'seguidores', 'totalSeguidores', 'totalSeguindo']));
     }
 
     public function editar($url_amigavel)

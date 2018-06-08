@@ -263,6 +263,45 @@ p {
     .input-group .label-animado .obrigatorio {
       color: #c10f0f; }
 
+.grid-produtos {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin: 0 -7.5px; }
+  .grid-produtos .produto {
+    width: calc(20% - 15px);
+    margin: 0 7.5px 15px; }
+
+.produto {
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  background: #FFF;
+  border: 1px solid #cfcfcf; }
+  .produto .capa img {
+    width: 100%; }
+  .produto .box-infos {
+    text-align: center;
+    padding: 0 20px; }
+    .produto .box-infos .book-name {
+      margin: 0 0 -5px !important; }
+    .produto .box-infos .user-name {
+      font-size: 12px;
+      margin: 0 0 25px !important; }
+    .produto .box-infos .category .lt {
+      font-size: 12px;
+      display: block;
+      margin: 0 0 -5px !important; }
+  .produto .action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: center;
+    padding: 0 20px 20px; }
+    .produto .action .btn-principal {
+      padding: 0.5rem 1rem;
+      max-width: 150px; }
+
 header {
   position: fixed;
   right: 0;

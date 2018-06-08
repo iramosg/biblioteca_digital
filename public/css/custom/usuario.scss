@@ -1,0 +1,89 @@
+@import "_custom.scss";
+
+.apresentacao-user {
+
+	.apresentacao {
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+
+		.item {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			text-align: center;
+			width: 33.33%;
+			margin: 15px;
+			padding: 15px;
+			// background: $cor-secundaria;
+			border-radius: 3px;
+
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, from($cor-principal), to($cor-secundaria));
+			background-image: -webkit-linear-gradient($cor-principal, $cor-secundaria);
+			background-image:
+				-moz-linear-gradient($cor-principal, $cor-secundaria),
+				-moz-linear-gradient($cor-principal, $cor-secundaria);
+			background-image:
+				-o-linear-gradient($cor-principal, $cor-secundaria),
+				-o-linear-gradient($cor-principal, $cor-secundaria);
+			background-image:
+				linear-gradient($cor-principal, $cor-secundaria),
+				linear-gradient($cor-principal, $cor-secundaria);
+			-moz-background-size: 3px 100%;
+			// background-size: 3px 100%;
+			// background-position: 0 0, 100% 0;
+			background-repeat: no-repeat;
+
+			.icon {
+				background: #FFF;
+				border: 1px solid $cor-secundaria;
+				border-radius: 100%;
+				margin: 0 0 15px;
+				padding: 15px;
+				width: 150px;
+				height: 150px;
+			}
+
+			.conteudo {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+
+				.h4 {
+					max-width: 280px;
+					margin: 0 0 15px !important;
+					color: #FFF !important;
+					@include fonte-destaque;
+				}
+
+				.txt {
+					max-width: 290px;
+					color: #FFF !important;
+					@include fonte-destaque;
+				}
+			}
+
+
+			&:hover {
+				.icon {
+					img {
+						@include animation;
+					}
+				}
+			}
+		}
+	}
+
+	.action {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.button {
+			display: block;
+			max-width: 300px;
+		}
+	}
+}

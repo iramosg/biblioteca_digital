@@ -305,6 +305,55 @@ p {
     .input-group .label-animado .obrigatorio {
       color: #c10f0f; }
 
+/* line 1, _vm-produtos.scss */
+.grid-produtos {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin: 0 -7.5px; }
+  /* line 7, _vm-produtos.scss */
+  .grid-produtos .produto {
+    width: calc(20% - 15px);
+    margin: 0 7.5px 15px; }
+
+/* line 13, _vm-produtos.scss */
+.produto {
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  background: #FFF;
+  border: 1px solid #cfcfcf; }
+  /* line 21, _vm-produtos.scss */
+  .produto .capa img {
+    width: 100%; }
+  /* line 26, _vm-produtos.scss */
+  .produto .box-infos {
+    text-align: center;
+    padding: 0 20px; }
+    /* line 30, _vm-produtos.scss */
+    .produto .box-infos .book-name {
+      margin: 0 0 -5px !important; }
+    /* line 34, _vm-produtos.scss */
+    .produto .box-infos .user-name {
+      font-size: 12px;
+      margin: 0 0 25px !important; }
+    /* line 40, _vm-produtos.scss */
+    .produto .box-infos .category .lt {
+      font-size: 12px;
+      display: block;
+      margin: 0 0 -5px !important; }
+  /* line 48, _vm-produtos.scss */
+  .produto .action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: center;
+    padding: 0 20px 20px; }
+    /* line 53, _vm-produtos.scss */
+    .produto .action .btn-principal {
+      padding: 0.5rem 1rem;
+      max-width: 150px; }
+
 /* line 1, _header.scss */
 header {
   position: fixed;
@@ -463,118 +512,49 @@ footer {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap; }
-
-/* line 41, cadastro-livro.scss */
-#uploadChange {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 46px;
-  opacity: 0.01;
-  z-index: 1;
-  cursor: pointer;
-  margin: 0; }
-
-/* line 52, cadastro-livro.scss */
-#message {
-  overflow: hidden;
-  padding: 0.7rem;
-  background-color: #FFF;
-  border-radius: 3px;
-  outline: none;
-  font-size: 0.9rem;
-  color: #575757;
-  border: 1px solid #cacaca;
-  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
-  -webkit-appearance: none;
-  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
-  font-weight: normal;
-  line-height: 1.5;
-  box-sizing: border-box;
-  width: calc(100% - 165px);
-  margin: 0 15px 0 0; }
-
-/* line 70, cadastro-livro.scss */
-#botao {
-  top: -1.5px;
-  width: 100%;
-  position: relative;
-  top: 0;
-  padding: 1rem 2rem;
-  border: 1px solid;
-  border-radius: 3px !important;
-  outline: none;
-  text-align: center;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: block;
-  background-color: #82a5d6;
-  border-color: #82a5d6;
-  box-shadow: 0 3px 0 #4b668b;
-  color: #FFF;
-  width: 150px;
-  padding: 0.8rem 2rem; }
-  /* line 50, _vm-botoes.scss */
-  #botao:hover, #botao:focus {
-    background-color: #6b93cb;
-    border-color: #6b93cb;
-    box-shadow: #3b5981;
-    color: #FFF; }
-  /* line 58, _vm-botoes.scss */
-  #botao:active {
-    top: 3px;
-    box-shadow: none; }
-
-/* line 75, cadastro-livro.scss */
-#lista {
-  width: 100%; }
-
-/* line 78, cadastro-livro.scss */
-#lista ol {
-  margin-bottom: 0; }
-
-/* line 81, cadastro-livro.scss */
-#lista ol li {
-  border-bottom: 1px solid #eee;
-  padding: 10px;
-  display: block;
-  clear: left;
-  margin-bottom: 2px; }
-
-/* line 88, cadastro-livro.scss */
-#lista ol li.item_grey {
-  background: #f9f9f9; }
-
-/* line 91, cadastro-livro.scss */
-a.remove {
-  text-decoration: none;
-  color: #ff7b00;
-  display: block;
-  font-size: 16px;
-  width: 20px;
-  float: right;
-  font-weight: bold; }
-
-/* line 100, cadastro-livro.scss */
-a.remove:hover {
-  color: red; }
-
-/* line 107, cadastro-livro.scss */
-img.item {
-  max-width: 100%;
-  max-height: 100%; }
-
-/* line 112, cadastro-livro.scss */
-.box-images {
-  height: 30px;
-  width: 30px;
-  background-color: #eee;
-  border: 1px solid #eee;
-  margin-bottom: 15px;
-  /* Centralizando imagens */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  float: left;
-  margin: 0 10px 20px 0; }
+  /* line 41, cadastro-livro.scss */
+  #multiple_upload .targetChange {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 46px;
+    opacity: 0.01;
+    z-index: 1;
+    cursor: pointer;
+    margin: 0; }
+  /* line 53, cadastro-livro.scss */
+  #multiple_upload .message {
+    overflow: hidden;
+    padding: 0.7rem;
+    background-color: #FFF;
+    border-radius: 3px;
+    outline: none;
+    font-size: 0.9rem;
+    color: #575757;
+    border: 1px solid #cacaca;
+    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+    -webkit-appearance: none;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    font-weight: normal;
+    line-height: 1.5;
+    box-sizing: border-box;
+    width: calc(100% - 165px);
+    margin: 0 15px 0 0; }
+  /* line 72, cadastro-livro.scss */
+  #multiple_upload .btn {
+    width: 150px;
+    padding: 0.8rem 2rem; }
+  /* line 77, cadastro-livro.scss */
+  #multiple_upload #lista {
+    width: 100%; }
+    /* line 80, cadastro-livro.scss */
+    #multiple_upload #lista ol {
+      margin-bottom: 0; }
+      /* line 83, cadastro-livro.scss */
+      #multiple_upload #lista ol li {
+        border-bottom: 1px solid #eee;
+        padding: 10px;
+        display: block;
+        clear: left;
+        margin-bottom: 2px; }

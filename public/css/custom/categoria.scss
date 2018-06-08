@@ -40,23 +40,4 @@
 			}
 		}
 	}
-
-	.grid-produtos {
-		display: flex;
-		align-items: stretch;
-		justify-content: center;
-		flex-wrap: wrap;
-		margin: 0 -7.5px;
-
-		.item {
-			width: calc(20% - 15px);
-			margin: 7.5px;
-
-			.capa {
-				img {
-					width: 100%;;
-				}
-			}
-		}
-	}
 }

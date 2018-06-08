@@ -1,0 +1,58 @@
+.grid-produtos {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin: 0 -7.5px;
+
+    .produto {
+        width: calc(20% - 15px);
+        margin: 0 7.5px 15px;
+    }
+}
+
+.produto {
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    background: #FFF;
+    border: 1px solid #cfcfcf;
+
+    .capa {
+        img {
+            width: 100%;;
+        }
+    }
+
+    .box-infos {
+        text-align: center;
+        padding: 0 20px;
+
+        .book-name {
+            margin: 0 0 -5px !important;
+        }
+
+        .user-name {
+            font-size: 12px;
+            margin: 0 0 25px !important;
+        }
+
+        .category {
+            .lt {
+                font-size: 12px;
+                display: block;
+                margin: 0 0 -5px !important;
+            }
+        }
+    }
+
+    .action {
+        @include center-full;
+        justify-content: center;
+        padding: 0 20px 20px;
+
+        .btn-principal {
+            padding: 0.5rem 1rem;
+            max-width: 150px;
+        }
+    }       
+}
