@@ -21,9 +21,8 @@ Escritor
 				<div class="cell small-12">
 
 					<section class="content gap-big">
-						<p class="txt text-center">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus posuere porta. In dignissim a libero in malesuada. Proin a odio nisi. Aliquam erat volutpat. Suspendisse feugiat, nibh consequat imperdiet sodales, nibh libero ullamcorper enim, at pretium dui lectus sit amet ex. Aliquam erat volutpat. Nullam sapien metus, eleifend sed felis ac, auctor cursus leo. Aenean quis metus consectetur, semper dolor sed, ullamcorper nibh. Proin feugiat luctus mollis. Donec commodo pretium ipsum, sed volutpat massa mattis sed.
-						</p>
+						<p class="txt text-center">Você contará com soluções para aqueles que querem produzir seu conteúdo   de   forma   independente, que   vão   desde   lições   básicas   para   o desenvolvimento do seu primeiro e-book, como vídeos aulas, dicas de quem já produz, até meios de pagamento e acompanhamento de suas vendas.</p>
+						<p class="txt text-center">Também será fornecido ferramentas para auxiliar a divulgação do seu e-book, como ferramentas de afiliados, onde o criador poderá contar com o apoio de diversos usuários em troca de uma pequena parte da venda final.</p>
 					</section>
 
 					<section class="produtor apresentacao-user gap">
@@ -80,9 +79,7 @@ Escritor
 					</section>
 
 					<section class="content gap-big">
-						<p class="txt text-center">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus posuere porta. In dignissim a libero in malesuada. Proin a odio nisi. Aliquam erat volutpat. Suspendisse feugiat, nibh consequat imperdiet sodales, nibh libero ullamcorper enim, at pretium dui lectus sit amet ex. Aliquam erat volutpat. Nullam sapien metus, eleifend sed felis ac, auctor cursus leo. Aenean quis metus consectetur, semper dolor sed, ullamcorper nibh. Proin feugiat luctus mollis. Donec commodo pretium ipsum, sed volutpat massa mattis sed.
-						</p>
+						<p class="txt text-center">Para mensurar o seu trabalho, o produtor também terá à sua disposição grupos de discussão, onde os leitores poderão dar feedbacks sobre seu livro, sendo então oferecida uma página onde os usuários possam realizar o download prévio do e-book e assim possam opinar de uma maneira fiel ao conteúdo produzido.</p>
 					</section>
 				</div>				
 			</div>

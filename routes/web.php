@@ -48,7 +48,7 @@ Route::prefix('categoria')->as('categoria.')->group(function(){
 
 Route::prefix('livros')->as('livros.')->group(function(){
 	//Página de Login
-	Route::get('', 'LivrosController@index')->name('index');
+	Route::get('listar', 'LivrosController@index')->name('index');
 	Route::get('page/{url_amigavel}', 'LivrosController@livro')->name('livro');
 	Route::get('cadastrar', 'LivrosController@create')->name('cadastrar');
 	

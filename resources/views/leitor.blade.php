@@ -22,7 +22,7 @@ Leitor
 
                 <section class="content gap-big">
                     <p class="txt text-center">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus posuere porta. In dignissim a libero in malesuada. Proin a odio nisi. Aliquam erat volutpat. Suspendisse feugiat, nibh consequat imperdiet sodales, nibh libero ullamcorper enim, at pretium dui lectus sit amet ex. Aliquam erat volutpat. Nullam sapien metus, eleifend sed felis ac, auctor cursus leo. Aenean quis metus consectetur, semper dolor sed, ullamcorper nibh. Proin feugiat luctus mollis. Donec commodo pretium ipsum, sed volutpat massa mattis sed.
+                        Conheça e viva novas experiências com nossa plataforma, acesse e divirta-se com as histórias dos produtores independentes que oferecem o melhor conteúdo, se você é fã de leitura veio ao lugar certo. Conhecimento, emoção, entretenimento e muita diversão é o que te esperam.
                     </p>
                 </section>
 
@@ -73,15 +73,14 @@ Leitor
                         </div>
 
                         <div class="action">
-                            <a href="#" class="button btn-secundario">Quero ser um produtor!</a>
+                        <a href="{{ route('escritor') }}" class="button btn-secundario">Quero ser um produtor!</a>
                         </div>
                     </div>
                 </section>					
 
                 <section class="content gap-big">
                     <p class="txt text-center">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus posuere porta. In dignissim a libero in malesuada. Proin a odio nisi. Aliquam erat volutpat. Suspendisse feugiat, nibh consequat imperdiet sodales, nibh libero ullamcorper enim, at pretium dui lectus sit amet ex. Aliquam erat volutpat. Nullam sapien metus, eleifend sed felis ac, auctor cursus leo. Aenean quis metus consectetur, semper dolor sed, ullamcorper nibh. Proin feugiat luctus mollis. Donec commodo pretium ipsum, sed volutpat massa mattis sed.
-                    </p>
+                            Ainda não está convencido? Nossa plataforma oferece também interatividade entre leitor e produtor tendo a disposição grupos onde os leitores poderão levantar suas concepções sobre a obra que estiver lendo assim fazendo um feedback da leitura direito para o autor do e-book, além de diversos planos para navegar na plataforma de acordo com suas necessidades e muita informação para seu conhecimento estar sempre em dia.                    </p>
                 </section>
             </div>
         </div>
