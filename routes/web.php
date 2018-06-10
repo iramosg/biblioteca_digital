@@ -17,7 +17,6 @@ Route::get('escritor', 'HomeController@escritor')->name('escritor');
 Route::get('leitor', 'HomeController@leitor')->name('leitor');
 Route::get('sobre', 'HomeController@sobre')->name('sobre');
 
-
 //Rotas referente ao Login
 Route::prefix('login')->as('login.')->group(function(){
 	//Página de Login
@@ -50,16 +49,20 @@ Route::prefix('categoria')->as('categoria.')->group(function(){
 Route::prefix('livros')->as('livros.')->group(function(){
 	//Página de Login
 	Route::get('', 'LivrosController@index')->name('index');
-	Route::get('{url_amigavel}', 'LivrosController@livro')->name('livro');
+	Route::get('page/{url_amigavel}', 'LivrosController@livro')->name('livro');
+	Route::get('cadastrar', 'LivrosController@create')->name('cadastrar');
+	
 	Route::post('buscar', 'LivrosController@buscarLivro')->name('buscar');
+	Route::post('save', 'LivrosController@store')->name('save');
+	Route::post('edit', 'LivrosController@edit')->name('edit');
 	
 });
 
 Route::prefix('perfil')->as('perfil.')->group(function(){
 	//Página de Perfil
-	Route::get('{url_amigavel}', 'PerfilController@index')->name('index');
-	Route::get('editar/{url_amigavel}', 'PerfilController@editar')->name('editar');
-
+	Route::get('usuario/{url_amigavel}', 'PerfilController@index')->name('index');
+	Route::get('editar', 'PerfilController@editar')->name('editar');
+	
 	Route::post('edit', 'PerfilController@edit')->name('edit');
 	
 	Route::prefix('amigo')->as('amigo.')->group(function(){

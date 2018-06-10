@@ -6,29 +6,53 @@ use Illuminate\Http\Request;
 use App\Usuarios;
 use App\Seguidores;
 use App\Livros;
-use App\RedesSociaisUsuarios;
+use Auth;
+use Session;
 
 class PerfilController extends Controller
 {
     //View que retorna o perfil do usuário
-
+    
     public function index($url_amigavel)
     {
         $perfil = Usuarios::perfilUrl($url_amigavel);
         $seguidores = Seguidores::seguidoresUsuario($perfil->id);
+        $seguindo = Seguidores::seguindoUsuario($perfil->id);
         $livros = Livros::livrosUsuario($perfil->id);
-
+        
         $totalSeguidores = Seguidores::seguidoresUsuarioCount($perfil->id);
         $totalSeguindo = Seguidores::seguindoUsuarioCount($perfil->id);
-
-        return view('perfil.index', compact(['perfil', 'livros', 'seguidores', 'totalSeguidores', 'totalSeguindo']));
+        
+        return view('perfil.index', compact(['perfil', 'livros', 'seguidores', 'seguindo', 'totalSeguidores', 'totalSeguindo']));
     }
-
-    public function editar($url_amigavel)
+    
+    public function editar()
     {
-        $usuario = Usuarios::perfilUrl($url_amigavel);
-        $redes_sociais = RedesSociaisUsuarios::carregar($usuario->id);
+        $perfil = Usuarios::carregar(Auth::id());
+        return view('perfil.editar', compact('perfil'));
+    }
+    
+    public function edit(Request $request)
+    {
+        //dd($request);
 
-        return view('perfil.editar', compact(['usuario', 'redes_sociais']));
+        try{
+            
+            $perfil = Usuarios::editar($request, Auth::id());
+            
+            if($perfil->id > 0){
+                Session::put("sucesso", true); 
+                return redirect()->route('perfil.index', ['url_amigavel' => $request->url_amigavel]);
+            }
+            
+            Session::put("erro", true); 
+            return redirect()->route('perfil.editar')->withInput();
+
+        }catch(\Exception $e){ 
+            
+            $this->saveErros($e, Auth::id());
+            Session::put("erro", true); 
+            return redirect()->route('perfil.editar')->withInput();  
+        }
     }
 }

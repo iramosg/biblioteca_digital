@@ -26,17 +26,23 @@ class Seguidores extends Model
     
     public static function seguidoresUsuario($id)
     {
+        return Seguidores::where('amigo_id', $id)->get();
+    }
+
+    public static function seguindoUsuario($id)
+    {
         return Seguidores::where('usuario_id', $id)->get();
     }
 
+
     public static function seguidoresUsuarioCount($id)
     {
-        return Seguidores::where('usuario_id', $id)->count();
+        return Seguidores::where('amigo_id', $id)->count();
     }
 
     public static function seguindoUsuarioCount($id)
     {
-        return Seguidores::where('amigo_id', $id)->count();
+        return Seguidores::where('usuario_id', $id)->count();
     }
 
 

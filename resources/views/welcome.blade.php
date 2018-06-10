@@ -88,7 +88,7 @@ Página Inicial
 			</div>
 			
 			<div class="box-cta">
-				<a href="#" class="btn-cta">Conheça a Plataforma</a>
+				<a href="{{ route('sobre') }}" class="btn-cta">Conheça a Plataforma</a>
 			</div>
 		</div>
 	</section>

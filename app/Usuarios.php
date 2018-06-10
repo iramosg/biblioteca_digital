@@ -137,7 +137,53 @@ class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPa
             $salvar->telefone = $request->telefone;
             $salvar->senha = Hash::make($request->senha);
             $salvar->url_amigavel = $request->url_amigavel;
-            $salvar->remember_token = str_random(20);  
+            $salvar->save();
+            
+            return $salvar;
+        }
+        
+        public static function editar(Request $request, $id)
+        {
+            
+            $salvar = Usuarios::carregar($id);
+            $salvar->userIdUpdated = $id; 
+            
+            if($request->foto != null)
+            {
+                $foto = $request->file('foto');
+                $ext = ['jpg', 'png', 'jpeg', 'gif'];
+                
+                if($foto->isValid() && in_array($foto->extension(), $ext))
+                {
+                    //$icone = Storage::putFile('categorias/icones', $request->file('icone'));
+                    $foto = $foto->store('perfil/fotos');
+                    $salvar->foto = $foto;
+                    //dd($icone);
+                }
+                
+                //dd($icone);
+            }
+            
+            if($request->capa != null)
+            {
+                $capa = $request->file('capa');
+                $ext = ['jpg', 'png', 'jpeg', 'gif'];
+                
+                if($capa->isValid() && in_array($capa->extension(), $ext))
+                {
+                    $capa = $capa->store('perfil/capas');
+                    $salvar->capa = $capa;
+                }
+            }
+            
+            $salvar->nome = $request->nome;
+            $salvar->sobrenome = $request->sobrenome;
+            $salvar->sobre = $request->sobre;
+            $salvar->email = $request->email;
+            $salvar->data_nascimento = $request->data_nascimento;
+            $salvar->telefone = $request->telefone;
+            $salvar->senha = Hash::make($request->senha);
+            $salvar->url_amigavel = $request->url_amigavel;
             $salvar->save();
             
             return $salvar;

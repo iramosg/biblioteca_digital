@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Livros;
+use App\Admin\Categorias;
+use Auth;
+use Session;
 
 class LivrosController extends Controller
 {
@@ -34,16 +37,18 @@ class LivrosController extends Controller
     //View para salvar livro
     public function create()
     {
-        return view('livros.cadastrar');
+        $categorias = Categorias::lista();
+        return view('livros.cadastrar', compact('categorias'));
     }
     
     //Função para cadastrar livro no banco de dados
     public function store(Request $request)
     {
+        //dd($request);
         try
         {
-            $livro = Livro::salvar($request, Auth::id());
-            
+            $livro = Livros::salvar($request, Auth::id());
+            //dd($livro);
             if($livro->id > 0)
             {
                 Session::put("sucesso", true); 
@@ -51,13 +56,13 @@ class LivrosController extends Controller
             }
             
             Session::put("erro", true); 
-            return redirect()->route('livros.cadastrar');   
+            return redirect()->route('livros.cadastrar')->withInput();   
             
         } catch(\Exception $e)
         {
             $this->saveErros($e, Auth::id());
             Session::put("erro", true); 
-            return redirect()->route('livros.cadastrar');  
+            return redirect()->route('livros.cadastrar')->withInput();  
         }
     }
     

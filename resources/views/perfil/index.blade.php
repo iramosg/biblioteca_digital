@@ -5,27 +5,28 @@
 @endsection
 
 @section('titlepage')
-Perfil de {{ $perfil->nome}}
+Perfil de {{ $perfil->nome }}
 @endsection
 
 
 @section('content')
-
-<!-- CONTEUDO -->
 <!-- CONTEUDO -->
     <section id="perfil">
         <div class="grid-container">
             <section class="apresentacao-usario gap">
                 <div class="capa">
-                    <img src="{{ asset("$perfil->capa") }}" alt="{{ $perfil->nome}} {{ $perfil->sobrenome}}">
-                    <a href="#" class="btn-edit btn-principal">Editar Perfil</a>
+                    <img src="{{ asset("$perfil->capa") }}" alt="{{ $perfil->nome}} {{ $perfil->sobrenome }}">
+
+                    @if(Auth::id() == $perfil->id)
+                <a href="{{ route('perfil.editar') }}" class="btn-edit btn-principal">Editar Perfil</a>
+                @endif
                 </div>
                 <div class="infos-user">
                     <div class="foto-perfil">
-                        <img src="{{ asset("$perfil->foto") }}" alt="{{ $perfil->nome}} {{ $perfil->sobrenome}}">
+                        <img src="{{ asset("$perfil->foto") }}" alt="{{ $perfil->nome}} {{ $perfil->sobrenome }}">
                     </div>
                     <div class="data">
-                        <p class="name">{{ $perfil->nome}} {{ $perfil->sobrenome}}</p>
+                        <p class="name">{{ $perfil->nome }} {{ $perfil->sobrenome }}</p>
                         <p class="cidade"><span>@</span>{{ $perfil->url_amigavel }}</p>
                     </div>
                 </div>
@@ -60,7 +61,7 @@ Perfil de {{ $perfil->nome}}
                                     <p class="city"><span>@</span>{{ $s->usuario->url_amigavel }}</p>
                                 </div>
                                 <div class="user-action">
-                                    <a class="btn-principal">Visitar Perfil</a>
+                                    <a class="btn-principal" href="{{ route('perfil.index', ['url_amigavel' => $s->usuario->url_amigavel]) }}">Visitar Perfil</a>
                                 </div>
                             </div>
                         </div>
@@ -71,8 +72,8 @@ Perfil de {{ $perfil->nome}}
 
                 <div class="content" id="seguindo">
                     <div class="user-grid">
-                            @if(!empty($seguidores))
-                            @foreach($seguidores as $s)
+                            @if(!empty($seguindo))
+                            @foreach($seguindo as $s)
                         <div class="user">
                             <div class="capa" style="background-image: url('{{ asset('$s->usuario->capa') }}')"></div>
                             <div class="face">
@@ -84,7 +85,7 @@ Perfil de {{ $perfil->nome}}
                                     <p class="city"><span>@</span>{{ $s->url_amigavel }}</p>
                                 </div>
                                 <div class="user-action">
-                                    <a class="btn-principal">Visitar Perfil</a>
+                                <a class="btn-principal" href="{{ route('perfil.index', ['url_amigavel' => $s->usuario->url_amigavel]) }}">Visitar Perfil</a>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +94,7 @@ Perfil de {{ $perfil->nome}}
                     </div>
                 </div>
 
-                <div class="content" id="publicacoes">
+                <div class="content" id="biblioteca">
                         <div class="grid-produtos">
                                 @if(!empty($livros))
                                 @foreach($livros as $l)
@@ -118,7 +119,7 @@ Perfil de {{ $perfil->nome}}
                         </div>
                     </div>
 
-                <div class="content" id="biblioteca">
+                <div class="content" id="publicacoes">
                     <div class="grid-produtos">
                         <div class="item">
                             <div class="capa">
@@ -180,15 +181,15 @@ Perfil de {{ $perfil->nome}}
                             <div class="item-info sociais">
                                 <a href="#" class="item instagram">
                                     <img src="{{ asset('images/icones/instagram.png') }}" alt="#">
-                                    <span class="user">@UserManeiro</span>
+                                    <span class="user">{{ $perfil->instagram }}</span>
                                 </a>
                                 <a href="#" class="item facebook">
                                     <img src="{{ asset('images/icones/facebook.png') }}" alt="#">
-                                    <span class="user">@UserManeiro</span>
+                                    <span class="user">{{ $perfil->facebook }}</span>
                                 </a>
                                 <a href="#" class="item youtube">
                                     <img src="{{ asset('images/icones/youtube.png') }}" alt="#">
-                                    <span class="user">@UserManeiro</span>
+                                    <span class="user">{{ $perfil->twitter }}</span>
                                 </a>
                             </div>
                         </div>
