@@ -15,5 +15,20 @@ class HomeController extends Controller
         return view('welcome', compact('categorias'));
     }
 
+    public function escritor()
+    {
+        return view('escritor');
+    }
+
+    public function leitor()
+    {
+        return view('leitor');
+    }
+
+    public function sobre()
+    {
+        return view('sobre');
+    }
+
     //End Views
 }

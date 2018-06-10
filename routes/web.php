@@ -13,6 +13,9 @@
 
 //Página Inicial
 Route::get('/', 'HomeController@index')->name('index');
+Route::get('escritor', 'HomeController@escritor')->name('escritor');
+Route::get('leitor', 'HomeController@leitor')->name('leitor');
+Route::get('sobre', 'HomeController@sobre')->name('sobre');
 
 
 //Rotas referente ao Login

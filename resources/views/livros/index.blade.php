@@ -44,21 +44,30 @@ Livros
             </div>
             
             <div class="grid-produtos">
-                @if(!empty($livros))
-                @foreach($livros as $l)
-                <div class="item">
-                    <div class="capa">
-                        <img src="{{ $l->capa }}" alt="{{ $l->titulo }}">
-                        {{ $l->titulo }}<br>
-                        <span style="font-size:10px">Categoria: {{ $l->categoria->categoria }}</span>
+
+                
+                    <div class="grid-produtos">
+                            @if(!empty($livros))
+                            @foreach($livros as $l)
+                        <div class="item produto">
+                            <div class="capa gap">
+                                <img src="{{ $l->capa }}" alt="{{ $l->titulo }}">
+                            </div>
+                            <div class="box-infos gap">
+                                <p class="book-name txt">{{ $l->titulo }}</p>
+                                <p class="user-name txt">{{ $l->autor->nome }}</p>
+                                <p class="category txt">
+                                    <span class="txt lt">Publicado em:</span>
+                                    {{ $l->categoria->categoria }}
+                                </p>
+                            </div>
+                            <div class="action">
+                                <a href="{{ route('livros.livro', ['url_amigavel' => $l->url_amigavel]) }}" class="btn-principal">Saiba Mais</a>
+                            </div>
+                        </div>
+                        @endforeach
+                        @endif
                     </div>
-                    <div class="action">
-                        <a href="#" class="btn-secundario">Saiba Mais</a>
-                    </div>					
-                </div>
-                @endforeach
-                @endif
-            </div>
             
             {{ $livros->links() }}
 		</div>

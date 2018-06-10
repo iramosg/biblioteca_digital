@@ -15,9 +15,6 @@ class CreateUsuariosTable extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->integer('redes_sociais_id')->nullable()->unsigned();
-            $table->foreign('redes_sociais_id')->references('id')->on('redes_sociais_usuarios');
             
             $table->string('nome');            
             $table->string('sobrenome');            
@@ -28,7 +25,11 @@ class CreateUsuariosTable extends Migration
             $table->string('email')->unique();            
             $table->string('foto')->nullable();            
             $table->string('capa')->nullable();                       
-            $table->string('url_amigavel', 30)->unique();   
+            $table->string('url_amigavel', 30)->unique();  
+            $table->string('facebook')->nullable(); 
+            $table->string('twitter')->nullable(); 
+            $table->string('instagram')->nullable(); 
+            $table->string('site')->nullable();  
             $table->rememberToken();     
             
             $table->boolean('activated')->default(true);

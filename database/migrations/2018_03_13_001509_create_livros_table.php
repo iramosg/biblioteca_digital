@@ -25,6 +25,7 @@ class CreateLivrosTable extends Migration
             $table->string('titulo');
             $table->string('capa');
             $table->year('ano');
+            $table->text('sinopse');            	
             $table->text('descricao');            	
             $table->decimal('preco', 8, 2);  
             $table->string('download_previo');            	
