@@ -23,13 +23,12 @@ Sobre
             </div>
             <div class="cell small-12 medium-6 gap-big">
                 <p class="txt text-center">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus posuere porta. In dignissim a libero in malesuada. Proin a odio nisi. Aliquam erat volutpat. Suspendisse feugiat, nibh consequat imperdiet sodales, nibh libero ullamcorper enim, at pretium dui lectus sit amet ex. Aliquam erat volutpat. Nullam sapien metus, eleifend sed felis ac, auctor cursus leo. Aenean quis metus consectetur, semper dolor sed, ullamcorper nibh. Proin feugiat luctus mollis. Donec commodo pretium ipsum, sed volutpat massa mattis sed.
-                </p>
+                        A Biblioteka Digital é uma plataforma voltada à produtores e leitores de livros digitais. A idéia inicial é que os usuários façam suas próprias publicações sem precisar de uma editora em um processo simples e rápido, podendo contar com apoios dos usuários da plataforma   para divulgar e melhorar os seus produtos.                </p>
+                        <p class="txt text-center">
+                                Também funcionará como uma grande rede social voltada para leitores e escritores, pois podemos visualizar no perfil do usuário suas publicações, sua biblioteca de e-books adquiridos e entrar em contato com outro usuário.                </p>
             </div>
             <div class="cell small-12">
-                <p class="txt text-center">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus posuere porta. In dignissim a libero in malesuada. Proin a odio nisi. Aliquam erat volutpat. Suspendisse feugiat, nibh consequat imperdiet sodales, nibh libero ullamcorper enim, at pretium dui lectus sit amet ex. Aliquam erat volutpat. Nullam sapien metus, eleifend sed felis ac, auctor cursus leo. Aenean quis metus consectetur, semper dolor sed, ullamcorper nibh. Proin feugiat luctus mollis.
-                </p>
+                
             </div>
         </div>
     </div>

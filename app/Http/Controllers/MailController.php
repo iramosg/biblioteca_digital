@@ -7,6 +7,7 @@ use Session;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Mail\EsqueciMinhaSenha;
 
 class MailController extends Controller {
 
@@ -19,22 +20,28 @@ class MailController extends Controller {
             if($user){
 
                 $senha = str_random(10);
+                $senhaSemHash = $senha;
                 $data = array('name'=>$user->nome,'senha'=>$senha);
                 $senha =  Hash::make($senha);
                 $senha = Usuarios::where('email', '=', $request->email)->update(['senha' => $senha]);
 
-                Mail::send('mail', $data, function($message) use ($user) {
-                    $message->to($user->email, $user->nome)->subject
-                    ('Nova senha da sua conta em Biblioteka Digital');
-                    $message->from('biblioteka.digital1@gmail.com','Biblioteka Digital');
-                });
+                Mail::to($user->email)
+                ->send(new EsqueciMinhaSenha($user->nome, $user->email, $senhaSemHash));
+                
+                
+                // Mail::send('mail', $data, function($message) use ($user) {
+                //     $message->to($user->email, $user->nome)->subject
+                //     ('');
+                //     $message->from();
+                // });
 
-                echo "Email com sua nova senha enviado. Cheque sua caixa de mensagens.";
-                //Session::put("success", true);
+                //echo "Email com sua nova senha enviado. Cheque sua caixa de mensagens.";
+                Session::put("success", true);
+                return redirect()->route('login.index');
             }
             
         }catch(Exception $e){
-            //Session::put("error", true);
+            Session::put("error", true);
             return redirect()->route('login.index');
         }
     }

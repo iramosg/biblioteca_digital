@@ -1,0 +1,73 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-section padding="0" />
+      <mj-image padding="0" />
+      <mj-text padding="0" line-height="1.3" />
+      <mj-column padding="0" />
+      <mj-all font-family="Arial" />
+    </mj-attributes>
+  </mj-head>
+
+  <mj-body>
+    <mj-container>
+      <mj-section>
+        <mj-column>
+          <mj-image src="publicar-livro.jpg"></mj-image>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20">
+        <mj-column>
+          <mj-text align="center" font-size="28" font-weight="bold" color="#264054">
+            Parabéns, você acaba de publicar um novo livro.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20">
+        <mj-column>
+          <mj-text align="center" font-size="18" color="#264054">
+            Olá, <b>{{ $nome }}</b>.
+            <br></br>
+          </mj-text>
+
+          <mj-text align="center" font-size="14" color="#264054">
+            Estamos muito felizes com a sua nova publicação na <b>Biblioteka Digital</b>. Esperamos que você esteja curtindo a nossa plataforma.
+            <br></br>
+            Seguem as informações do seu livro publicado:
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20">
+        <mj-column background-color="#eee">
+          <mj-text padding="40" font-size="18" color="#264054">
+            <b>Título:</b> {{ $titulo }}
+            <br>
+            <b>Categoria:</b> {{ $categoria }}
+              <br>
+            <b>Sinopse:</b> {{ $sinopse }}
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20">
+        <mj-column>
+          <mj-text align="center" font-size="18" color="#264054">
+            Estamos <b>orgulhosos</b> com o seu trabalho.<br>
+            <b>Compartilhe com os seus amigos!</b>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column>
+          <mj-image src="acesse-livro.gif" width="200" href="{{ route('login.index') }}"></mj-image>
+        </mj-column>
+      </mj-section>
+
+
+    </mj-container>
+  </mj-body>
+</mjml>

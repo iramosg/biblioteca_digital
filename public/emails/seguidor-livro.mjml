@@ -1,0 +1,60 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-section padding="0" />
+      <mj-image padding="0" />
+      <mj-text padding="0" line-height="1.3" />
+      <mj-column padding="0" />
+      <mj-all font-family="Arial" />
+    </mj-attributes>
+  </mj-head>
+
+  <mj-body>
+    <mj-container>
+      <mj-section>
+        <mj-column>
+          <mj-image src="seguidor.jpg"></mj-image>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20">
+        <mj-column>
+          <mj-text align="center" font-size="28" font-weight="bold" color="#264054">
+            Uma pessoa que você segue publicou um novo livro.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20">
+        <mj-column>
+          <mj-text align="center" font-size="18" color="#264054">
+            Olá, <b>{{ $nome }}</b>.
+            <br></br>
+            Temos novidades!
+            <br></br>
+          </mj-text>
+          <mj-text align="center" font-size="14" color="#264054">
+            O usuário {{ $usuario }} publicou um novo livro na <b>Biblioteka Digital</b>.
+            <br>Você pode conferir no link abaixo.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20">
+        <mj-column>
+          <mj-text align="center" font-size="18" color="#264054">
+            <b>Acesse agora</b> e descubra.<br></br>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column>
+          <mj-image src="descubra.gif" width="200" href="{{ route('login.index') }}"></mj-image>
+        </mj-column>
+      </mj-section>
+
+
+    </mj-container>
+  </mj-body>
+</mjml>
