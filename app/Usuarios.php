@@ -188,4 +188,13 @@ class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPa
             
             return $salvar;
         }
+
+        public static function resetar(Request $request){
+
+            $email = $request->email;            
+
+            $resetar = DB::table('usuarios')->where('email',$email)->update(['senha' => Hash::make('123456')]);
+
+            return $resetar;
+        }
     }
