@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Support\Facades\Hash;
@@ -189,12 +190,16 @@ class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPa
             return $salvar;
         }
 
-        public static function resetar(Request $request){
+        public static function alterarsenha(Request $request){
 
-            $email = $request->email;            
+            $user = 11;
+            //$user = Auth::user();   
+            $email= $request->$email; 
 
-            $resetar = DB::table('usuarios')->where('email',$email)->update(['senha' => Hash::make('123456')]);
+            
+            $alterar = Usuarios::where('id',$user)->update(['senha' => Hash::make('123456')]);
 
-            return $resetar;
+            return $alterar;         
         }
+
     }
