@@ -253,12 +253,41 @@ p {
   .btn-neutro:hover, .btn-neutro:focus {
     color: #6b93cb; }
 
-/* line 100, _vm-botoes.scss */
+/* line 121, _vm-botoes.scss */
+.btn-red {
+  top: -1.5px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  padding: 1rem 2rem;
+  border: 1px solid;
+  border-radius: 3px !important;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  background-color: #e44747;
+  border-color: #e44747;
+  box-shadow: 0 3px 0 #823030;
+  color: #FFF; }
+  /* line 108, _vm-botoes.scss */
+  .btn-red:hover, .btn-red:focus {
+    background-color: #e42d2d;
+    border-color: #e42d2d;
+    box-shadow: #e42d2d;
+    color: #FFF; }
+  /* line 116, _vm-botoes.scss */
+  .btn-red:active {
+    top: 3px;
+    box-shadow: none; }
+
+/* line 127, _vm-botoes.scss */
 .pagination-previous a::before,
 .pagination-previous.disabled::before {
   display: none !important; }
 
-/* line 104, _vm-botoes.scss */
+/* line 131, _vm-botoes.scss */
 .pagination-next a:after,
 .pagination-next.disabled a:after {
   display: none !important; }
@@ -282,11 +311,12 @@ p {
     position: relative;
     padding: 0.7rem;
     background-color: #FFF;
-    border-radius: 3px;
+    border-radius: 3px !important;
     outline: none;
     font-size: 0.9rem;
-    color: #575757; }
-  /* line 27, _vm-formularios.scss */
+    color: #575757;
+    height: auto; }
+  /* line 28, _vm-formularios.scss */
   .input-group .label-animado {
     position: absolute;
     top: 10px;
@@ -296,14 +326,82 @@ p {
     padding: 0;
     font-size: 14px;
     transition: all 0.3s; }
-    /* line 37, _vm-formularios.scss */
+    /* line 38, _vm-formularios.scss */
     .input-group .label-animado.up-label {
       top: -22px;
       left: 0;
       font-size: 0.75rem; }
-    /* line 43, _vm-formularios.scss */
+    /* line 44, _vm-formularios.scss */
     .input-group .label-animado .obrigatorio {
       color: #c10f0f; }
+  /* line 50, _vm-formularios.scss */
+  .input-group input[type="checkbox"] ~ .switch-paddle {
+    width: 10rem !important; }
+    /* line 53, _vm-formularios.scss */
+    .input-group input[type="checkbox"] ~ .switch-paddle span {
+      color: #FFF !important; }
+  /* line 59, _vm-formularios.scss */
+  .input-group input[type="checkbox"]:checked ~ .switch-paddle {
+    background: #63c3a0 !important; }
+    /* line 62, _vm-formularios.scss */
+    .input-group input[type="checkbox"]:checked ~ .switch-paddle:after {
+      left: 7.75rem !important; }
+
+/* line 70, _vm-formularios.scss */
+#multiple_upload {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; }
+  /* line 78, _vm-formularios.scss */
+  #multiple_upload .targetChange {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 46px;
+    opacity: 0.01;
+    z-index: 1;
+    cursor: pointer;
+    margin: 0; }
+  /* line 90, _vm-formularios.scss */
+  #multiple_upload .message {
+    overflow: hidden;
+    padding: 0.7rem;
+    background-color: #FFF;
+    border-radius: 3px;
+    outline: none;
+    font-size: 0.9rem;
+    color: #575757;
+    border: 1px solid #cacaca;
+    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+    -webkit-appearance: none;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    font-weight: normal;
+    line-height: 1.5;
+    box-sizing: border-box;
+    width: calc(100% - 165px);
+    margin: 0 15px 0 0; }
+  /* line 109, _vm-formularios.scss */
+  #multiple_upload .btn {
+    width: 150px;
+    padding: 0.8rem 2rem; }
+  /* line 114, _vm-formularios.scss */
+  #multiple_upload .lista {
+    width: 100%; }
+    /* line 117, _vm-formularios.scss */
+    #multiple_upload .lista ol {
+      margin-left: 0;
+      margin-bottom: 0; }
+      /* line 121, _vm-formularios.scss */
+      #multiple_upload .lista ol li {
+        border-bottom: 1px solid #eee;
+        padding: 10px;
+        display: block;
+        clear: left;
+        margin-bottom: 2px; }
 
 /* line 1, _vm-produtos.scss */
 .grid-produtos {
@@ -354,35 +452,147 @@ p {
       padding: 0.5rem 1rem;
       max-width: 150px; }
 
+/* line 1, _vm-card-user.scss */
+.user-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 -7.5px; }
+  /* line 5, _vm-card-user.scss */
+  .user-grid .user {
+    width: calc(20% - 15px);
+    background: #FFF;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 7.5px 15px;
+    border: 1px solid #cfcfcf; }
+    /* line 14, _vm-card-user.scss */
+    .user-grid .user .capa {
+      width: 100%;
+      height: 120px;
+      background-size: 100%;
+      margin: 0 0 55px; }
+    /* line 21, _vm-card-user.scss */
+    .user-grid .user .face {
+      width: 100px;
+      height: 100px;
+      overflow: hidden;
+      border-radius: 100%;
+      border: 4px solid #FFF;
+      position: absolute;
+      left: 50%;
+      margin-left: -50px;
+      top: 65px; }
+    /* line 33, _vm-card-user.scss */
+    .user-grid .user .infos-user {
+      text-align: center;
+      padding: 0 20px 20px; }
+      /* line 38, _vm-card-user.scss */
+      .user-grid .user .infos-user .user-identify .city {
+        margin: -5px 0 0 !important; }
+      /* line 43, _vm-card-user.scss */
+      .user-grid .user .infos-user .user-social {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        justify-content: center; }
+        /* line 47, _vm-card-user.scss */
+        .user-grid .user .infos-user .user-social .item {
+          margin: 0 15px; }
+          /* line 50, _vm-card-user.scss */
+          .user-grid .user .infos-user .user-social .item .number {
+            font-weight: bold; }
+          /* line 54, _vm-card-user.scss */
+          .user-grid .user .infos-user .user-social .item .txt {
+            font-size: 12px;
+            margin: -5px 0 0 !important; }
+      /* line 61, _vm-card-user.scss */
+      .user-grid .user .infos-user .user-action {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        justify-content: center; }
+        /* line 65, _vm-card-user.scss */
+        .user-grid .user .infos-user .user-action .btn-principal {
+          padding: 0.5rem 1rem;
+          max-width: 150px; }
+
 /* line 1, _header.scss */
 header {
+  padding: 5px 0; }
+  /* line 5, _header.scss */
+  header .search .input-group {
+    width: 100px;
+    margin: 0; }
+    /* line 9, _header.scss */
+    header .search .input-group #select-opt-search {
+      padding-right: 20px;
+      margin: 0;
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important; }
+  /* line 17, _header.scss */
+  header .search form {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    /* line 22, _header.scss */
+    header .search form .input-group {
+      width: 350px;
+      margin: 0; }
+      /* line 26, _header.scss */
+      header .search form .input-group input {
+        border-radius: 0 !important;
+        border-left-color: transparent; }
+    /* line 32, _header.scss */
+    header .search form .btn-search {
+      background-image: url(../../images/icones/icon-search.png);
+      max-width: 60px;
+      padding: 1.3rem 0;
+      font-size: 0;
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+      top: -1px; }
+  /* line 49, _header.scss */
+  header .menu .item-menu:not(:last-child) {
+    margin-right: 15px; }
+  /* line 53, _header.scss */
+  header .menu .item-menu .link {
+    font-size: 12px; }
+
+/* line 61, _header.scss */
+.index header {
   position: fixed;
   right: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.7);
   box-shadow: 0px 10px 32px -15px rgba(0, 0, 0, 0.75);
   z-index: 1; }
-  /* line 9, _header.scss */
-  header .box-logo {
+  /* line 69, _header.scss */
+  .index header .box-logo {
     padding: 0.3rem 0; }
-  /* line 14, _header.scss */
-  header .menu .item-menu {
+  /* line 74, _header.scss */
+  .index header .menu .item-menu {
     display: flex;
     align-items: center;
     justify-content: space-between; }
-    /* line 17, _header.scss */
-    header .menu .item-menu .link {
+    /* line 77, _header.scss */
+    .index header .menu .item-menu .link {
       margin: 0 1rem;
       color: #575757;
       padding: 1.8rem 0;
       border-bottom: 2px solid transparent;
       transition: all 0.3s; }
       /* line 120, _tipografias.scss */
-      header .menu .item-menu .link:hover, header .menu .item-menu .link:focus {
+      .index header .menu .item-menu .link:hover, .index header .menu .item-menu .link:focus {
         color: #4b668b;
         border-color: #4b668b; }
-      /* line 21, _header.scss */
-      header .menu .item-menu .link.cadastro {
+      /* line 81, _header.scss */
+      .index header .menu .item-menu .link.cadastro {
         top: -1.5px;
         width: 100%;
         position: relative;
@@ -400,17 +610,17 @@ header {
         box-shadow: 0 3px 0 #4b668b;
         color: #FFF; }
         /* line 50, _vm-botoes.scss */
-        header .menu .item-menu .link.cadastro:hover, header .menu .item-menu .link.cadastro:focus {
+        .index header .menu .item-menu .link.cadastro:hover, .index header .menu .item-menu .link.cadastro:focus {
           background-color: #6b93cb;
           border-color: #6b93cb;
           box-shadow: #3b5981;
           color: #FFF; }
         /* line 58, _vm-botoes.scss */
-        header .menu .item-menu .link.cadastro:active {
+        .index header .menu .item-menu .link.cadastro:active {
           top: 3px;
           box-shadow: none; }
-      /* line 25, _header.scss */
-      header .menu .item-menu .link.entrar {
+      /* line 85, _header.scss */
+      .index header .menu .item-menu .link.entrar {
         top: -1.5px;
         width: 100%;
         position: relative;
@@ -428,17 +638,17 @@ header {
         box-shadow: 0 3px 0 #308264;
         color: #FFF; }
         /* line 24, _vm-botoes.scss */
-        header .menu .item-menu .link.entrar:hover, header .menu .item-menu .link.entrar:focus {
+        .index header .menu .item-menu .link.entrar:hover, .index header .menu .item-menu .link.entrar:focus {
           background-color: #4eb992;
           border-color: #4eb992;
           box-shadow: #217355;
           color: #FFF; }
         /* line 32, _vm-botoes.scss */
-        header .menu .item-menu .link.entrar:active {
+        .index header .menu .item-menu .link.entrar:active {
           top: 3px;
           box-shadow: none; }
-  /* line 32, _header.scss */
-  header .top-bar-right {
+  /* line 92, _header.scss */
+  .index header .top-bar-right {
     margin: 0 -1rem; }
 
 /* line 1, _footer.scss */
@@ -498,7 +708,7 @@ footer {
       #perfil .apresentacao-usario .capa img {
         width: 100%; }
       /* line 27, perfil.scss */
-      #perfil .apresentacao-usario .capa .btn-edit {
+      #perfil .apresentacao-usario .capa .btn-action {
         position: absolute;
         top: 5px;
         right: 5px;
@@ -554,115 +764,50 @@ footer {
         /* line 93, perfil.scss */
         #perfil .apresentacao-usario .menu-user ul.menu-direita {
           margin-left: 100px; }
-  /* line 102, perfil.scss */
-  #perfil .conteudo .user-grid {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 0 -7.5px; }
-    /* line 106, perfil.scss */
-    #perfil .conteudo .user-grid .user {
-      width: calc(20% - 15px);
-      background: #FFF;
-      border-radius: 3px;
-      overflow: hidden;
-      position: relative;
-      margin: 0 7.5px 15px; }
-      /* line 114, perfil.scss */
-      #perfil .conteudo .user-grid .user .capa {
-        width: 100%;
-        height: 120px;
-        background-size: 100%;
-        margin: 0 0 55px; }
-      /* line 121, perfil.scss */
-      #perfil .conteudo .user-grid .user .face {
-        width: 100px;
-        height: 100px;
-        overflow: hidden;
-        border-radius: 100%;
-        border: 4px solid #FFF;
-        position: absolute;
-        left: 50%;
-        margin-left: -50px;
-        top: 65px; }
-      /* line 133, perfil.scss */
-      #perfil .conteudo .user-grid .user .infos-user {
-        text-align: center;
-        padding: 0 20px 20px; }
-        /* line 138, perfil.scss */
-        #perfil .conteudo .user-grid .user .infos-user .user-identify .city {
-          margin: -5px 0 0 !important; }
-        /* line 143, perfil.scss */
-        #perfil .conteudo .user-grid .user .infos-user .user-social {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          justify-content: center; }
-          /* line 147, perfil.scss */
-          #perfil .conteudo .user-grid .user .infos-user .user-social .item {
-            margin: 0 15px; }
-            /* line 150, perfil.scss */
-            #perfil .conteudo .user-grid .user .infos-user .user-social .item .number {
-              font-weight: bold; }
-            /* line 154, perfil.scss */
-            #perfil .conteudo .user-grid .user .infos-user .user-social .item .txt {
-              font-size: 12px;
-              margin: -5px 0 0 !important; }
-        /* line 161, perfil.scss */
-        #perfil .conteudo .user-grid .user .infos-user .user-action {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          justify-content: center; }
-          /* line 165, perfil.scss */
-          #perfil .conteudo .user-grid .user .infos-user .user-action .btn-principal {
-            padding: 0.5rem 1rem;
-            max-width: 150px; }
-  /* line 175, perfil.scss */
+  /* line 103, perfil.scss */
   #perfil .conteudo .about .center-full {
     align-items: flex-start; }
-  /* line 179, perfil.scss */
+  /* line 107, perfil.scss */
   #perfil .conteudo .about .box-infos {
     background: #FFF;
     border-radius: 3px; }
-    /* line 183, perfil.scss */
+    /* line 111, perfil.scss */
     #perfil .conteudo .about .box-infos.box-apresentacao {
       width: 75%;
       margin: 0 25px 0 0; }
-      /* line 187, perfil.scss */
+      /* line 115, perfil.scss */
       #perfil .conteudo .about .box-infos.box-apresentacao .item-info {
         flex-direction: column; }
-    /* line 192, perfil.scss */
+    /* line 120, perfil.scss */
     #perfil .conteudo .about .box-infos.box-contato {
       width: 25%; }
-    /* line 196, perfil.scss */
+    /* line 124, perfil.scss */
     #perfil .conteudo .about .box-infos > p.title {
       border-bottom: 1px solid #f1f1f1;
       padding: 25px;
       margin: 0 0 25px !important; }
-    /* line 202, perfil.scss */
+    /* line 130, perfil.scss */
     #perfil .conteudo .about .box-infos .item-info {
       display: flex;
       margin: 25px;
       align-items: flex-start;
       border-bottom: 1px solid #f1f1f1;
       padding: 10px; }
-      /* line 209, perfil.scss */
+      /* line 137, perfil.scss */
       #perfil .conteudo .about .box-infos .item-info:last-child {
         border-bottom: 0; }
-      /* line 213, perfil.scss */
+      /* line 141, perfil.scss */
       #perfil .conteudo .about .box-infos .item-info .title {
         font-weight: bold;
         color: #333333;
         margin: 0 15px 0 0 !important; }
-      /* line 219, perfil.scss */
+      /* line 147, perfil.scss */
       #perfil .conteudo .about .box-infos .item-info .txt {
         text-align: left; }
-  /* line 225, perfil.scss */
+  /* line 153, perfil.scss */
   #perfil .conteudo .about .sociais {
     flex-wrap: wrap; }
-    /* line 227, perfil.scss */
+    /* line 155, perfil.scss */
     #perfil .conteudo .about .sociais .item {
       display: flex;
       align-items: center;
@@ -670,12 +815,52 @@ footer {
       justify-content: flex-start;
       width: 100%;
       margin: 0 0 25px; }
-      /* line 233, perfil.scss */
+      /* line 161, perfil.scss */
       #perfil .conteudo .about .sociais .item img {
         margin: 0 15px 0 0; }
-  /* line 240, perfil.scss */
+  /* line 169, perfil.scss */
+  #perfil .conteudo .publish .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFF;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 7.5px 15px; }
+    /* line 179, perfil.scss */
+    #perfil .conteudo .publish .item .infos-user {
+      padding: 20px; }
+      /* line 182, perfil.scss */
+      #perfil .conteudo .publish .item .infos-user .face {
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        border-radius: 100%;
+        border: 4px solid #FFF; }
+    /* line 191, perfil.scss */
+    #perfil .conteudo .publish .item .infos-post {
+      padding: 20px; }
+      /* line 194, perfil.scss */
+      #perfil .conteudo .publish .item .infos-post .date {
+        position: absolute;
+        top: 20px;
+        right: 20px; }
+        /* line 199, perfil.scss */
+        #perfil .conteudo .publish .item .infos-post .date p.txt-date {
+          font-size: 12px; }
+      /* line 204, perfil.scss */
+      #perfil .conteudo .publish .item .infos-post .user-identify {
+        margin: 0 0 15px; }
+        /* line 207, perfil.scss */
+        #perfil .conteudo .publish .item .infos-post .user-identify .city {
+          margin: -5px 0 0 !important; }
+      /* line 212, perfil.scss */
+      #perfil .conteudo .publish .item .infos-post .txt {
+        margin-bottom: 0 !important; }
+  /* line 219, perfil.scss */
   #perfil .conteudo .content {
     display: none; }
-    /* line 243, perfil.scss */
+    /* line 222, perfil.scss */
     #perfil .conteudo .content#publicacoes {
       display: block; }

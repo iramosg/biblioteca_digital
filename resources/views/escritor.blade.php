@@ -11,7 +11,7 @@ Escritor
 
 @section('content')
 	<!-- CONTEUDO -->
-	<section id="usuario" class="escritor">
+	<section id="usuario" class="{{ $classpage }}">
 
 		<div class="grid-container">
 			<div class="grid-x">

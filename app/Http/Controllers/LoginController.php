@@ -40,11 +40,13 @@ class LoginController extends Controller
     //Views
     public function index()
     {
-        return view('login.login');
+        $classpage = 'login';
+        return view('login.login', compact('classpage'));
     }
     public function esqueciminhasenha()
     {
-        return view('login.esqueciminhasenha');
+        $classpage = 'esqueci-senha';
+        return view('login.esqueciminhasenha', compact('classpage'));
     }
     //End Views
     

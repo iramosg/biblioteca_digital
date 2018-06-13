@@ -38,7 +38,6 @@ class EsqueciMinhaSenha extends Mailable
      */
     public function build()
     {
-        return $this->from('biblioteka.digital1@gmail.com','Biblioteka Digital')
-        ->view('emails.esquecisenha', compact($this->email, $this->senha, $this->nome));
+        return $this->view('emails.esquecisenha', compact($this->email, $this->senha, $this->nome));
     }
 }

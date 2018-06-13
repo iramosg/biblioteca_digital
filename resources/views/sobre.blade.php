@@ -11,7 +11,7 @@ Sobre
 
 @section('content')
 <!-- CONTEUDO -->
-<section id="sobre">
+<section id="{{ $classpage }}">
 
     <div class="grid-container">
         <div class="grid-x">

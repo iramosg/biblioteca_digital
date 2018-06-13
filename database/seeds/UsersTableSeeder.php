@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
             'data_nascimento' => $faker->date,
             'telefone' => '(99) 99999-9999',
             'facebook' => '@face',
-            'twitter' => '@twitter',
+            'youtube' => '@twitter',
             'instagram' => '@insta',
             'site' => 'www.meusite.com.br',
             'remember_token' => str_random(20),

@@ -12,22 +12,26 @@ class HomeController extends Controller
     public function index()
     {
         $categorias = Categorias::lista();
-        return view('welcome', compact('categorias'));
+        $classpage = 'index';
+        return view('welcome', compact(['categorias', 'classpage']));
     }
 
     public function escritor()
     {
-        return view('escritor');
+        $classpage = 'escritor';
+        return view('escritor', compact('classpage'));
     }
 
     public function leitor()
     {
-        return view('leitor');
+        $classpage = 'leitor';
+        return view('leitor', compact('classpage'));
     }
 
     public function sobre()
     {
-        return view('sobre');
+        $classpage = 'sobre';
+        return view('sobre', compact('classpage'));
     }
 
     //End Views

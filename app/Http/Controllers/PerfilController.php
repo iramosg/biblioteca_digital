@@ -23,19 +23,22 @@ class PerfilController extends Controller
         $totalSeguidores = Seguidores::seguidoresUsuarioCount($perfil->id);
         $totalSeguindo = Seguidores::seguindoUsuarioCount($perfil->id);
         
-        return view('perfil.index', compact(['perfil', 'livros', 'seguidores', 'seguindo', 'totalSeguidores', 'totalSeguindo']));
+        $classpage = 'perfil';
+        
+        return view('perfil.index', compact(['classpage', 'perfil', 'livros', 'seguidores', 'seguindo', 'totalSeguidores', 'totalSeguindo']));
     }
     
-    public function editar()
+    public function editar($id = null)
     {
         $perfil = Usuarios::carregar(Auth::id());
-        return view('perfil.editar', compact('perfil'));
+        $classpage = 'editar-perfil';
+        return view('perfil.editar', compact(['perfil', 'classpage']));
     }
     
     public function edit(Request $request)
     {
         //dd($request);
-
+        
         try{
             
             $perfil = Usuarios::editar($request, Auth::id());
@@ -47,7 +50,7 @@ class PerfilController extends Controller
             
             Session::put("erro", true); 
             return redirect()->route('perfil.editar')->withInput();
-
+            
         }catch(\Exception $e){ 
             
             $this->saveErros($e, Auth::id());

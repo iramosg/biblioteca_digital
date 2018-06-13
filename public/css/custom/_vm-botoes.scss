@@ -96,6 +96,33 @@
 }
 
 
+// Red
+@mixin btn-red {
+    top: -1.5px;
+    @include padrao-formato;
+    background-color: #e44747;
+    border-color: #e44747;
+    box-shadow: 0 3px 0 #823030;
+    color: #FFF;
+
+    &:hover,
+    &:focus {
+        background-color: #e42d2d;
+        border-color: #e42d2d;
+        box-shadow: #e42d2d;
+        color: #FFF;
+    }
+
+    &:active {
+        top: 3px;
+        box-shadow: none;
+    }
+}
+.btn-red {
+    @include btn-red;
+}
+
+
 // Setas
 .pagination-previous a::before,
 .pagination-previous.disabled::before {

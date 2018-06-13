@@ -32,7 +32,7 @@ class Livros extends SuperModel
     //Chaves
     
     public function autor(){
-        return $this->belongsTo('App\Usuarios');
+        return $this->belongsTo('App\Usuarios', 'autor_id', 'id');
     }
     
     public function categoria(){
@@ -61,7 +61,7 @@ class Livros extends SuperModel
     
     public static function livrosCategoria($id)
     {
-        return Livros::where('categoria_id', $id)->get();
+        return Livros::where('categoria_id', $id)->paginate(15);
     }
     
     public static function livrosUsuario($id)
