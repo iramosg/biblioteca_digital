@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 use Validator;
+use Session;
 
 class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -196,14 +197,26 @@ class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPa
 
         public static function alterarsenha(Request $request){
 
-            $user = 11;
-            //$user = Auth::user();   
-            $email= $request->$email; 
-
+           
+            $user = Auth::user();   
             
-            $alterar = Usuarios::where('id',$user)->update(['senha' => Hash::make('123456')]);
+            $senha = $request->atualsenha;
+            $nova = $request->novasenha;
+            $confirma = $request->confirmasenha;
 
-            return $alterar;         
+            $user_ok = Hash::check($senha,$user->senha);
+            
+            if($user_ok){                
+                if($nova == $confirma){                    
+                    $alterar = Usuarios::where('id','=',$user->id)->update(['senha' => Hash::make($nova)]);
+                    return $alterar;
+                }else{
+                    Session::put("error_login", true);
+                    return redirect()->route('mudarsenha');
+                }
+            }else{
+                Session::put("error_login", true);
+                return redirect()->route('mudarsenha');
+            }  
         }
-
     }

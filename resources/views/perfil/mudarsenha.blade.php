@@ -16,8 +16,8 @@
 
                 <div class="input-group gap">
 						<span class="input-group-label"><i class="fas fa-lock"></i></span>
-						<input class="input-group-field" type="password" id="txtComfirmaSenha" name="comfirmasenha" require>
-						<label for="txtComfirmaSenha" class="label-animado"><span class="obrigatorio">*</span> Comfirmar Senha:</label>
+						<input class="input-group-field" type="password" id="txtConfirmaSenha" name="confirmasenha" require>
+						<label for="txtConfirmaSenha" class="label-animado"><span class="obrigatorio">*</span> Confirmar Senha:</label>
 					</div>        
                 <div class="box-action cell small-12 large-6">
                     <input type="submit" id="btnLogin" class="btn-login btn-principal" value="Redefinir">
