@@ -192,4 +192,17 @@ class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPa
             
             return $salvar;
         }
+        public static function salvarfb($user)
+        {
+            $salvar = new Usuarios();
+            $salvar->userIdCreated = 1;
+            $salvar->nome = $user->name;//ou utilizar $user->getName();
+            $salvar->email = $user->email;//ou utilizar $user->getEmail();
+            $salvar->senha = '';
+            $salvar->save();
+            return $salvar;
+        }
+
+
+
     }

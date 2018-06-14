@@ -34,7 +34,30 @@ class LoginController extends Controller
     {
         $user = Socialite::driver('facebook')->user();
         
-        dd($user);
+        //dd($user);
+        
+        try{
+            $userfb = Usuarios::where('email', '=', $user->getEmail())
+            ->where('activated', '=', true)
+            ->first();
+
+            if($userfb){
+                    Auth::login($user);
+                    Session::put("success", true);       
+                    return redirect()->route('index');
+            }else{
+                $fbcad = Usuarios::salvarfb($user, Auth::id());
+                if($usuarios->id > 0){
+                    Session::put("sucesso", true); 
+                    return redirect()->route('index');
+                }
+            }
+            Session::put("error", true);
+            return redirect()->route('login.index');
+        }catch(\Exception $ex){
+            Session::put("error", true);
+            return redirect()->route('login.index'); 
+        }
     }
     
     //Views

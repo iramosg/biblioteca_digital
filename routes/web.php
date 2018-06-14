@@ -34,8 +34,8 @@ Route::prefix('login')->as('login.')->group(function(){
 	Route::post('entrar', 'LoginController@entrar')->name('entrar'); 
 	
 	//API de Login com Rede Social
-	Route::get('facebook', 'LoginController@redirectToProvider');
-	Route::get('facebook/callback', 'LoginController@handleProviderCallback');
+	Route::get('facebook', 'LoginController@redirectToProvider')->name('facebook');
+	Route::get('facebook/callback', 'LoginController@handleProviderCallback')->name('cbfacebook');
 });
 
 Route::prefix('categoria')->as('categoria.')->group(function(){

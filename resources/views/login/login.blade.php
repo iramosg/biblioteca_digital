@@ -47,6 +47,10 @@ Login
 					</form>
 				</div>
 
+				<div class="">
+					<a href="{{ route('login.facebook') }}" class="btn-nova-conta btn-secundario">Entrar com FACEBOOK</a>
+				</div>
+
 				<div class="box-nova-conta">
 					<div class="cabecalho-cta gap text-center">
 						<p class="h5 uppercase">Ainda Não Possui Cadastro?!</p>
