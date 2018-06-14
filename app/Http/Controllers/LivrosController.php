@@ -7,24 +7,28 @@ use App\Livros;
 use App\Admin\Categorias;
 use Auth;
 use Session;
+use Mail;
+use App\Mail\NovoLivro;
 
 class LivrosController extends Controller
 {
-
+    
     //View que retorna todos os livros
     public function index()
     {
         $livros = Livros::listaPaginada();
-        return view('livros.index', compact('livros'));
+        $classpage = '';
+        return view('livros.index', compact(['livros', 'classpage']));
     }
     
     //View que retorna a visualização do livro (página interna)
     public function livro($url_amigavel)
     {
         $livro = Livros::carregarLivroUrl($url_amigavel);
-        return view('livros.livro', compact('livro'));
+        $classpage = 'pagina-livro';
+        return view('livros.livro', compact(['classpage', 'livro']));
     }
-
+    
     public function livroBusca(Request $request)
     {
         $busca = $request->busca;
@@ -33,7 +37,7 @@ class LivrosController extends Controller
         //dd($livros);
         return view('livros.buscar', compact(['livros', 'busca']));
     }
-
+    
     //View para salvar livro
     public function create()
     {
@@ -48,12 +52,17 @@ class LivrosController extends Controller
         try
         {
             $livro = Livros::salvar($request, Auth::id());
-            //dd($livro);
+            //dd($livro->autor->nome);
             if($livro->id > 0)
             {
+                
+                Mail::to($livro->autor->email)
+                ->send(new NovoLivro($livro->autor->nome, $livro->titulo, $livro->categoria->categoria, $livro->sinopse, $livro->url_amigavel));
+                
                 Session::put("sucesso", true); 
                 return redirect()->route('livros.index');
             }
+            
             
             Session::put("erro", true); 
             return redirect()->route('livros.cadastrar')->withInput();   

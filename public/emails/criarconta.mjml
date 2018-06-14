@@ -1,0 +1,118 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-section padding="0" />
+      <mj-image padding="0" />
+      <mj-text padding="0" line-height="1.3" />
+      <mj-column padding="0" />
+      <mj-all font-family="Arial" />
+    </mj-attributes>
+  </mj-head>
+
+  <mj-body>
+    <mj-container>
+      <mj-section>
+        <mj-column>
+          <mj-image src="topo-2.gif"></mj-image>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20">
+        <mj-column>
+          <mj-text align="center" font-size="28" font-weight="bold" color="#264054">
+            Seja bem-vindo à Biblioteka Digital.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20">
+        <mj-column>
+          <mj-text align="center" font-size="18" color="#264054">
+            Olá, <b>{{ $nome }}</b>.
+            <br></br>
+          </mj-text>
+
+          <mj-text align="center" font-size="16" color="#264054">
+            A partir de agora, você faz parte de<br> uma plataforma dedicada produtores<br>e leitores de livros digitais.<br>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20">
+        <mj-column>
+          <mj-text align="center" font-size="28" font-weight="bold" color="#264054">
+            Veja os principais benefícios:
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20">
+
+        <mj-column background-color="#fafafa">
+          <mj-image src="icon-megafone.png" width="100" padding="20"></mj-image>
+          <mj-text align="center" color="#264054" font-size="16" font-weight="bold" padding="10" padding-bottom="0">
+            Aumente sua Visibilidade
+          </mj-text>
+          <mj-text align="center" color="#264054" font-size="12" padding="10" padding-bottom="20">
+            Deixe que o mundo conheça seu potencial e compartilhe seus produtos
+          </mj-text>
+        </mj-column>
+
+        <mj-column background-color="#eeeeee">
+          <mj-image src="icon-group.png" width="100" padding="20"></mj-image>
+          <mj-text align="center" color="#264054" font-size="16" font-weight="bold" padding="10" padding-bottom="0">
+            Encontre<br>Parceiros
+          </mj-text>
+          <mj-text align="center" color="#264054" font-size="12" padding="10" padding-bottom="20">
+            Conte com a ajuda de Afiliados para impulsionar as vendas de seus e-books
+          </mj-text>
+        </mj-column>
+
+        <mj-column background-color="#cccccc">
+          <mj-image src="icon-money.png" width="100" padding="20"></mj-image>
+          <mj-text align="center" color="#264054" font-size="16" font-weight="bold" padding="10" padding-bottom="0">
+            Ganhe<br>Dinheiro
+          </mj-text>
+          <mj-text align="center" color="#264054" font-size="12" padding="10" padding-bottom="20">
+            Conquiste aquela renda tão sonhada com seus produtos
+          </mj-text>
+        </mj-column>
+
+      </mj-section>
+
+          <mj-section padding="20">
+        <mj-column>
+          <mj-text align="center" font-size="28" font-weight="bold" color="#264054">
+            Seus dados:
+          </mj-text>
+        </mj-column>
+      </mj-section>
+          
+      <mj-section padding="20">
+        <mj-column background-color="#eee">
+          <mj-text padding="40" font-size="18" color="#264054">
+            <b>Usuário:</b> {{ $email }}
+            <br>
+            <b>Senha:</b> {{ $senha }}
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20">
+        <mj-column>
+          <mj-text align="center" font-size="18" color="#264054">
+            O que você está esperando para aproveitar os benefícios da plataforma?
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20">
+        <mj-column>
+          <mj-image src="login.gif" width="200" href="{{ route('login.index') }}"></mj-image>
+        </mj-column>
+      </mj-section>
+
+
+    </mj-container>
+  </mj-body>
+</mjml>

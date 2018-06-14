@@ -80,7 +80,7 @@ Leitor
 
                 <section class="content gap-big">
                     <p class="txt text-center">
-                            Ainda não está convencido? Nossa plataforma oferece também interatividade entre leitor e produtor tendo a disposição grupos onde os leitores poderão levantar suas concepções sobre a obra que estiver lendo assim fazendo um feedback da leitura direito para o autor do e-book, além de diversos planos para navegar na plataforma de acordo com suas necessidades e muita informação para seu conhecimento estar sempre em dia.                    </p>
+                            Ainda não está convencido? Nossa plataforma oferece também interatividade entre leitor e produtor tendo a disposição grupos onde os leitores poderão levantar suas concepções sobre a obra que estiver lendo assim fazendo um feedback da leitura direto para o autor do e-book, além de diversos planos para navegar na plataforma de acordo com suas necessidades e muita informação para seu conhecimento estar sempre em dia.                    </p>
                 </section>
             </div>
         </div>

@@ -18,23 +18,10 @@
 	@yield('csspage')
 	
 </head>
-<body>
-	<!-- HEADER -->
-	<header class="header">
-		<div class="grid-container center-full">
-			<!-- Logo -->
-			<div class="box-logo">
-				<a href="{{ route('index') }}" title="Biblioteka Digital">
-					<img src="{{ asset('images/biblioteca-digital-logo.png')}}" alt="Biblioteka Digital" class="logo-img">
-				</a>
-				<h1 class="no-text logo-txt">Biblioteka Digital</h1>
-			</div>
-			
-			@include('partials.menu')
-			
-			
-		</div>
-	</header>
+<body class="{{ $classpage }}">
+
+@include('partials.menu')
+	
 	
 	@yield('content')
 	

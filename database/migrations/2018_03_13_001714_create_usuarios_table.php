@@ -16,18 +16,18 @@ class CreateUsuariosTable extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id');
             
-            $table->string('nome');            
-            $table->string('sobrenome');            
-            $table->text('sobre');            
-            $table->string('data_nascimento');            
-            $table->string('telefone');            
-            $table->string('senha');            
+            $table->string('nome')->nullable();            
+            $table->string('sobrenome')->nullable();            
+            $table->text('sobre')->nullable();            
+            $table->string('data_nascimento')->nullable();            
+            $table->string('telefone')->nullable();            
+            $table->string('senha')->default('');            
             $table->string('email')->unique();            
             $table->string('foto')->nullable();            
             $table->string('capa')->nullable();                       
-            $table->string('url_amigavel', 30)->unique();  
+            $table->string('url_amigavel', 30)->unique()->nullable();  
             $table->string('facebook')->nullable(); 
-            $table->string('twitter')->nullable(); 
+            $table->string('youtube')->nullable(); 
             $table->string('instagram')->nullable(); 
             $table->string('site')->nullable();  
             $table->rememberToken();     

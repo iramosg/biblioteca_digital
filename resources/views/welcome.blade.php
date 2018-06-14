@@ -152,11 +152,11 @@ Página Inicial
 		</div>
 	</section>
 	
-	<section class="video-apresentacao gap">
+	<!-- <section class="video-apresentacao gap">
 		<div class="box-video">
 			<iframe width="100%" height="auto" src="https://www.youtube.com/embed/X4H9u9VXV-Y?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		</div>
-	</section>
+	</section> -->
 	
 	<section class="produtor apresentacao-user gap">
 		<div class="grid-container">

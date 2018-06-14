@@ -1,8 +1,7 @@
 @extends('partials.template')
 
 @section('csspage')
-<link rel="stylesheet" href="{{ asset('css/custom/login.css') }}">
-<link rel="stylesheet" href="{{ asset('css/custom/cadastro-livro.css') }}">
+<link rel="stylesheet" href="{{ asset('css/custom/editar-perfil.css') }}">
 @endsection
 
 @section('titlepage')
@@ -14,60 +13,19 @@ Editar Perfil
 <section id="editar-perfil">
     <div class="grid-container">
         <div class="box-center">
-            <div class="box-header gap text-center">
-                <img src="{{ asset('images/biblioteca-digital-logo.png') }}" alt="Biblioteka Digital" class="logo-img">
-            </div>
             
-            <div class="box-login gap-big">
-                <div class="cabecalho-cta gap text-center">
-                    <p class="h5">Seja Bem Vindo à Biblioteka Digital</p>
-                    <p class="h6 subheader">Preencha os Campos Abaixo para Realizar seu Login</p>
-                </div>
+            <!-- <div class="box-header gap text-center">
+                <a href="index.html" title="Homepage">
+                    <img src="{{ asset('images/biblioteca-digital-logo.png') }}" alt="Biblioteka Digital" class="logo-img">
+                </a>
+            </div> -->
+            
+            <div class="box-login">
                 <form action="{{ route('perfil.edit') }}" method="POST" id="editarPerfil" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <input type="hidden" name="id" value="{{ $perfil->id }}">
-                    <input type="hidden" name="url_amigavel" value="{{ $perfil->url_amigavel }}">
-                    <div class="input-group gap">
-                        <span class="input-group-label"><i class="fas fa-user"></i></span>
-                        <input class="input-group-field" type="text" id="txtNome" name="nome" value="{{ $perfil->nome }}">
-                        <label for="txtNome" class="label-animado">Nome:</label>
-                    </div>
-                    <div class="input-group gap">
-                        <span class="input-group-label"><i class="fas fa-user"></i></span>
-                        <input class="input-group-field" type="text" id="txtSobrenome" name="sobrenome" value="{{ $perfil->sobrenome }}">
-                        <label for="txtSobrenome" class="label-animado">Sobrenome:</label>
-                    </div>
-                    
-                    <div class="input-group gap">
-                        <span class="input-group-label"><i class="fas fa-user"></i></span>
-                        <input class="input-group-field" type="text" id="txtUrl" name="url_amigavel" value="{{ $perfil->url_amigavel }}">
-                        <label for="txtUrl" class="label-animado">URL Amigável:</label>
-                    </div>
-                    
-                    <div class="input-group gap">
-                        <span class="input-group-label"><i class="fas fa-user"></i></span>
-                        <input class="input-group-field" type="text" id="txtDataNascimento" name="data_nascimento" value="{{ $perfil->data_nascimento }}">
-                        <label for="txtDataNascimento" class="label-animado">Data de Nascimento:</label>
-                    </div>
-                    <div class="input-group gap">
-                        <span class="input-group-label"><i class="fas fa-user"></i></span>
-                        <textarea class="input-group-field" id="txtSobre" name="sobre">{{ $perfil->sobre }}</textarea>
-                        <label for="txtSobre" class="label-animado">Sobre:</label>
-                    </div>
-                    <div class="input-group gap">
-                        <span class="input-group-label"><i class="fas fa-user"></i></span>
-                        <input class="input-group-field" type="text" id="txtTelefone" name="telefone" value="{{ $perfil->telefone }}">
-                        <label for="txtTelefone" class="label-animado">Telefone:</label>
-                    </div>
-                    <div class="input-group gap">
-                        <span class="input-group-label"><i class="fas fa-user"></i></span>
-                        <input class="input-group-field" type="text" id="txtEmail" name="email" value="{{ $perfil->email }}">
-                        <label for="txtEmail" class="label-animado">E-mail:</label>
-                    </div>
-                    
+                {{ csrf_field() }}
                     <div class="input-group gap">
                         <div id="multiple_upload">
-                            <input type="file" id="uploadChange1" class="targetChange" name="foto" />
+                            <input type="file" id="uploadChange1" class="targetChange" name="foto"/>
                             
                             <div class="message">Foto do Perfil (.jpg)</div>
                             
@@ -76,10 +34,9 @@ Editar Perfil
                             <div class="lista"></div>
                         </div>
                     </div>
-                    
                     <div class="input-group gap">
                         <div id="multiple_upload">
-                            <input type="file" id="uploadChange1" class="targetChange" name="capa" />
+                            <input type="file" id="uploadChange2" class="targetChange" name="capa"/>
                             
                             <div class="message">Capa do Perfil (.jpg)</div>
                             
@@ -88,13 +45,56 @@ Editar Perfil
                             <div class="lista"></div>
                         </div>
                     </div>
+                    <div class="input-group gap">
+                        <input class="input-group-field" type="text" id="txtNome" name="nome" value="{{ $perfil->nome }}">
+                        <label for="txtNome" class="label-animado">Nome:</label>
+                    </div>
+                    <div class="input-group gap">
+                        <input class="input-group-field" type="text" id="txtSobrenome" name="sobrenome" value="{{ $perfil->sobrenome }}">
+                        <label for="txtSobrenome" class="label-animado">Sobrenome:</label>
+                    </div>
+                    <div class="input-group gap">
+                    <input class="input-group-field" type="text" id="txtUrl" name="url_amigavel" value="{{ $perfil->url_amigavel }}">
+                    <label for="txtUrl" class="label-animado">URL Amigável:</label>
+                    </div>
+                    <div class="input-group gap">
+                        <input class="input-group-field" type="text" id="txtDataNascimento" name="data_nascimento" value="{{ $perfil->data_nascimento }}">
+                        <label for="txtDataNascimento" class="label-animado">Data de Nascimento:</label>
+                    </div>
+                    <div class="input-group gap">
+                        <textarea class="input-group-field" id="txtSobre" name="sobre">{{ $perfil->sobre }}</textarea>
+                        <label for="txtSobre" class="label-animado">Sobre:</label>
+                    </div>
+                    <div class="input-group gap">
+                        <input class="input-group-field" type="text" id="txtTelefone" name="telefone" value="{{ $perfil->telefone }}">
+                        <label for="txtTelefone" class="label-animado">Telefone:</label>
+                    </div>
+                    <div class="input-group gap">
+                        <input class="input-group-field" type="text" id="txtEmail" name="email"  value="{{ $perfil->email }}">
+                        <label for="txtEmail" class="label-animado">E-mail:</label>
+                    </div>
+                    <div class="input-group gap">
+                        <input class="input-group-field" type="text" id="urlFacebook" name="facebook" value="{{ $perfil->facebook }}">
+                        <label for="urlFacebook" class="label-animado">Facebook:</label>
+                    </div>
+                    <div class="input-group gap">
+                        <input class="input-group-field" type="text" id="urlInstagram" name="instagram" value="{{ $perfil->instagram }}">
+                        <label for="urlInstagram" class="label-animado">Instagram:</label>
+                    </div>
+                    <div class="input-group gap">
+                        <input class="input-group-field" type="text" id="urlYouTube" name="youtube" value="{{ $perfil->youtube }}">
+                        <label for="urlYouTube" class="label-animado">YouTube:</label>
+                    </div>
                     
-                    <button>Enviar</button>
+                    <div class="input-group grid-x center-full">
+                        <div class="box-action cell small-12 large-12">
+                            <input type="submit" id="btnConfirmar" class="btn-confirmar btn-principal" value="Confirmar Informações">
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
     </section>
-    
     @endsection
     
     @section('jspage')

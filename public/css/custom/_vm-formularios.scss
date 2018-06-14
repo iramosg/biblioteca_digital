@@ -18,30 +18,113 @@
 		position: relative;
 		padding: 0.7rem;
 		background-color: #FFF;
-		border-radius: 3px;
+		border-radius: 3px !important;
 		outline: none;
 		font-size: 0.9rem;
 		color: $cor-neutra-principal;
+    height: auto;
 	}
 
 	.label-animado {
-	    position: absolute;
-	    top: 10px;
-	    left: 60px;
-	    z-index: 1;
-		width: 100%;
-	    padding: 0;
-	    font-size: 14px;
-	    @include transition;
+    position: absolute;
+    top: 10px;
+    left: 60px;
+    z-index: 1;
+    width: 100%;
+    padding: 0;
+    font-size: 14px;
+    @include transition;
 
-	    &.up-label {
-	    	top: -22px;
-	    	left: 0;
-	    	font-size: 0.75rem;
-	    }
+    &.up-label {
+    	top: -22px;
+    	left: 0;
+    	font-size: 0.75rem;
+    }
 
-	    .obrigatorio {
-    		color: $cor-danger;
-	    }
+    .obrigatorio {
+  		color: $cor-danger;
+    }
 	}
+
+  input[type="checkbox"] {
+    ~ .switch-paddle {
+      width: 10rem !important;
+
+      span {
+        color: #FFF !important;
+      }
+    }
+
+    &:checked {
+      ~ .switch-paddle {
+        background: $cor-principal !important;
+
+        &:after {
+          left: 7.75rem !important;
+        }
+      }
+    }
+  }
+}
+
+#multiple_upload {
+  position:relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .targetChange {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 46px;
+    opacity: 0.01;
+    z-index: 1;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  .message {
+    overflow:hidden;
+    padding: 0.7rem;
+    background-color: #FFF;
+    border-radius: 3px;
+    outline: none;
+    font-size: 0.9rem;
+    color: $cor-neutra-principal;
+    border: 1px solid #cacaca;
+    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+    -webkit-appearance: none;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    font-weight: normal;
+    line-height: 1.5;
+    box-sizing: border-box;
+    width: calc(100% - 165px);
+    margin: 0 15px 0 0;
+  }
+
+  .btn {
+    width: 150px;
+    padding: 0.8rem 2rem;
+  }
+
+  .lista {
+    width: 100%;
+
+    ol {
+      margin-left: 0;
+      margin-bottom: 0;
+
+      li {
+       border-bottom:1px solid #eee;
+       padding:10px;
+       display:block;
+       clear:left;
+       margin-bottom:2px;
+      }
+    }
+  }
 }
