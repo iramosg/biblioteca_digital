@@ -18,6 +18,11 @@ class UsuariosController extends Controller
         $classpage = 'cadastro';
         return view('login.cadastrar', compact('classpage'));
     }
+
+    public function mudarsenha()
+    {
+        return view('perfil.mudarsenha');
+    }
     //End Views
     
     //Salvar Usuario
@@ -54,4 +59,10 @@ class UsuariosController extends Controller
     }
     //End Salvar Usuarios
     
+    public function alterarsenha(Request $request){
+
+        $senha = Usuarios::alterarsenha($request);
+
+        return redirect()->route('login.index');
+    }
 }

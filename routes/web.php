@@ -17,6 +17,11 @@ Route::get('escritor', 'HomeController@escritor')->name('escritor');
 Route::get('leitor', 'HomeController@leitor')->name('leitor');
 Route::get('sobre', 'HomeController@sobre')->name('sobre');
 
+//Página Alterar senha
+Route::get('mudarsenha', 'UsuariosController@mudarsenha')->name('mudarsenha');
+//Método Alterar senha
+Route::post('alterarsenha', 'UsuariosController@alterarsenha')->name('alterarsenha');
+
 //Rotas referente ao Login
 Route::prefix('login')->as('login.')->group(function(){
 	//Página de Login

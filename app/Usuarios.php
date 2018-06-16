@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 use Validator;
+use Session;
 
 class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -205,4 +207,29 @@ class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPa
 
 
 
+
+        public static function alterarsenha(Request $request){
+
+           
+            $user = Auth::user();   
+            
+            $senha = $request->atualsenha;
+            $nova = $request->novasenha;
+            $confirma = $request->confirmasenha;
+
+            $user_ok = Hash::check($senha,$user->senha);
+            
+            if($user_ok){                
+                if($nova == $confirma){                    
+                    $alterar = Usuarios::where('id','=',$user->id)->update(['senha' => Hash::make($nova)]);
+                    return $alterar;
+                }else{
+                    Session::put("error_login", true);
+                    return redirect()->route('mudarsenha');
+                }
+            }else{
+                Session::put("error_login", true);
+                return redirect()->route('mudarsenha');
+            }  
+        }
     }
