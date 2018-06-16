@@ -688,7 +688,7 @@ footer {
 #cadastro {
   width: 100%;
   height: 100vh;
-  background-image: url('../images/login/background-login.jpg');
+  background-image: url(../../images/login/background-login.jpg);
   background-position: right center;
   background-repeat: no-repeat;
   background-attachment: fixed;

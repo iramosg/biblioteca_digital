@@ -17,7 +17,7 @@ class LivrosController extends Controller
     public function index()
     {
         $livros = Livros::listaPaginada();
-        $classpage = '';
+        $classpage = 'livros';
         return view('livros.index', compact(['livros', 'classpage']));
     }
     
@@ -41,8 +41,9 @@ class LivrosController extends Controller
     //View para salvar livro
     public function create()
     {
+        $classpage = 'cadastrar-livro';
         $categorias = Categorias::lista();
-        return view('livros.cadastrar', compact('categorias'));
+        return view('livros.cadastrar', compact(['classpage', 'categorias']));
     }
     
     //Função para cadastrar livro no banco de dados
@@ -60,7 +61,7 @@ class LivrosController extends Controller
                 ->send(new NovoLivro($livro->autor->nome, $livro->titulo, $livro->categoria->categoria, $livro->sinopse, $livro->url_amigavel));
                 
                 Session::put("sucesso", true); 
-                return redirect()->route('livros.index');
+                return redirect()->route('livros.livro',  ['url_amigavel' => $livro->url_amigavel]);
             }
             
             

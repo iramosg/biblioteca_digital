@@ -21,9 +21,13 @@ class Seguidores extends Model
     
     //Chaves
     public function usuario(){
-        return $this->hasOne('App\Usuarios', 'id', 'amigo_id');
+        return $this->belongsTo('App\Usuarios');
     }
-    
+
+    public function amigo(){
+        return $this->belongsTo('App\Usuarios');
+    }
+
     public static function seguidoresUsuario($id)
     {
         return Seguidores::where('amigo_id', $id)->get();
@@ -34,12 +38,19 @@ class Seguidores extends Model
         return Seguidores::where('usuario_id', $id)->get();
     }
 
+    public static function seguindoUsuarioPerfil($idUsuario, $idAmigo)
+    {
+        return Seguidores::where('usuario_id', $idUsuario)
+        ->where('amigo_id', $idAmigo)
+        ->get();
+    }
 
     public static function seguidoresUsuarioCount($id)
     {
         return Seguidores::where('amigo_id', $id)->count();
     }
 
+    //nao precisa pois vc já tem esse dado na funcao seguindoUsuario kkkkk
     public static function seguindoUsuarioCount($id)
     {
         return Seguidores::where('usuario_id', $id)->count();

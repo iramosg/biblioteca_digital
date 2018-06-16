@@ -89,8 +89,8 @@
             <!-- Menu Direita -->
             <div class="top-bar-right">
                 <ul class="menu">
-                    <li class="item-menu"><a href="#" class="link publicar btn-secundario" title="Publicar Ebook">Publicar Ebook</a></li>
-                    <li class="item-menu"><a href="#" class="link meu-perfil btn-principal" title="Meu Perfil">Meu Perfil</a></li>
+                    <li class="item-menu"><a href="{{ route('livros.cadastrar') }}" class="link publicar btn-secundario" title="Publicar Ebook">Publicar Ebook</a></li>
+                <li class="item-menu"><a href="{{ route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel ]) }}" class="link meu-perfil btn-principal" title="Meu Perfil">Meu Perfil</a></li>
                 </ul>
             </div>
 

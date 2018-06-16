@@ -147,7 +147,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         // Collective\Html\HtmlServiceProvider::class,
-
         /*
          * Package Service Providers...
          */
@@ -161,6 +160,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         'Barryvdh\Debugbar\ServiceProvider',
+        Unisharp\Ckeditor\ServiceProvider::class,
         
 
     ],
@@ -215,6 +215,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
 
     ],
 

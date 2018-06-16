@@ -2,24 +2,43 @@
 
 @section('csspage')
 <link rel="stylesheet" href="{{ asset('css/custom/perfil.css') }}">
+
+<style>
+        .ck-editor__editable {
+            min-height: 150px;
+        }
+        </style>
 @endsection
 
 @section('titlepage')
 Perfil de {{ $perfil->nome }}
 @endsection
 
-
 @section('content')
 <!-- CONTEUDO -->
-    <section id="perfil">
+    <section id="{{ $classpage }}">
         <div class="grid-container">
             <section class="apresentacao-usario gap">
                 <div class="capa">
                     <img src="{{ asset("$perfil->capa") }}" alt="{{ $perfil->nome}} {{ $perfil->sobrenome }}">
 
-                    @if(Auth::id() == $perfil->id)
-                <a href="{{ route('perfil.editar') }}" class="btn-edit btn-principal">Editar Perfil</a>
+                    @if(!empty($botao))
+
+                    @if($botao == 'editar')
+                    <!-- Para editar o perfil -->
+                    <a href="{{ route('perfil.editar') }}" class="btn-action btn-edit btn-principal">Editar Perfil</a>
+                    @endif
+
+                    @if($botao == 'seguir')
+                <a href="#" class="btn-action btn-follow btn-principal">Seguir Usuário</a>
                 @endif
+
+                @if($botao == 'deixar_seguir')
+                <a href="#" class="btn-action btn-unfollow btn-principal btn-red">Deixar de Seguir</a>
+                @endif
+
+                @endif
+
                 </div>
                 <div class="infos-user">
                     <div class="foto-perfil">
@@ -72,23 +91,26 @@ Perfil de {{ $perfil->nome }}
 
                 <div class="content" id="seguindo">
                     <div class="user-grid">
+                        
                             @if(!empty($seguindo))
-                            @foreach($seguindo as $s)
+                            @foreach($seguindo as $seg)
+                            
                         <div class="user">
-                            <div class="capa" style="background-image: url('{{ asset('$s->usuario->capa') }}')"></div>
+                            <div class="capa" style="background-image: url('{{ asset('$seg->amigo->capa') }} ')"></div>
                             <div class="face">
-                                <img src="{{ asset('$s->usuario->foto') }}" alt="">
+                                <img src="{{ asset('$seg->amigo->foto') }}" alt="">
                             </div>
                             <div class="infos-user">
                                 <div class="user-identify gap">
-                                    <p class="name">{{ $s->usuario->nome }} {{ $s->usuario->sobrenome }}</p>
-                                    <p class="city"><span>@</span>{{ $s->url_amigavel }}</p>
+                                    <p class="name">{{ $seg->amigo["nome"] }} {{ $seg->amigo["sobrenome"] }}</p>
+                                    <p class="city"><span>@</span>{{ $seg->amigo["url_amigavel"] }}</p>
                                 </div>
                                 <div class="user-action">
-                                <a class="btn-principal" href="{{ route('perfil.index', ['url_amigavel' => $s->usuario->url_amigavel]) }}">Visitar Perfil</a>
+                                <a class="btn-principal" href="{{ route('perfil.index', ['url_amigavel' => $seg->amigo["url_amigavel"]]) }}">Visitar Perfil</a>
                                 </div>
                             </div>
                         </div>
+                        
                         @endforeach
                         @endif
                     </div>
@@ -119,18 +141,32 @@ Perfil de {{ $perfil->nome }}
                         </div>
                     </div>
 
-                <div class="content" id="publicacoes">
-                    <div class="grid-produtos">
+                    <div class="content publish" id="publicacoes">
+                        <div class="container">
+                            <textarea name="content" id="editor">
+                                <p>Deixe sua publicação aqui.</p>
+                            </textarea>
+                            <br>
+                        </div>
+
                         <div class="item">
-                            <div class="capa">
-                                <img src="images/capas-livros/capa-livro-2.jpg" alt="Nome do Livro 1">
+                            <div class="infos-user">
+                                <div class="face">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/I/61usVwOgqYL._SY355_.jpg" alt="">
+                                </div>      
                             </div>
-                            <div class="action">
-                                <a href="#" class="btn-principal">Saiba Mais</a>
+                            <div class="infos-post">
+                                <div class="date">
+                                    <p class="txt-date">22 de Jan de 2018</p>
+                                </div>
+                                <div class="user-identify gap">
+                                    <p class="name">Igor</p>
+                                    <p class="city">Fim do Mundo, SP</p>
+                                </div>
+                                <p class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis quia maxime consequatur, iste veniam culpa sed sequi reiciendis inventore dolores! Esse culpa magni quae eaque molestiae doloribus, qui necessitatibus voluptate.</p>
                             </div>
                         </div>
                     </div>
-                </div>
 
                 <div class="content" id="favoritos">
                     <div class="grid-produtos">
@@ -189,7 +225,7 @@ Perfil de {{ $perfil->nome }}
                                 </a>
                                 <a href="#" class="item youtube">
                                     <img src="{{ asset('images/icones/youtube.png') }}" alt="#">
-                                    <span class="user">{{ $perfil->twitter }}</span>
+                                    <span class="user">{{ $perfil->youtube }}</span>
                                 </a>
                             </div>
                         </div>
@@ -199,6 +235,14 @@ Perfil de {{ $perfil->nome }}
             </section>
         </div>
     </section>
+
+    <script>
+            ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .catch( error => {
+                    console.error( error );
+                } );
+        </script>
 @endsection
 
 @section('jspage')
@@ -210,5 +254,6 @@ jQuery(document).ready(function(){
         jQuery("#perfil .conteudo .content").fadeOut(500);
         jQuery("#perfil .conteudo #" + id).fadeIn();
     });
+
 });
 @endsection

@@ -15,17 +15,30 @@ class PerfilController extends Controller
     
     public function index($url_amigavel)
     {
-        $perfil = Usuarios::perfilUrl($url_amigavel);
-        $seguidores = Seguidores::seguidoresUsuario($perfil->id);
-        $seguindo = Seguidores::seguindoUsuario($perfil->id);
+        $perfil = Usuarios::perfilUrl($url_amigavel);        
+        $seguidores = Seguidores::seguidoresUsuario($perfil->id);        
+        $seguindo = Seguidores::seguindoUsuario($perfil->id);        
         $livros = Livros::livrosUsuario($perfil->id);
         
-        $totalSeguidores = Seguidores::seguidoresUsuarioCount($perfil->id);
-        $totalSeguindo = Seguidores::seguindoUsuarioCount($perfil->id);
+        $seguidor = Seguidores::seguindoUsuarioPerfil(Auth::id(), $perfil->id);        
+
+        $totalSeguidores = count($seguidores);
+        $totalSeguindo = count($seguindo);
         
         $classpage = 'perfil';
-        
-        return view('perfil.index', compact(['classpage', 'perfil', 'livros', 'seguidores', 'seguindo', 'totalSeguidores', 'totalSeguindo']));
+
+        if($perfil->id == Auth::id()) {
+            $botao = 'editar';
+        } else if($seguidor) {
+            $botao = 'deixar_seguir';
+        } else {
+            $botao = 'seguir';
+        }
+
+        // foreach ($seguindo as $dado) {
+        //     dd($dado->amigo);
+        // }
+        return view('perfil.index', compact(['classpage', 'perfil', 'livros', 'seguidores', 'seguindo', 'totalSeguidores', 'totalSeguindo', 'botao']));
     }
     
     public function editar($id = null)
