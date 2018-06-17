@@ -30,47 +30,45 @@ Cadastrar Livro
                 <form action="{{ route('livros.save') }}" method="POST" id="formNewLivro" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="input-group gap">
-                        <input class="input-group-field" type="text" id="txtNomeLivro" name="titulo" required>
-                        <label for="txtNomeLivro" class="label-animado"><span class="obrigatorio">*</span> Nome do Livro:</label>
+                    <input class="input-group-field" type="text" id="txtNomeLivro" name="titulo" value="{{ old("titulo") }}" required>
+                        <label for="txtNomeLivro" class="label-animado"><span class="obrigatorio">*</span> Título do Livro:</label>
                     </div>
                     <div class="input-group gap">
-                        <input class="input-group-field" type="text" id="txtAnoPublicacao" name="ano" required>
+                        <input class="input-group-field" type="text" id="txtAnoPublicacao" data-mask="0000" name="ano" value="{{ old("ano") }}" required>
                         <label for="txtAnoPublicacao" class="label-animado"><span class="obrigatorio">*</span> Ano de Publicação:</label>
                     </div>
                     <div class="input-group gap">
-                        <input class="input-group-field" type="text" id="txtISBN" name="isbn">
+                        <input class="input-group-field" type="text" id="txtISBN" name="isbn" data-mask="00000000000" value="{{ old("isbn") }}">
                         <label for="txtISBN" class="label-animado">ISBN:</label>
                     </div>
                     <div class="input-group gap">
-                        <input class="input-group-field" type="text" id="txtPreco" name="preco" required>
+                        <input class="input-group-field" type="text" id="txtPreco" name="preco" data-mask="##.00" value="{{ old("preco") }}" required>
                         <label for="txtPreco" class="label-animado"><span class="obrigatorio">*</span> Preço:</label>
                     </div>
                     
                     <div class="input-group gap">
-                        <textarea class="input-group-field"  type="text" id="txtResumo" name="sinopse" rows="5"></textarea>
+                        <textarea class="input-group-field required"  type="text" id="txtResumo" name="sinopse" rows="5">{{ old("sinopse") }}</textarea>
                         <label for="txtResumo" class="label-animado">Sinopse:</label>
                     </div>
                     
                     <div class="input-group gap">
-                        <textarea class="input-group-field"  type="text" id="txtResumo" name="descricao" rows="5"></textarea>
-                        <label for="txtResumo" class="label-animado">Descrição:</label>
+                        <textarea class="input-group-field required"  type="text" id="txtDescricao" name="descricao" rows="5">{{ old("descricao") }}</textarea>
+                        <label for="txtDescricao" class="label-animado">Descrição:</label>
                     </div>
 
                     <div class="input-group gap">
-                            <input class="input-group-field" type="text" id="txtPreco" name="url_amigavel" required>
-                            <label for="txtPreco" class="label-animado"><span class="obrigatorio">*</span> URL:</label>
+                            <input class="input-group-field" type="text" id="txtURL" name="url_amigavel" value="{{ old("url_amigavel") }}" required>
+                            <label for="txtURL" class="label-animado"><span class="obrigatorio">*</span> URL:</label>
                         </div>
                     
                     <div class="input-group gap">
-                        <input list="categoria" class="input-group-field" type="text" id="optCategoria" name="categoria">
-                        <label for="optCategoria" class="label-animado">Categoria:</label>
-                        <datalist id="categoria">
+                        <select id="categoria" name="categoria">
                             @if(!empty($categorias))
                             @foreach($categorias as $c)
                             <option value="{{ $c->id }}">{{ $c->categoria }}</option>
                             @endforeach
                             @endif
-                        </datalist>
+                        </select>
                     </div>
                     
                     <div class="input-group gap">
@@ -132,6 +130,8 @@ $(document).ready(function(){
             $(this).find('~ label').removeClass('up-label');
         });
     });
+
+    jQuery('#formNewLivro').validate();
 });
 
 // Anima Upload

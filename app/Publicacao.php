@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Publicacao extends SuperModel
 {
@@ -25,5 +26,23 @@ class Publicacao extends SuperModel
 
     public function perfil(){
         return $this->belongsTo('App\Usuarios');
+    }
+
+    public static function lista($id)
+    {
+        return Publicacao::where('perfil_id', $id)->get();
+    }
+
+    public static function salvar(Request $request)
+    {
+        $salvar = new Publicacao();
+        $salvar->perfil_id = $request->idPerfil;
+        $salvar->usuario_id = $request->idUsuario;
+        $salvar->post = $request->content;
+        $salvar->userIdCreated = $request->idUsuario;
+        
+        $salvar->save();
+        
+        return $salvar;
     }
 }

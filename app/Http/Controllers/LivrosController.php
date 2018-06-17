@@ -108,13 +108,13 @@ class LivrosController extends Controller
             }
             
             Session::put("erro", true); 
-            return redirect()->route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel]);   
+            return redirect()->route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel])->withInput();   
             
         } catch(\Exception $e)
         {
             $this->saveErros($e, Auth::id());
             Session::put("erro", true); 
-            return redirect()->route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel]);
+            return redirect()->route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel])->withInput();
         }
     }
     

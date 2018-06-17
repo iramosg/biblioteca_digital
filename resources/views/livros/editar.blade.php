@@ -41,12 +41,12 @@ Editar Livro
 								<span class="obrigatorio">*</span> Título do Livro:</label>
 						</div>
 						<div class="input-group gap">
-							<input class="input-group-field" type="text" id="txtAnoPublicacao" name="ano" value="{{ $livro->ano }}" required>
+							<input class="input-group-field" type="text" id="txtAnoPublicacao" name="ano" data-mask="0000" value="{{ $livro->ano }}" required>
 							<label for="txtAnoPublicacao" class="label-animado">
 								<span class="obrigatorio">*</span> Ano de Publicação:</label>
 						</div>
 						<div class="input-group gap">
-							<input class="input-group-field" type="text" id="txtISBN" name="isbn" value="{{ $livro->isbn }}">
+							<input class="input-group-field" type="text" id="txtISBN" name="isbn" value="{{ $livro->isbn }}" data-mask="00000000000">
 							<label for="txtISBN" class="label-animado">ISBN:</label>
 						</div>
 						<div class="input-group gap">

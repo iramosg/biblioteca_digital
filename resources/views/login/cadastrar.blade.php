@@ -37,35 +37,35 @@ Cadastre-se
 							<span class="input-group-label"><i class="fas fa-user"></i></span>
 							<input class="input-group-field" type="text" id="txtNome" name="nome" required>
 							<label for="txtNome" class="label-animado"><span class="obrigatorio">*</span> Nome:</label>
-							<p class="help-text danger">Por favor, digite seu nome!</p>
+
                         </div>
                         
                         <div class="input-group gap">
 							<span class="input-group-label"><i class="fas fa-user"></i></span>
-							<input class="input-group-field" type="text" id="txtSobrenome" name="sobrenonme" required>
+							<input class="input-group-field" type="text" id="txtSobrenome" name="sobrenome" required>
 							<label for="txtSobrenome" class="label-animado"><span class="obrigatorio">*</span> Sobrenome:</label>
-							<p class="help-text danger">Por favor, digite seu sobrenome!</p>
+
                         </div>
                         
 						<div class="input-group gap">
 							<span class="input-group-label"><i class="fas fa-user"></i></span>
 							<input class="input-group-field" type="text" id="txtEmail" name="email" required>
 							<label for="txtEmail" class="label-animado"><span class="obrigatorio">*</span> E-mail:</label>
-							<p class="help-text danger">Por favor, digite um e-mail válido!</p>
+
 						</div>
 						
 						<div class="input-group gap">
 							<span class="input-group-label"><i class="fas fa-lock"></i></span>
 							<input class="input-group-field" type="password" id="txtSenha" name="senha" required>
 							<label for="txtSenha" class="label-animado"><span class="obrigatorio">*</span> Senha:</label>
-							<p class="help-text danger">Sua senha deve ter X caracteres</p>
+
 						</div>
 						
 						<div class="input-group gap-big">
 							<span class="input-group-label"><i class="fas fa-lock"></i></span>
 							<input class="input-group-field" type="password" id="txtConfirmarSenha" name="confirmar_senha" required>
 							<label for="txtConfirmarSenha" class="label-animado"><span class="obrigatorio">*</span> Confirmar Senha:</label>
-							<p class="help-text danger">Opa! Parece que as senhas estão diferentes...</p>
+
 						</div>
 						<div class="input-group grid-x center-full">
 							<div class="box-action cell small-12 large-12">
@@ -88,7 +88,24 @@ Cadastre-se
                 else
                 $(this).find('~ label').removeClass('up-label');
             });
-        });
-    });
+		});
+		
+		jQuery('#formCadastro').validate({
+            rules : {
+                senha : {
+                    minlength : 5
+                },
+                confirmar_senha : {
+                    minlength : 5,
+                    equalTo : "#txtSenha"
+				},
+				
+				email : {
+					email : true
+				}
+            }
+	});
+	
+});
     @endsection
     

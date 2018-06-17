@@ -78,6 +78,11 @@ Route::prefix('perfil')->as('perfil.')->group(function(){
 		Route::post('adicionar', 'SeguidoresController@adicionar')->name('adicionar');
 		Route::post('remover', 'SeguidoresController@remover')->name('remover');
 	});
+
+	Route::prefix('publicar')->as('publicar.')->group(function(){
+		Route::post('save', 'PublicacaoController@save')->name('save');
+		Route::post('delete', 'PublicacaoController@delete')->name('delete');
+	});
 });
 
 

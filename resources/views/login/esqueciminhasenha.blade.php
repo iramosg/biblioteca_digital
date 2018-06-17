@@ -26,7 +26,7 @@ Esqueci Minha Senha
 							{{ csrf_field() }}
 						<div class="input-group gap">
 							<span class="input-group-label"><i class="fas fa-user"></i></span>
-							<input class="input-group-field" type="text" id="txtEmail" name="email" required>
+							<input class="input-group-field" type="email" id="txtEmail" name="email" required>
 							<label for="txtEmail" class="label-animado"><span class="obrigatorio">*</span> E-mail:</label>
 						</div>
 
@@ -61,6 +61,16 @@ $(document).ready(function(){
             else
             $(this).find('~ label').removeClass('up-label');
         });
-    });
+	});
+	
+	jQuery('#formEsqueceuSenha').validate({
+		rules : {
+			
+			email : {
+				email : true
+			}
+		}
+});
+
 });
 @endsection

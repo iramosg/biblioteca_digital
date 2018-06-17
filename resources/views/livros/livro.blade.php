@@ -14,11 +14,11 @@
         <div class="grid-container">
             <div class="box-geral gap">
                 <div class="capa">
-                    <img src="{{ asset('$livro->capa') }}" alt="{{ $livro->titulo }}">
+                    <img src="{{ asset("$livro->capa") }}" alt="{{ $livro->titulo }}">
                 </div>
                 <div class="infos">
                     <h2 class="nome h2">{{ $livro->titulo }}</h2>
-                    <h3 class="autor gap h6">{{ $livro->autor->nome }}</h3>
+                    <h3 class="autor gap h6">{{ $livro->autor->nome }} {{ $livro->autor->sobrenome }}</h3>
                     <p>{{ $livro->categoria->categoria }}</p>
                         <p>{{ $livro->isbn }}</p>
                     <div class="">
@@ -35,17 +35,18 @@
                         </form>
                     </div>
                     <div class="box-preco gap">
-                        <p class="preco h3"><span class="lt">R$</span>{{ $livro->preco }}</p>
+                        <p class="preco h3"><span class="lt">R$ </span><b>{{ $livro->preco }}</b></p>
                     </div>
 
                     <div class="descricao gap-big">
-                        <p class="txt">{{ $livro->descricao }}<br><br><a href="{{ $livro->download_previo }}" class="btn-previa btn-neutro"><i class="fas fa-cloud-download-alt"></i> Fazer Download da Prévia</a></p>
+                        <p class="txt">{{ $livro->descricao }}<br><br><a href="{{ asset("$livro->download_previo") }}" class="btn-previa btn-neutro"><i class="fas fa-cloud-download-alt"></i> Fazer Download da Prévia</a></p>
                     </div>
-
+                    @if(Auth::id())
                     <div class="box-action">
-                        <a href="{{ $livro->download }}" class="btn-comprar btn-principal">Fazer Download</a>
+                        <a href="{{ asset("$livro->download") }}" class="btn-comprar btn-principal">Fazer Download</a>
                         <a href="#" class="btn-neutro favoritos"><i class="fas fa-heart"></i> Adicionar aos Favoritos</a>
                     </div>
+                    @endif
                 </div>
             </div>
 
