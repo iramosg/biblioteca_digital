@@ -121,7 +121,7 @@
             <td  style="width:600px;">
               
       <img
-         height="auto" src="{{ asset('emails/publicar-livro.jpg') }}" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="600"
+         height="auto" src="http://biblioteka.digital/emails/publicar-livro.jpg" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="600"
       />
     
             </td>
@@ -587,7 +587,7 @@
         >
           
       <img
-         height="auto" src="{{ asset('emails/acesse-livro.gif') }}" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="200"
+         height="auto" src="http://biblioteka.digital/emails/acesse-livro.gif" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="200"
       />
     
         </a>

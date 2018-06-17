@@ -122,7 +122,7 @@
             <td  style="width:600px;">
               
       <img
-         height="auto" src="{{ asset('emails/topo-2.gif') }}" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="600"
+         height="auto" src="http://biblioteka.digital/emails/topo-2.gif" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="600"
       />
     
             </td>
@@ -491,7 +491,7 @@
             <td  style="width:100px;">
               
       <img
-         height="auto" src="{{ asset('emails/icon-megafone.png') }}" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="100"
+         height="auto" src="http://biblioteka.digital/emails/icon-megafone.png" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="100"
       />
     
             </td>
@@ -575,7 +575,7 @@
             <td  style="width:100px;">
               
       <img
-         height="auto" src="{{ asset('emails/icon-group.png') }}" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="100"
+         height="auto" src="http://biblioteka.digital/emails/icon-group.png" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="100"
       />
     
             </td>
@@ -659,7 +659,7 @@
             <td  style="width:100px;">
               
       <img
-         height="auto" src="{{ asset('emails/icon-money.png') }}" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="100"
+         height="auto" src="http://biblioteka.digital/emails/icon-money.png" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="100"
       />
     
             </td>
@@ -1047,7 +1047,7 @@
         >
           
       <img
-         height="auto" src="{{ asset('emails/login.gif') }}" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="200"
+         height="auto" src="http://biblioteka.digital/emails/login.gif" style="border:0;display:block;outline:none;text-decoration:none;width:100%;" width="200"
       />
     
         </a>

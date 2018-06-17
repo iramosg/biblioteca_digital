@@ -174,6 +174,65 @@ class Livros extends SuperModel
             
             return $salvar;
         }
+
+
+        public static function editar(Request $request, $userId)
+        {
+            
+            $salvar = Livros::carregar($request->id);
+            $salvar->userIdUpdated = $userId; 
+                
+                if($request->download_previo != null)
+                {
+                    $download_previo = $request->file('download_previo');
+                    $ext = ['pdf'];
+                    
+                    if($download_previo->isValid() && in_array($download_previo->extension(), $ext))
+                    {
+                        $download_previo = $download_previo->store('livros/previa');
+                        $salvar->download_previo = $download_previo;
+                    }
+                }
+                
+                if($request->download != null)
+                {
+                    $download = $request->file('download');
+                    $ext = ['pdf'];
+                    
+                    if($download->isValid() && in_array($download->extension(), $ext))
+                    {
+                        $download = $download->store('livros/download');
+                        $salvar->download = $download;
+                    }
+                }
+                
+                if($request->capa != null)
+                {
+                    $capa = $request->file('capa');
+                    $ext = ['jpg', 'png', 'jpeg', 'gif'];
+                    
+                    if($capa->isValid() && in_array($capa->extension(), $ext))
+                    {
+                        $capa = $capa->store('livros/capas');
+                        $salvar->capa = $capa;
+                    }
+                }
+                
+                $salvar->autor_id = $userId;
+                $salvar->categoria_id = $request->categoria;
+                $salvar->titulo = $request->titulo;
+                $salvar->ano = $request->ano;
+                $salvar->descricao = $request->descricao;
+                $salvar->sinopse = $request->sinopse;
+                $salvar->preco = $request->preco;
+                $salvar->isbn = $request->isbn;
+                $salvar->url_amigavel = $request->url_amigavel;
+                $salvar->activated = HelperBool($request->ativo);
+                
+                $salvar->save();
+                
+                return $salvar;
+            }
         
     }
     

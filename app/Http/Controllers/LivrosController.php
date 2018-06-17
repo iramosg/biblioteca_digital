@@ -88,16 +88,18 @@ class LivrosController extends Controller
     public function editar(Request $request)
     {
         $livro = Livros::carregar($request->id);
+        $categorias = Categorias::lista();
         $classpage = 'editar-livro';
-        return view('livros.editar', compact(['livro', 'classpage']));
+        return view('livros.editar', compact(['livro', 'classpage', 'categorias']));
     }
     
     //Função para editar o livro no banco de dados
-    public function update(Request $request, Livros $livro)
+    public function update(Request $request)
     {
+        //dd($request);
         try{
             
-            $livro = Livros::salvar($request. Auth::id(), $request->id);
+            $livro = Livros::editar($request, Auth::id());
             
             if($livro->id > 0)
             {
@@ -106,13 +108,13 @@ class LivrosController extends Controller
             }
             
             Session::put("erro", true); 
-            return redirect()->route('livros.editar', $request->id);   
+            return redirect()->route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel]);   
             
         } catch(\Exception $e)
         {
             $this->saveErros($e, Auth::id());
             Session::put("erro", true); 
-            return redirect()->route('anunciantes.editar', $request->id);
+            return redirect()->route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel]);
         }
     }
     

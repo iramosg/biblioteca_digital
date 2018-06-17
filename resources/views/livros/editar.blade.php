@@ -22,10 +22,13 @@ Editar Livro
 					<div class="cabecalho-cta gap text-center">
 						<p class="h5">Editar Informações do e-book</p>
 					</div>
-					<form action="{{ route('livros.edit') }}" method="POST" id="formEditarLivro">
+                    <form action="{{ route('livros.edit') }}" method="POST" id="formEditarLivro">
+                        {{ csrf_field() }}
+                    <input type="hidden" value="{{ $livro->id }}" name="id">
 						<div class="input-group gap">
 							<div class="switch large">
-                            <input class="switch-input" id="activated" type="checkbox" name="activated" value="{{ HelperActivated("$livro->activated") }}">
+                            <input type="hidden" id="ativo" name="ativo" value="{{ HelperActivated("$livro->activated") }}">
+                            <input class="switch-input" id="activated" type="checkbox" name="activated" value="{{ HelperActivated("$livro->activated") }}" {{ $livro->activated == true ? 'checked=checked' : '' }}>
 								<label class="switch-paddle" for="activated">
 									<span class="switch-active" aria-hidden="true">Ativo</span>
 									<span class="switch-inactive" aria-hidden="false">Desativado</span>
@@ -33,7 +36,7 @@ Editar Livro
 							</div>
 						</div>
 						<div class="input-group gap">
-							<input class="input-group-field" type="text" id="txtNomeLivro" name="nome" value="{{ $livro->titulo }}" required>
+							<input class="input-group-field" type="text" id="txtNomeLivro" name="titulo" value="{{ $livro->titulo }}" required>
 							<label for="txtNomeLivro" class="label-animado">
 								<span class="obrigatorio">*</span> Título do Livro:</label>
 						</div>
@@ -69,20 +72,13 @@ Editar Livro
 						</div>
 
 						<div class="input-group gap">
-							<input list="categoria" class="input-group-field" type="text" id="optCategoria" name="categoria">
-							<label for="optCategoria" class="label-animado">Categoria:</label>
-							<datalist id="categoria">
-								<option value="Animais">
-								<option value="Business">
-								<option value="Culinaria">
-								<option value="Cursos">
-								<option value="Educacionais">
-								<option value="Estilo de Vida">
-								<option value="Histórias">
-								<option value="Idiomas">
-								<option value="Mais Vendidos">
-								<option value="Outros">
-							</datalist>
+							<select id="categoria" name="categoria">
+                                    @if(!empty($categorias))
+                                    @foreach($categorias as $c)
+                                    <option value="{{ $c->id }}" {{ $c->id == $livro->categoria->id ? 'selected="selected"' : '' }} >{{ $c->categoria }}</option>
+                                    @endforeach
+                                    @endif
+							</select>
 						</div>
 
 						<div class="input-group gap">
@@ -137,30 +133,36 @@ Editar Livro
 @section('jspage')
 
 //Activated
-
 $(document).ready(function () {
-    var switchPaddle = evento.target.parentNode.querySelector(".switch-paddle");
-        console.log(switchPaddle);
-    $('.switch-paddle').on('click', function(evento) {
-        var input = $('#activated').val();
-        var switchPaddle = evento.target.parentNode.querySelector(".switch-paddle");
-        console.log(switchPaddle);
-        if(input == true) {
-            $(".switch-input").val("false");
-            switchPaddle.(".switch-active").attr("aria-hidden", false);
-            switchPaddle.(".switch-inactive").attr("aria-hidden", true);
-        } else {
-            $(".switch-input").val("true");
-            switchPaddle.(".switch-active").attr("aria-hidden", true);
-            switchPaddle.(".switch-inactive").attr("aria-hidden", false);
-        }
+    var input = $(".switch-input").val();
+    if(input == "true") {
+        $(".switch-input").prop("checked", true); 
+    } else {
+        $(".switch-input").removeProp("checked");
+    }
+        
+$(".switch-paddle").on("click", function() {
+    var input = $("#activated").val();
 
-    });
+
+    if(input == "true") {
+        $(".switch-input").val("false");
+        $("#ativo").val("false");
+        $(".switch-input").prop("checked", checked);
+    } else {
+        $(".switch-input").val("true");
+        $("#ativo").val("true");
+        $(".switch-input").prop("checked", checked);        
+    }
 });
 
+});
 // Anima Labels
 		$(document).ready(function () {
 			$("form .input-group .input-group-field").each(function () {
+                if(this.value != null){
+                    $(this).find('~ label').addClass('up-label');
+                }
 				$(this).bind('keydown keyup keypress blur', function () {
 					if ($(this).val().length > 0)
 						$(this).find('~ label').addClass('up-label');

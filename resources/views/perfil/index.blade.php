@@ -108,9 +108,9 @@ Perfil de {{ $perfil->nome }}
                                 @foreach($seguidores as $seg)
                                 
                             <div class="user">
-                                <div class="capa" style="background-image: url('{{ asset('$seg->usuario->capa') }} ')"></div>
+                            <div class="capa" style="background-image: url('{{$url}}{{ $seg->usuario["capa"] }}')"></div>
                                 <div class="face">
-                                    <img src="{{ asset('$seg->usuario->foto') }}" alt="">
+                                    <img src="{{$url}}{{ $seg->usuario["foto"] }}" alt="{{ $seg->usuario["nome"] }} {{ $seg->usuario["sobrenome"] }}">
                                 </div>
                                 <div class="infos-user">
                                     <div class="user-identify gap">
@@ -136,9 +136,9 @@ Perfil de {{ $perfil->nome }}
                             @foreach($seguindo as $seg)
                             
                         <div class="user">
-                            <div class="capa" style="background-image: url('{{ asset('$seg->amigo->capa') }} ')"></div>
+                            <div class="capa" style="background-image: url('{{$url}}{{ $seg->amigo["capa"] }}')"></div>
                             <div class="face">
-                                <img src="{{ asset('$seg->amigo->foto') }}" alt="">
+                                <img src="{{$url}}{{ $seg->amigo["foto"] }}" alt="{{ $seg->amigo["nome"] }} {{ $seg->amigo["sobrenome"] }}">
                             </div>
                             <div class="infos-user">
                                 <div class="user-identify gap">
@@ -162,7 +162,7 @@ Perfil de {{ $perfil->nome }}
                                 @foreach($livros as $l)
                             <div class="item produto">
                                 <div class="capa gap">
-                                    <img src="{{ $l->capa }}" alt="{{ $l->titulo }}">
+                                    <img src="{{ asset("$l->capa") }}" alt="{{ $l->titulo }}">
                                 </div>
                                 <div class="box-infos gap">
                                     <p class="book-name txt">{{ $l->titulo }}</p>

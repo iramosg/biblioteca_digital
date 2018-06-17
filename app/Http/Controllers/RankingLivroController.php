@@ -47,13 +47,13 @@ class RankingLivroController extends Controller
                 }
             }else{
                 Session::put("erro", true);
-                return redirect()->route('categoria.index');
+                return redirect()->route('livros.livro',  ['url_amigavel' => $livro->url_amigavel]);
             }
             
         }catch(\Exception $e){
             $this->saveErros($e, Auth::id());
             Session::put("erro", true);
-            return redirect()->route('livros.index');
+            return redirect()->route('livros.livro',  ['url_amigavel' => $livro->url_amigavel]);
         }
     }
 }

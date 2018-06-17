@@ -8,6 +8,7 @@ use App\Seguidores;
 use App\Livros;
 use Auth;
 use Session;
+use Illuminate\Support\Facades\URL;
 
 class PerfilController extends Controller
 {
@@ -18,7 +19,7 @@ class PerfilController extends Controller
         $perfil = Usuarios::perfilUrl($url_amigavel);        
         $seguidores = Seguidores::seguidoresUsuario($perfil->id);        
         $seguindo = Seguidores::seguindoUsuario($perfil->id);    
-        //dd($perfil->id);    
+        $url = 'http://'.$_SERVER['HTTP_HOST'].'/';    
         $livros = Livros::livrosUsuario($perfil->id);
         
         $seguidor = Seguidores::seguindoUsuarioPerfil(Auth::id(), $perfil->id); 
@@ -39,7 +40,7 @@ class PerfilController extends Controller
         // foreach ($seguindo as $dado) {
         //     dd($dado->amigo);
         // }
-        return view('perfil.index', compact(['classpage', 'perfil', 'livros', 'seguidores', 'seguindo', 'totalSeguidores', 'totalSeguindo', 'botao']));
+        return view('perfil.index', compact(['classpage', 'perfil', 'livros', 'seguidores', 'seguindo', 'totalSeguidores', 'totalSeguindo', 'botao', 'url']));
     }
     
     public function editar($id = null)

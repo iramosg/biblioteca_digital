@@ -15,3 +15,20 @@ if (!function_exists('HelperActivated')) {
         return 'false';
     }
 }
+
+if (!function_exists('HelperBool')) {
+    
+    /**
+    * description
+    *
+    * @param
+    * @return
+    */
+    function HelperBool($activated)
+    {
+        if($activated == "true")
+        return '1';
+        return '0';
+    }
+}
+
