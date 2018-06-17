@@ -22,6 +22,7 @@ Perfil de {{ $perfil->nome }}
                 <div class="capa">
                     <img src="{{ asset("$perfil->capa") }}" alt="{{ $perfil->nome}} {{ $perfil->sobrenome }}">
 
+                    @if(Auth::id())
                     @if(!empty($botao))
 
                     @if($botao == 'editar')
@@ -30,11 +31,22 @@ Perfil de {{ $perfil->nome }}
                     @endif
 
                     @if($botao == 'seguir')
-                <a href="#" class="btn-action btn-follow btn-principal">Seguir Usuário</a>
-                @endif
+                    <form action="{{ route('perfil.amigo.adicionar') }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="hidden" value="{{ $perfil->id }}" name="id">
+                        <input type="hidden" value="{{ Auth::id() }}" name="usuario">
+                        <input type="submit" class="btn-action btn-follow btn-principal" value="Seguir Usuário">
+                    </form>
+                    @endif
 
                 @if($botao == 'deixar_seguir')
-                <a href="#" class="btn-action btn-unfollow btn-principal btn-red">Deixar de Seguir</a>
+                <form action="{{ route('perfil.amigo.remover') }}" method="POST">
+                    {{ csrf_field() }}
+                    <input type="hidden" value="{{ $perfil->id }}" name="id">
+                    <button class="btn-action btn-unfollow btn-principal btn-red">Deixar de Seguir</button>
+                </form>
+                @endif
+
                 @endif
 
                 @endif

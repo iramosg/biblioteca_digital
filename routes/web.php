@@ -72,7 +72,7 @@ Route::prefix('perfil')->as('perfil.')->group(function(){
 	
 	Route::prefix('amigo')->as('amigo.')->group(function(){
 		Route::post('adicionar', 'SeguidoresController@adicionar')->name('adicionar');
-		Route::get('remover', 'SeguidoresController@remover')->name('remover');
+		Route::post('remover', 'SeguidoresController@remover')->name('remover');
 	});
 });
 

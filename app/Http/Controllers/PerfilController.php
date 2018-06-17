@@ -17,11 +17,12 @@ class PerfilController extends Controller
     {
         $perfil = Usuarios::perfilUrl($url_amigavel);        
         $seguidores = Seguidores::seguidoresUsuario($perfil->id);        
-        $seguindo = Seguidores::seguindoUsuario($perfil->id);        
+        $seguindo = Seguidores::seguindoUsuario($perfil->id);    
+        //dd($perfil->id);    
         $livros = Livros::livrosUsuario($perfil->id);
         
-        $seguidor = Seguidores::seguindoUsuarioPerfil(Auth::id(), $perfil->id);        
-
+        $seguidor = Seguidores::seguindoUsuarioPerfil(Auth::id(), $perfil->id); 
+        //dd(count($seguidor));       
         $totalSeguidores = count($seguidores);
         $totalSeguindo = count($seguindo);
         
@@ -29,7 +30,7 @@ class PerfilController extends Controller
 
         if($perfil->id == Auth::id()) {
             $botao = 'editar';
-        } else if($seguidor) {
+        } else if(count($seguidor) > 0) {
             $botao = 'deixar_seguir';
         } else {
             $botao = 'seguir';

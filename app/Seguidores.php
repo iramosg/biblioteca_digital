@@ -15,8 +15,8 @@ class Seguidores extends Model
         'usuario_id',
         'amigo_id',         
         
-        'userIdCreated',
-        'userIdUpdated'
+        'created_at',
+        'updated_at'
     ];
     
     //Chaves
@@ -57,15 +57,23 @@ class Seguidores extends Model
     }
 
 
-    public static function salvar($idUsuario, $idAmigo)
+    public static function salvar(Request $request)
     {
-        
-        $salvar->usuario_id = $idUsuario;
-        $salvar->amigo_id = $idAmigo;
+        $salvar = new Seguidores();
+        $salvar->usuario_id = $request->usuario;
+        $salvar->amigo_id = $request->id;
+        $salvar->amigo_id = $request->id;
         //Falta salvar os arquivos
         
         $salvar->save();
         
         return $salvar;
+    }
+
+    public static function remover($idUsuario, $idAmigo)
+    {
+        return Seguidores::where('usuario_id', $idUsuario)
+        ->where('amigo_id', $idAmigo)
+        ->delete();
     }
 }

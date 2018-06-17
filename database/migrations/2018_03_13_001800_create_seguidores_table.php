@@ -22,8 +22,8 @@ class CreateSeguidoresTable extends Migration
             $table->integer('amigo_id')->unsigned();
             $table->foreign('amigo_id')->references('id')->on('usuarios');                                                                                           
             
-            $table->timestamp('created')->userCurrent();
-            $table->timestamp('updated')->nullable();
+            $table->timestamp('created_at')->userCurrent();
+            $table->timestamp('updated_at')->nullable();
         });
     }
     
