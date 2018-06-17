@@ -77,7 +77,7 @@ Perfil de {{ $perfil->nome }}
             </section>
 
             <section class="conteudo">
-                <div class="content" id="seguidores">
+                {{-- <div class="content" id="seguidores">
                         <div class="user-grid">
                             @if(!empty($seguidores))
                             @foreach($seguidores as $s)
@@ -99,7 +99,35 @@ Perfil de {{ $perfil->nome }}
                         @endforeach
                         @endif
                     </div>
-                </div>
+                </div> --}}
+
+                <div class="content" id="seguidores">
+                        <div class="user-grid">
+                            
+                                @if(!empty($seguidores))
+                                @foreach($seguidores as $seg)
+                                
+                            <div class="user">
+                                <div class="capa" style="background-image: url('{{ asset('$seg->usuario->capa') }} ')"></div>
+                                <div class="face">
+                                    <img src="{{ asset('$seg->usuario->foto') }}" alt="">
+                                </div>
+                                <div class="infos-user">
+                                    <div class="user-identify gap">
+                                        <p class="name">{{ $seg->usuario["nome"] }} {{ $seg->usuario["sobrenome"] }}</p>
+                                        <p class="city"><span>@</span>{{ $seg->usuario["url_amigavel"] }}</p>
+                                    </div>
+                                    <div class="user-action">
+                                    <a class="btn-principal" href="{{ route('perfil.index', ['url_amigavel' => $seg->usuario["url_amigavel"]]) }}">Visitar Perfil</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            @endforeach
+                            @endif
+                        </div>
+                    </div>
+                
 
                 <div class="content" id="seguindo">
                     <div class="user-grid">

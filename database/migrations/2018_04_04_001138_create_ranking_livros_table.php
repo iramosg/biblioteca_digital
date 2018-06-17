@@ -22,10 +22,10 @@ class CreateRankingLivrosTable extends Migration
             $table->integer('livro_id')->unsigned();
             $table->foreign('livro_id')->references('id')->on('livros'); 
             
-            $table->integer('ranking'); 
+            $table->integer('ranking');
             
-            $table->timestamp('created')->userCurrent();
-            $table->timestamp('updated')->nullable();
+            $table->timestamp('created_at')->userCurrent();
+            $table->timestamp('updated_at')->nullable();
         });
     }
     
