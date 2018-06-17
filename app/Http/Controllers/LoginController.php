@@ -42,12 +42,12 @@ class LoginController extends Controller
             ->first();
 
             if($userfb){
-                    Auth::login($user);
+                    Auth::login($userfb);
                     Session::put("success", true);       
                     return redirect()->route('index');
             }else{
                 $fbcad = Usuarios::salvarfb($user, Auth::id());
-                if($usuarios->id > 0){
+                if($fbcad->id > 0){
                     Session::put("sucesso", true); 
                     return redirect()->route('index');
                 }
