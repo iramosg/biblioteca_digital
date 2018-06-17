@@ -21,7 +21,19 @@
                     <h3 class="autor gap h6">{{ $livro->autor->nome }}</h3>
                     <p>{{ $livro->categoria->categoria }}</p>
                         <p>{{ $livro->isbn }}</p>
-
+                    <div class="">
+                        <h3>Ranking</h3>
+                    <h2>{{$avgrank}}</h2>
+                        <form action="{{ route('livros.ranking', ['url_amigavel' => $livro->url_amigavel]) }}" method="post">
+                                {{ csrf_field() }}
+                            <input type="radio" name="rank" value="r1">1* 
+                            <input type="radio" name="rank" value="r2">2* 
+                            <input type="radio" name="rank" value="r3">3* 
+                            <input type="radio" name="rank" value="r4">4* 
+                            <input type="radio" name="rank" value="r5">5* 
+                            <input type="submit" value="Envie sua Avaliação">
+                        </form>
+                    </div>
                     <div class="box-preco gap">
                         <p class="preco h3"><span class="lt">R$</span>{{ $livro->preco }}</p>
                     </div>
