@@ -11,9 +11,10 @@ class CategoriasController extends Controller
     public function index($url_amigavel)
     {
         $categoria = Categorias::carregarUrl($url_amigavel);
+        $maisRecentes = Livros::ultimosLivrosCategoria($categoria->id);
         $livros = Livros::livrosCategoria($categoria->id);
         $classpage = 'categoria';
-        return view('categorias.categoria', compact(['classpage', 'categoria', 'livros', 'classpage']));
+        return view('categorias.categoria', compact(['classpage', 'maisRecentes', 'categoria', 'livros', 'classpage']));
     }
 
     public function buscarLivro(Request $request)

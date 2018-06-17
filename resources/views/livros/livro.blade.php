@@ -27,11 +27,17 @@
                         <form action="{{ route('livros.ranking', ['url_amigavel' => $livro->url_amigavel]) }}" method="post">
                                 {{ csrf_field() }}
                             <input type="radio" name="rank" value="r1">1* 
+                            <span class="ranking"></span>
                             <input type="radio" name="rank" value="r2">2* 
+                            <span class="ranking"></span>                            
                             <input type="radio" name="rank" value="r3">3* 
+                            <span class="ranking"></span>
                             <input type="radio" name="rank" value="r4">4* 
+                            <span class="ranking"></span>
                             <input type="radio" name="rank" value="r5">5* 
+                            <span class="ranking"></span>
                             <input type="submit" value="Envie sua Avaliação">
+                            <span class="ranking"></span>
                         </form>
                     </div>
                     <div class="box-preco gap">
@@ -55,22 +61,26 @@
                     <p class="h2 text-left">Mais Ebooks Deste Autor</p>
                 </div>
                 <div class="grid-produtos">
+                        @if(!empty($livrosUsuario))
+                        @foreach($livrosUsuario as $l)
                     <div class="item produto">
                         <div class="capa gap">
-                            <img src="images/capas-livros/capa-livro-1.jpg" alt="Nome do Livro 1">
+                            <img src="{{ asset("$l->capa") }}" alt="{{ $l->titulo }}">
                         </div>
                         <div class="box-infos gap">
-                            <p class="book-name txt">Nome do Livro</p>
-                            <p class="user-name txt">User que Publicou</p>
+                            <p class="book-name txt">{{ $l->titulo }}</p>
+                            <p class="user-name txt">{{ $l->autor->nome }}</p>
                             <p class="category txt">
                                 <span class="txt lt">Publicado em:</span>
-                                Categoria Vinculada
+                                {{ $l->categoria->categoria }}
                             </p>
                         </div>
                         <div class="action">
-                            <a href="#" class="btn-principal">Saiba Mais</a>
+                            <a href="{{ route('livros.livro', ['url_amigavel' => $l->url_amigavel]) }}" class="btn-principal">Saiba Mais</a>
                         </div>
                     </div>
+                    @endforeach
+                    @endif
                 </div>
             </div>                
         </div>

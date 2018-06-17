@@ -58,7 +58,7 @@ Route::prefix('livros')->as('livros.')->group(function(){
 	Route::get('cadastrar', 'LivrosController@create')->name('cadastrar');
 	Route::post('editar', 'LivrosController@editar')->name('editar');
 	
-	Route::post('buscar', 'LivrosController@buscarLivro')->name('buscar');
+	Route::post('buscar', 'LivrosController@livroBusca')->name('buscar');
 	Route::post('save', 'LivrosController@store')->name('save');
 	Route::post('edit', 'LivrosController@update')->name('edit');
 

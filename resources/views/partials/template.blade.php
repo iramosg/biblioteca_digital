@@ -54,6 +54,7 @@
 				</div>
 			</div>
 		</div>
+	
 	</footer>
 	
 	<script src="{{ asset('js/vendor/jquery.js') }}"></script>
@@ -67,9 +68,11 @@
 	
 	<script type="text/javascript">
 	@yield('jspage')
+
 	</script>
 	
 	@yield('script')
+
 	
 </body>
 </html>

@@ -45,7 +45,7 @@ Você buscou por: {{ $like }}
                         @foreach($livros as $l)
                     <div class="item produto">
                         <div class="capa gap">
-                                <img src="{{ $l->capa }}" alt="{{ $l->titulo }}">
+                                <img src="{{ asset("$l->capa") }}" alt="{{ $l->titulo }}">
                         </div>
                         <div class="box-infos gap">
                             <p class="book-name txt">{{ $l->titulo }}</p>

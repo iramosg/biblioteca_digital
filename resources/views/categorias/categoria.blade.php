@@ -50,24 +50,30 @@
 				<div class="box-title">
 					<p class="h1">Os Mais Recentes</p>
 				</div>
-				<div class="owl-carousel">
-					<div class="item produto">
-						<div class="capa gap">
-							<img src="images/capas-livros/capa-livro-1.jpg" alt="Nome do Livro 1">
+				<div class="grid-produtos">
+						@if(!empty($maisRecentes))
+						@foreach($maisRecentes as $l)
+						<div class="item produto">
+							<div class="capa gap">
+								<img src="{{ asset("$l->capa") }}" alt="{{ $l->titulo }}">
+							</div>
+							<div class="box-infos gap">
+								<p class="book-name txt">{{ $l->titulo }}</p>
+								<p class="user-name txt">{{ $l->autor->nome }} {{ $l->autor->sobrenome }}</p>
+								<p class="category txt">
+									<span class="txt lt">Publicado em:</span>
+									{{ $l->categoria->categoria }}
+								</p>
+							</div>
+							<div class="action">
+								<a href="{{ route('livros.livro', ['url_amigavel' => $l->url_amigavel]) }}" class="btn-principal">Saiba Mais</a>
+							</div>
+							
 						</div>
-						<div class="box-infos gap">
-							<p class="book-name txt">Nome do Livro</p>
-							<p class="user-name txt">User que Publicou</p>
-							<p class="category txt">
-								<span class="txt lt">Publicado em:</span>
-								Categoria Vinculada
-							</p>
-						</div>
-						<div class="action">
-							<a href="#" class="btn-principal">Saiba Mais</a>
-						</div>
+						@endforeach
+							@endif
+						
 					</div>
-				</div>
 			</div>
 			
 			<div class="produtos">
@@ -80,7 +86,7 @@
 					@foreach($livros as $l)
 					<div class="item produto">
 						<div class="capa gap">
-							<img src="{{ asset('$l->capa') }}" alt="{{ $l->titulo }}">
+							<img src="{{ asset("$l->capa") }}" alt="{{ $l->titulo }}">
 						</div>
 						<div class="box-infos gap">
 							<p class="book-name txt">{{ $l->titulo }}</p>

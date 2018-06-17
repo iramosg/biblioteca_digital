@@ -18,14 +18,16 @@ class LivrosController extends Controller
     public function index()
     {
         $livros = Livros::listaPaginada();
+        $maisRecentes = Livros::ultimosLivros();
         $classpage = 'livros';
-        return view('livros.index', compact(['livros', 'classpage']));
+        return view('livros.index', compact(['livros', 'classpage', 'maisRecentes']));
     }
     
     //View que retorna a visualização do livro (página interna)
     public function livro($url_amigavel)
     {
         $livro = Livros::carregarLivroUrl($url_amigavel);
+        $livrosUsuario = Livros::livrosUsuario($livro->autor_id);
         $classpage = 'pagina-livro';
         $livro_url = Livros::where('url_amigavel','=',$url_amigavel)
                 ->where('activated', '=', true)
@@ -34,16 +36,17 @@ class LivrosController extends Controller
         $avgrank = RankingLivro::where('livro_id','=',$livroid)
                 ->avg('ranking');
         $avgrank = number_format($avgrank, 1, '.', '');
-        return view('livros.livro', compact(['classpage', 'livro','avgrank']));
+        return view('livros.livro', compact(['classpage', 'livrosUsuario', 'livro','avgrank']));
     }
     
     public function livroBusca(Request $request)
     {
-        $busca = $request->busca;
+        $like = $request->busca;
         //dd($request);
         $livros = Livros::buscar($request->busca);
+        $classpage = 'resultado-busca';
         //dd($livros);
-        return view('livros.buscar', compact(['livros', 'busca']));
+        return view('livros.buscar', compact(['classpage', 'livros', 'like']));
     }
     
     //View para salvar livro
