@@ -61,6 +61,9 @@ Route::prefix('livros')->as('livros.')->group(function(){
 	Route::post('buscar', 'LivrosController@buscarLivro')->name('buscar');
 	Route::post('save', 'LivrosController@store')->name('save');
 	Route::post('edit', 'LivrosController@edit')->name('edit');
+
+	Route::post('page/{url_amigavel}/ranking','RankingLivroController@ranking')->name('ranking');
+	
 	
 });
 

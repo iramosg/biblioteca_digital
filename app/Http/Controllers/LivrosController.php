@@ -9,6 +9,7 @@ use Auth;
 use Session;
 use Mail;
 use App\Mail\NovoLivro;
+use App\RankingLivro;
 
 class LivrosController extends Controller
 {
@@ -26,7 +27,14 @@ class LivrosController extends Controller
     {
         $livro = Livros::carregarLivroUrl($url_amigavel);
         $classpage = 'pagina-livro';
-        return view('livros.livro', compact(['classpage', 'livro']));
+        $livro_url = Livros::where('url_amigavel','=',$url_amigavel)
+                ->where('activated', '=', true)
+                ->first();
+        $livroid = $livro->id;
+        $avgrank = RankingLivro::where('livro_id','=',$livroid)
+                ->avg('ranking');
+        $avgrank = number_format($avgrank, 1, '.', '');
+        return view('livros.livro', compact(['classpage', 'livro','avgrank']));
     }
     
     public function livroBusca(Request $request)
@@ -113,4 +121,15 @@ class LivrosController extends Controller
     {
         //Falta fazer a função
     }
+
+    // public function carregar_ranking($url_amigavel){
+    //     $livro_url = Livros::where('url_amigavel','=',$url_amigavel)
+    //             ->where('activated', '=', true)
+    //             ->first();
+    //     $livroid = $livro->id;
+    //     $avg_rank = RankingLivro::where('livro_id','=',$livroid)
+    //             ->avg('ranking');
+    //     // dd($avg_rank);
+    //     return view('livros.livro', compact('avg_rank'));
+    // }
 }
