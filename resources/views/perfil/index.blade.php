@@ -174,7 +174,18 @@ Perfil de {{ $perfil->nome }}
                                 </div>
                                 <div class="action">
                                     <a href="#" class="btn-principal">Saiba Mais</a>
+                                    
                                 </div>
+                                @if(Auth::id() == $perfil->id)
+                                <div class="action">
+                                <form action="{{ route('livros.editar') }}" method="POST">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" value="{{ $l->id }}" name="id">
+                                    <input type="hidden" value="{{ Auth::id() }}" name="usuario">
+                                    <button class="btn-edit btn-principal">Editar Livro</button>
+                                </form>
+                                    </div>
+                                    @endif
                             </div>
                             @endforeach
                             @endif

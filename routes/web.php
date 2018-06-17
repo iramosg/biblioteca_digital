@@ -56,6 +56,7 @@ Route::prefix('livros')->as('livros.')->group(function(){
 	Route::get('listar', 'LivrosController@index')->name('index');
 	Route::get('page/{url_amigavel}', 'LivrosController@livro')->name('livro');
 	Route::get('cadastrar', 'LivrosController@create')->name('cadastrar');
+	Route::post('editar', 'LivrosController@editar')->name('editar');
 	
 	Route::post('buscar', 'LivrosController@buscarLivro')->name('buscar');
 	Route::post('save', 'LivrosController@store')->name('save');

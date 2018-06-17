@@ -216,6 +216,7 @@ return [
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
+        browner12\helpers\HelperServiceProvider::class,
 
     ],
 

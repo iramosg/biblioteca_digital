@@ -77,10 +77,11 @@ class LivrosController extends Controller
     }
     
     //View para editar o livro
-    public function edit(Livros $livro)
+    public function editar(Request $request)
     {
-        $livro = Livro::carregar($livro->id);
-        return view('livros.editar', compact('livros'));
+        $livro = Livros::carregar($request->id);
+        $classpage = 'editar-livro';
+        return view('livros.editar', compact(['livro', 'classpage']));
     }
     
     //Função para editar o livro no banco de dados
