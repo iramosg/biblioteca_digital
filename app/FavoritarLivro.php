@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class FavoritarLivro extends SuperModel
 {
@@ -26,6 +27,12 @@ class FavoritarLivro extends SuperModel
     public function livro(){
         return $this->belongsTo('App\Livros');
     }
+
+    public static function lista($id)
+    {
+        return FavoritarLivro::where('usuario_id', $id)->get();
+    }
+
     
     public static function salvar($userid,$livroid)
     {  

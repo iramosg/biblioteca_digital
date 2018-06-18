@@ -32,4 +32,27 @@ class PublicacaoController extends Controller
             return redirect()->route('perfil.index', ['url_amigavel' => $request->url_amigavel]);
         }
     }
+
+    public function delete(Request $request)
+    {
+        //dd($request);
+        try{
+            
+            $remover = Publicacao::remover($request->id);
+            //dd($remover);
+            if($remover){
+                Session::put("sucesso", true); 
+                return redirect()->route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel]);
+            }
+            
+            Session::put("erro", true); 
+            return redirect()->route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel]);
+            
+        }catch(\Exception $e){ 
+            
+            $this->saveErros($e, Auth::id());
+            Session::put("erro", true); 
+            return redirect()->route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel]);  
+        }
+    }
 }

@@ -45,4 +45,10 @@ class Publicacao extends SuperModel
         
         return $salvar;
     }
+
+    public static function remover($idPostagem)
+    {
+        return Publicacao::where('id', $idPostagem)
+        ->delete();
+    }
 }
