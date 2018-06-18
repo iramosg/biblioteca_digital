@@ -26,9 +26,8 @@ Login
 							{{ csrf_field() }}
 						<div class="input-group gap">
 							<span class="input-group-label"><i class="fas fa-user"></i></span>
-							<input class="input-group-field" type="text" id="txtEmail" name="email" required>
+							<input class="input-group-field" type="email" id="txtEmail" name="email" required>
 							<label for="txtEmail" class="label-animado"><span class="obrigatorio">*</span> E-mail:</label>
-							<p class="help-text danger">Por favor, digite um e-mail válido!</p>
 						</div>
 
 						<div class="input-group gap">
@@ -76,5 +75,14 @@ Login
 					$(this).find('~ label').removeClass('up-label');
 			});
 		});
+
+		jQuery('#formLogin').validate({
+            rules : {
+                senha : {
+                    minlength : 5
+				},
+
+            }
+	});
 	});
 	@endsection

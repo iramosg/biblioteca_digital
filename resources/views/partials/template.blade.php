@@ -54,6 +54,7 @@
 				</div>
 			</div>
 		</div>
+	
 	</footer>
 	
 	<script src="{{ asset('js/vendor/jquery.js') }}"></script>
@@ -61,12 +62,17 @@
 	<script src="{{ asset('js/vendor/foundation.js') }}"></script>
 	<script src="{{ asset('js/app.js') }}"></script>
 	<script src="{{ asset('js/owl/owl.carousel.js')}}"></script>
+	<script src="{{ asset('js/custom/jquery.validate.min.js')}}"></script>
+	<script src="{{ asset('js/custom/jquery.mask.min.js')}}"></script>
+	<script src="{{ asset('js/custom/localization/messages_pt_BR.js')}}"></script>
 	
 	<script type="text/javascript">
 	@yield('jspage')
+
 	</script>
 	
 	@yield('script')
+
 	
 </body>
 </html>

@@ -50,8 +50,10 @@
             </div>
 
             <!-- Menu Centro -->
+            <form action="#" method="#" id="search-ebook">
             <div class="top-bar-left" id="responsive-menu">
                 <div id="search" class="search center-full">
+                        
                     <div class="input-group">
                         <select id="select-opt-search">
                             <option value="ebook">Ebooks</option>
@@ -59,26 +61,10 @@
                             <option value="category">Categoria</option>
                         </select>
                     </div>
-                    <form action="#" method="#" id="search-ebook">
+                    
                         <div class="center-full">
                             <div class="input-group gap">
-                                <input type="text" name="txtSearchEbook" id="txtSearchEbook" class="inpt-search input-group-field" placeholder="Digite o nome da ebook que quer encontrar...">
-                            </div>
-                            <input type="submit" class="btn-principal btn-search" value="Buscar">
-                        </div>
-                    </form>
-                    <form action="#" method="#" id="search-user" style="display:none;">
-                        <div class="center-full">
-                            <div class="input-group gap">
-                                <input type="text" name="txtSearchUser" id="txtSearchUser" class="inpt-search input-group-field" placeholder="Digite o nome do usuário que quer encontrar...">
-                            </div>
-                            <input type="submit" class="btn-principal btn-search" value="Buscar">
-                        </div>
-                    </form>
-                    <form action="#" method="#" id="search-category" style="display:none;">
-                        <div class="center-full">
-                            <div class="input-group gap">
-                                <input type="text" name="txtSearchCategory" id="txtSearchCategory" class="inpt-search input-group-field" placeholder="Digite o nome da categoria que quer encontrar...">
+                                <input type="text" name="busca" id="busca" class="inpt-search input-group-field" placeholder="O que você procura?">
                             </div>
                             <input type="submit" class="btn-principal btn-search" value="Buscar">
                         </div>

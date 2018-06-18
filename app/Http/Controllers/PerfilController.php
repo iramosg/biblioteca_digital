@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Usuarios;
 use App\Seguidores;
+use App\Publicacao;
 use App\Livros;
 use Auth;
 use Session;
@@ -21,6 +22,7 @@ class PerfilController extends Controller
         $seguindo = Seguidores::seguindoUsuario($perfil->id);    
         $url = 'http://'.$_SERVER['HTTP_HOST'].'/';    
         $livros = Livros::livrosUsuario($perfil->id);
+        $publicacao = Publicacao::lista($perfil->id);
         
         $seguidor = Seguidores::seguindoUsuarioPerfil(Auth::id(), $perfil->id); 
         //dd(count($seguidor));       
@@ -40,7 +42,7 @@ class PerfilController extends Controller
         // foreach ($seguindo as $dado) {
         //     dd($dado->amigo);
         // }
-        return view('perfil.index', compact(['classpage', 'perfil', 'livros', 'seguidores', 'seguindo', 'totalSeguidores', 'totalSeguindo', 'botao', 'url']));
+        return view('perfil.index', compact(['classpage', 'perfil', 'livros', 'seguidores', 'seguindo', 'totalSeguidores', 'totalSeguindo', 'botao', 'url', 'publicacao']));
     }
     
     public function editar($id = null)

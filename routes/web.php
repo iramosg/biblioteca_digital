@@ -58,7 +58,7 @@ Route::prefix('livros')->as('livros.')->group(function(){
 	Route::get('cadastrar', 'LivrosController@create')->name('cadastrar');
 	Route::post('editar', 'LivrosController@editar')->name('editar');
 	
-	Route::post('buscar', 'LivrosController@buscarLivro')->name('buscar');
+	Route::post('buscar', 'LivrosController@livroBusca')->name('buscar');
 	Route::post('save', 'LivrosController@store')->name('save');
 	Route::post('edit', 'LivrosController@update')->name('edit');
 
@@ -81,6 +81,11 @@ Route::prefix('perfil')->as('perfil.')->group(function(){
 	Route::prefix('amigo')->as('amigo.')->group(function(){
 		Route::post('adicionar', 'SeguidoresController@adicionar')->name('adicionar');
 		Route::post('remover', 'SeguidoresController@remover')->name('remover');
+	});
+
+	Route::prefix('publicar')->as('publicar.')->group(function(){
+		Route::post('save', 'PublicacaoController@save')->name('save');
+		Route::post('delete', 'PublicacaoController@delete')->name('delete');
 	});
 });
 

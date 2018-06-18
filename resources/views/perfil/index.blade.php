@@ -173,7 +173,7 @@ Perfil de {{ $perfil->nome }}
                                     </p>
                                 </div>
                                 <div class="action">
-                                    <a href="#" class="btn-principal">Saiba Mais</a>
+                                    <a href="{{ route('livros.livro', ['url_amigavel' => $l->url_amigavel ])}}" class="btn-principal">Saiba Mais</a>
                                     
                                 </div>
                                 @if(Auth::id() == $perfil->id)
@@ -194,29 +194,51 @@ Perfil de {{ $perfil->nome }}
 
                     <div class="content publish" id="publicacoes">
                         <div class="container">
+                        <form action="{{ route('perfil.publicar.save') }}" method="POST">
+                            {{ csrf_field() }}
+                        <input type="hidden" name="idUsuario" value="{{ Auth::id() }}">
+                        <input type="hidden" name="idPerfil" value="{{ $perfil->id }}">
+                        <input type="hidden" name="url_amigavel" value="{{ $perfil->url_amigavel }}">
                             <textarea name="content" id="editor">
-                                <p>Deixe sua publicação aqui.</p>
+                                
                             </textarea>
                             <br>
+                            <div class="action">
+                            <button class="btn-edit btn-principal">PUBLICAR</button>
+                            </div>
+                            <br>
+                        </form>
                         </div>
-
+                        @if(!empty($publicacao))
+                        @foreach($publicacao as $p)
                         <div class="item">
+                               <div>
                             <div class="infos-user">
                                 <div class="face">
-                                    <img src="https://images-na.ssl-images-amazon.com/images/I/61usVwOgqYL._SY355_.jpg" alt="">
+                                    <img src="{{$url}}{{ $p->usuario["foto"] }}" alt="{{ $p->usuario->nome }}">
                                 </div>      
                             </div>
                             <div class="infos-post">
                                 <div class="date">
-                                    <p class="txt-date">22 de Jan de 2018</p>
+                                    <p class="txt-date">{{ $p->created }}</p>
                                 </div>
                                 <div class="user-identify gap">
-                                    <p class="name">Igor</p>
-                                    <p class="city">Fim do Mundo, SP</p>
+                                    <p class="name">{{ $p->usuario->nome }}</p>
+                                    <p class="city"><span>@</span>{{ $p->usuario->url_amigavel }}</p>
                                 </div>
-                                <p class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis quia maxime consequatur, iste veniam culpa sed sequi reiciendis inventore dolores! Esse culpa magni quae eaque molestiae doloribus, qui necessitatibus voluptate.</p>
+                                <div>
+                            <p class="txt">{!! $p->post !!}</p>
+                                </div>
+                            </div>
+                        <form action="{{ route('perfil.publicar.delete') }}">
+                        <input type="hidden" name="publicacao" value="{{ $p->id }}">
+                            <button class="button alert" type="button">Deletar</button>
+                        </form>
                             </div>
                         </div>
+                       
+                        @endforeach
+                            @endif
                     </div>
 
                 <div class="content" id="favoritos">

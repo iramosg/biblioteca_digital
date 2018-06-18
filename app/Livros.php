@@ -66,7 +66,22 @@ class Livros extends SuperModel
     
     public static function livrosUsuario($id)
     {
-        return Livros::where('autor_id', $id)->get();
+        return Livros::where('autor_id', $id)
+        ->where('activated', 1)
+        ->get();
+    }
+
+    public static function ultimosLivros()
+    {
+        return Livros::orderBy('created', 'DESC')
+        ->paginate(5);
+    }
+
+    public static function ultimosLivrosCategoria($id)
+    {
+        return Livros::where('categoria_id', $id)->
+        orderBy('created', 'DESC')
+        ->paginate(5);
     }
     
     public static function buscar($like)

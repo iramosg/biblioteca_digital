@@ -19,8 +19,9 @@ class LivrosController extends Controller
     public function index()
     {
         $livros = Livros::listaPaginada();
+        $maisRecentes = Livros::ultimosLivros();
         $classpage = 'livros';
-        return view('livros.index', compact(['livros', 'classpage']));
+        return view('livros.index', compact(['livros', 'classpage', 'maisRecentes']));
     }
     
     //View que retorna a visualização do livro (página interna)
@@ -29,6 +30,7 @@ class LivrosController extends Controller
         $user = Auth::user();
         $userid = $user->id;
         $livro = Livros::carregarLivroUrl($url_amigavel);
+        $livrosUsuario = Livros::livrosUsuario($livro->autor_id);
         $classpage = 'pagina-livro';
         $livro_url = Livros::where('url_amigavel','=',$url_amigavel)
                 ->where('activated', '=', true)
@@ -60,16 +62,17 @@ class LivrosController extends Controller
         $cRank = RankingLivro::where('usuario_id','=',$userid)
             ->where('livro_id','=',$livroid)
             ->first();
-        return view('livros.livro', compact(['classpage', 'livro','avgrank','cFav','cRank','rank']));
+        return view('livros.livro', compact(['livrosUsuario','classpage', 'livro','avgrank','cFav','cRank','rank']));
     }
     
     public function livroBusca(Request $request)
     {
-        $busca = $request->busca;
+        $like = $request->busca;
         //dd($request);
         $livros = Livros::buscar($request->busca);
+        $classpage = 'resultado-busca';
         //dd($livros);
-        return view('livros.buscar', compact(['livros', 'busca']));
+        return view('livros.buscar', compact(['classpage', 'livros', 'like']));
     }
     
     //View para salvar livro
@@ -134,13 +137,13 @@ class LivrosController extends Controller
             }
             
             Session::put("erro", true); 
-            return redirect()->route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel]);   
+            return redirect()->route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel])->withInput();   
             
         } catch(\Exception $e)
         {
             $this->saveErros($e, Auth::id());
             Session::put("erro", true); 
-            return redirect()->route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel]);
+            return redirect()->route('perfil.index', ['url_amigavel' => Auth::user()->url_amigavel])->withInput();
         }
     }
     

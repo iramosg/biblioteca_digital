@@ -58,15 +58,15 @@ Editar Perfil
                     <label for="txtUrl" class="label-animado">URL Amigável:</label>
                     </div>
                     <div class="input-group gap">
-                        <input class="input-group-field" type="text" id="txtDataNascimento" name="data_nascimento" value="{{ $perfil->data_nascimento }}">
+                        <input class="input-group-field" type="text" id="txtDataNascimento" name="data_nascimento" value="{{ $perfil->data_nascimento }}" data-mask="00/00/0000">
                         <label for="txtDataNascimento" class="label-animado">Data de Nascimento:</label>
                     </div>
                     <div class="input-group gap">
-                        <textarea class="input-group-field" id="txtSobre" name="sobre">{{ $perfil->sobre }}</textarea>
+                        <textarea class="input-group-field" id="txtSobre" name="sobre" scroll="no">{{ $perfil->sobre }}</textarea>
                         <label for="txtSobre" class="label-animado">Sobre:</label>
                     </div>
                     <div class="input-group gap">
-                        <input class="input-group-field" type="text" id="txtTelefone" name="telefone" value="{{ $perfil->telefone }}">
+                        <input class="input-group-field" type="text" id="txtTelefone" name="telefone" value="{{ $perfil->telefone }}" data-mask="(00) 0000-00009">
                         <label for="txtTelefone" class="label-animado">Telefone:</label>
                     </div>
                     <div class="input-group gap">
@@ -111,6 +111,14 @@ Editar Perfil
                 $(this).find('~ label').removeClass('up-label');
             });
         });
+
+        jQuery('#formCadastro').validate({
+            rules : {
+				email : {
+					email : true
+				}
+            }
+	});
     });
     
     // Anima Upload
