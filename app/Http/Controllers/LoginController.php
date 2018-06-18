@@ -34,7 +34,7 @@ class LoginController extends Controller
     {
         $user = Socialite::driver('facebook')->user();
         
-        dd($user);
+        // dd($user);
         
         try{
             $userfb = Usuarios::where('email', '=', $user->getEmail())
