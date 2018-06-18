@@ -92,7 +92,7 @@
                     </div>
                     @if(Auth::id())
                     <div class="box-action">
-                        <a href="{{ $livro->download }}" class="btn-comprar btn-principal">Fazer Download</a>
+                        <a href="{{ asset("$livro->download") }}" class="btn-comprar btn-principal">Fazer Download</a>
                         @if(is_null($cFav))
                             <a href="{{ route('livros.favoritar', ['url_amigavel' => $livro->url_amigavel]) }}" class="btn-neutro favoritos"><i class="fas fa-heart"></i> Adicionar aos Favoritos</a>
                         @else
