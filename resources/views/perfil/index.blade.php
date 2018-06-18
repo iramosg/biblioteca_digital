@@ -194,6 +194,7 @@ Perfil de {{ $perfil->nome }}
 
                     <div class="content publish" id="publicacoes">
                         <div class="container">
+                        @if(Auth::id())
                         <form action="{{ route('perfil.publicar.save') }}" method="POST">
                             {{ csrf_field() }}
                         <input type="hidden" name="idUsuario" value="{{ Auth::id() }}">
@@ -208,6 +209,7 @@ Perfil de {{ $perfil->nome }}
                             </div>
                             <br>
                         </form>
+                        @endif
                         </div>
                         @if(!empty($publicacao))
                         @foreach($publicacao as $p)
