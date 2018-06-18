@@ -61,7 +61,7 @@ class HomeController extends Controller
         //dd($objeto);
         $tipo = $request->tipo;
         $like = $request->busca;
-        $url = 'http://'.$_SERVER['HTTP_HOST'].'/';  
+        $url = 'http://'.$_SERVER['HTTP_HOST'].'/public/';  
         $classpage = 'resultado-busca';
         return view('buscar', compact(['classpage', 'objeto', 'like', 'tipo', 'url']));
     }

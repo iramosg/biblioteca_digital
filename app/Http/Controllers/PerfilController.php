@@ -20,7 +20,7 @@ class PerfilController extends Controller
         $perfil = Usuarios::perfilUrl($url_amigavel);        
         $seguidores = Seguidores::seguidoresUsuario($perfil->id);        
         $seguindo = Seguidores::seguindoUsuario($perfil->id);    
-        $url = 'http://'.$_SERVER['HTTP_HOST'].'/';    
+        $url = 'http://'.$_SERVER['HTTP_HOST'].'/public/';    
         $livros = Livros::livrosUsuario($perfil->id);
         $publicacao = Publicacao::lista($perfil->id);
         
