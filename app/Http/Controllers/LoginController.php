@@ -73,6 +73,13 @@ class LoginController extends Controller
     }
     //End Views
     
+    public function logout()
+    {  
+		Auth::logout();
+        Session::flush();
+        return Redirect::to('/login');
+    }
+
     //Posts
     public function entrar(Request $request)
     {
@@ -116,6 +123,7 @@ class LoginController extends Controller
         }
     }
     //End Posts
+    
     //Esqueci minha senha
     //Rota View Esqueci minha senha
     public function esquecisenha(){
@@ -126,6 +134,6 @@ class LoginController extends Controller
         // dd($request->all());
             $reset = Usuarios::resetar($request);
     }
-    //End Medoto Esqueci minha senha
+    //End Método Esqueci minha senha
     //End Esqueci minha senha
 }

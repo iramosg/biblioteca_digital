@@ -16,11 +16,7 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('escritor', 'HomeController@escritor')->name('escritor');
 Route::get('leitor', 'HomeController@leitor')->name('leitor');
 Route::get('sobre', 'HomeController@sobre')->name('sobre');
-
-//Página Alterar senha
-Route::get('mudarsenha', 'UsuariosController@mudarsenha')->name('mudarsenha');
-//Método Alterar senha
-Route::post('alterarsenha', 'UsuariosController@alterarsenha')->name('alterarsenha');
+Route::post('buscar', 'HomeController@buscar')->name('buscar');
 
 //Rotas referente ao Login
 Route::prefix('login')->as('login.')->group(function(){
@@ -36,7 +32,9 @@ Route::prefix('login')->as('login.')->group(function(){
 	//Método de Cadastro(Salvar)
 	Route::post('store', 'UsuariosController@store')->name('store');
 	//Método para Entrar
-	Route::post('entrar', 'LoginController@entrar')->name('entrar'); 
+	Route::post('entrar', 'LoginController@entrar')->name('entrar');
+	//Método para fazer Logout 
+	Route::get('logout', 'LoginController@logout')->name('logout'); 
 	
 	//API de Login com Rede Social
 	Route::get('facebook', 'LoginController@redirectToProvider')->name('facebook');
@@ -61,10 +59,10 @@ Route::prefix('livros')->as('livros.')->group(function(){
 	Route::post('buscar', 'LivrosController@livroBusca')->name('buscar');
 	Route::post('save', 'LivrosController@store')->name('save');
 	Route::post('edit', 'LivrosController@update')->name('edit');
-
+	
 	Route::post('page/{url_amigavel}/ranking','RankingLivroController@ranking')->name('ranking');
 	Route::post('page/{url_amigavel}/reranking','RankingLivroController@reranking')->name('reranking');
-
+	
 	Route::get('page/{url_amigavel}/favoritar', 'FavoritarLivroController@favoritar')->name('favoritar');
 	Route::get('page/{url_amigavel}/desfavoritar', 'FavoritarLivroController@desfavoritar')->name('desfavoritar');
 	
@@ -78,11 +76,16 @@ Route::prefix('perfil')->as('perfil.')->group(function(){
 	
 	Route::post('edit', 'PerfilController@edit')->name('edit');
 	
+	//Página Alterar senha
+	Route::get('mudarsenha', 'UsuariosController@mudarsenha')->name('mudarsenha');
+	//Método Alterar senha
+	Route::post('alterarsenha', 'UsuariosController@alterarsenha')->name('alterarsenha');
+	
 	Route::prefix('amigo')->as('amigo.')->group(function(){
 		Route::post('adicionar', 'SeguidoresController@adicionar')->name('adicionar');
 		Route::post('remover', 'SeguidoresController@remover')->name('remover');
 	});
-
+	
 	Route::prefix('publicar')->as('publicar.')->group(function(){
 		Route::post('save', 'PublicacaoController@save')->name('save');
 		Route::post('delete', 'PublicacaoController@delete')->name('delete');

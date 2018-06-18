@@ -21,8 +21,15 @@ Editar Perfil
             </div> -->
             
             <div class="box-login">
+                
+                <div class="input-group gap">
+                <a href="{{ route('perfil.mudarsenha') }}" id="btnConfirmar" class="btn-confirmar btn-principal alert">Alterar Senha </a>
+                    
+                </div>
+                
+                
                 <form action="{{ route('perfil.edit') }}" method="POST" id="editarPerfil" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                    {{ csrf_field() }}
                     <div class="input-group gap">
                         <div id="multiple_upload">
                             <input type="file" id="uploadChange1" class="targetChange" name="foto"/>
@@ -54,8 +61,8 @@ Editar Perfil
                         <label for="txtSobrenome" class="label-animado">Sobrenome:</label>
                     </div>
                     <div class="input-group gap">
-                    <input class="input-group-field" type="text" id="txtUrl" name="url_amigavel" value="{{ $perfil->url_amigavel }}">
-                    <label for="txtUrl" class="label-animado">URL Amigável:</label>
+                        <input class="input-group-field" type="text" id="txtUrl" name="url_amigavel" value="{{ $perfil->url_amigavel }}">
+                        <label for="txtUrl" class="label-animado">URL Amigável:</label>
                     </div>
                     <div class="input-group gap">
                         <input class="input-group-field" type="text" id="txtDataNascimento" name="data_nascimento" value="{{ $perfil->data_nascimento }}" data-mask="00/00/0000">
@@ -111,14 +118,14 @@ Editar Perfil
                 $(this).find('~ label').removeClass('up-label');
             });
         });
-
+        
         jQuery('#formCadastro').validate({
             rules : {
 				email : {
 					email : true
 				}
             }
-	});
+        });
     });
     
     // Anima Upload

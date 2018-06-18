@@ -21,7 +21,8 @@ class UsuariosController extends Controller
 
     public function mudarsenha()
     {
-        return view('perfil.mudarsenha');
+        $classpage = 'editar-perfil';
+        return view('perfil.mudarsenha', compact('classpage'));
     }
     //End Views
     
@@ -59,10 +60,11 @@ class UsuariosController extends Controller
     }
     //End Salvar Usuarios
     
-    public function alterarsenha(Request $request){
-
+    public function alterarsenha(Request $request)
+    {
+        $classpage = 'login';
         $senha = Usuarios::alterarsenha($request);
-
-        return redirect()->route('login.index');
+        Auth::logout();
+        return redirect()->route('login.index', compact('classpage'));
     }
 }

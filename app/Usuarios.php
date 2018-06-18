@@ -55,6 +55,11 @@ class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPa
     {
         return Usuarios::where('url_amigavel', $url_amigavel)->first();
     }
+
+    public static function buscar($like)
+    {
+        return Usuarios::where('nome', 'LIKE', "%{$like}%")->get();
+    }
     
     
     public static function salvar(Request $request)
@@ -194,6 +199,7 @@ class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPa
             
             return $salvar;
         }
+
         public static function salvarfb($user)
         {
             $salvar = new Usuarios();
@@ -201,35 +207,27 @@ class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPa
             $salvar->nome = $user->name;//ou utilizar $user->getName();
             $salvar->email = $user->email;//ou utilizar $user->getEmail();
             $salvar->senha = '';
+            $salvar->remember_token = str_random(50);
             $salvar->save();
             return $salvar;
         }
 
-
-
-
         public static function alterarsenha(Request $request){
+            //dd($request);
 
-           
             $user = Auth::user();   
             
             $senha = $request->atualsenha;
             $nova = $request->novasenha;
             $confirma = $request->confirmasenha;
 
-            $user_ok = Hash::check($senha,$user->senha);
+            $user_ok = Hash::check($senha, $user->senha);
+            //dd($user_ok);
             
-            if($user_ok){                
-                if($nova == $confirma){                    
-                    $alterar = Usuarios::where('id','=',$user->id)->update(['senha' => Hash::make($nova)]);
-                    return $alterar;
-                }else{
-                    Session::put("error_login", true);
-                    return redirect()->route('mudarsenha');
-                }
-            }else{
-                Session::put("error_login", true);
-                return redirect()->route('mudarsenha');
-            }  
+            if($user_ok){                                  
+                $alterar = Usuarios::where('id','=',$user->id)->update(['senha' => Hash::make($nova)]);
+                //dd($alterar);
+                return $alterar;
+            }
         }
     }

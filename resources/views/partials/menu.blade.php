@@ -50,15 +50,16 @@
             </div>
 
             <!-- Menu Centro -->
-            <form action="#" method="#" id="search-ebook">
+            
             <div class="top-bar-left" id="responsive-menu">
                 <div id="search" class="search center-full">
-                        
+                <form action="{{ route('buscar') }}" method="POST" id="search-ebook">
+                    {{ csrf_field() }}
                     <div class="input-group">
-                        <select id="select-opt-search">
-                            <option value="ebook">Ebooks</option>
-                            <option value="user">Usuário</option>
-                            <option value="category">Categoria</option>
+                        <select id="select-opt-search" name="tipo">
+                            <option value="livro">e-book</option>
+                            <option value="usuario">Usuário</option>
+                            <option value="categoria">Categoria</option>
                         </select>
                     </div>
                     

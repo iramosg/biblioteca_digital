@@ -36,6 +36,11 @@ class Categorias extends SuperModel
     {
         return Categorias::find($id);
     }
+
+    public static function buscar($like)
+    {
+        return Categorias::where('categoria', 'LIKE', "%{$like}%")->get();
+    }
     
     public static function carregarUrl($url)
     {
