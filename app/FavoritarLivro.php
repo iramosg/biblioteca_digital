@@ -27,4 +27,17 @@ class FavoritarLivro extends SuperModel
         return $this->belongsTo('App\Livros');
     }
     
+    public static function salvar($userid,$livroid)
+    {  
+        
+        $salvar = new FavoritarLivro();
+        $salvar->usuario_id = $userid;
+        $salvar->livro_id = $livroid;
+
+        // dd($salvar);
+        $salvar->save();
+            
+        return $salvar;
+    }
+
 }

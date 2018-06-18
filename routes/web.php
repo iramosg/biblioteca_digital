@@ -63,6 +63,10 @@ Route::prefix('livros')->as('livros.')->group(function(){
 	Route::post('edit', 'LivrosController@update')->name('edit');
 
 	Route::post('page/{url_amigavel}/ranking','RankingLivroController@ranking')->name('ranking');
+	Route::post('page/{url_amigavel}/reranking','RankingLivroController@reranking')->name('reranking');
+
+	Route::get('page/{url_amigavel}/favoritar', 'FavoritarLivroController@favoritar')->name('favoritar');
+	Route::get('page/{url_amigavel}/desfavoritar', 'FavoritarLivroController@desfavoritar')->name('desfavoritar');
 	
 	
 });

@@ -24,6 +24,7 @@
                     <div class="">
                         <h3>Ranking</h3>
                     <h2>{{$avgrank}}</h2>
+                    @if(is_null($cRank))
                         <form action="{{ route('livros.ranking', ['url_amigavel' => $livro->url_amigavel]) }}" method="post">
                                 {{ csrf_field() }}
                             <input type="radio" name="rank" value="r1">1* 
@@ -33,6 +34,48 @@
                             <input type="radio" name="rank" value="r5">5* 
                             <input type="submit" value="Envie sua Avaliação">
                         </form>
+                    @else
+                        <form action="{{ route('livros.reranking', ['url_amigavel' => $livro->url_amigavel]) }}" method="post">
+                            {{ csrf_field() }}
+                            {{-- {{$rank}} --}}
+                            @if($rank == 1)
+                                <input type="radio" name="rank" value="r1" checked>1*
+                                <input type="radio" name="rank" value="r2">2*
+                                <input type="radio" name="rank" value="r3">3*
+                                <input type="radio" name="rank" value="r4">4*
+                                <input type="radio" name="rank" value="r5">5*
+                            @endif
+                            @if($rank == 2)
+                                <input type="radio" name="rank" value="r1">1*
+                                <input type="radio" name="rank" value="r2"checked>2*
+                                <input type="radio" name="rank" value="r3">3*
+                                <input type="radio" name="rank" value="r4">4*
+                                <input type="radio" name="rank" value="r5">5*
+                            @endif
+                            @if($rank == 3)
+                                <input type="radio" name="rank" value="r1">1*
+                                <input type="radio" name="rank" value="r2">2*
+                                <input type="radio" name="rank" value="r3"checked>3*
+                                <input type="radio" name="rank" value="r4">4*
+                                <input type="radio" name="rank" value="r5">5*
+                                @endif
+                            @if($rank == 4)
+                                <input type="radio" name="rank" value="r1">1*
+                                <input type="radio" name="rank" value="r2">2*
+                                <input type="radio" name="rank" value="r3">3*
+                                <input type="radio" name="rank" value="r4"checked>4*
+                                <input type="radio" name="rank" value="r5">5*
+                            @endif
+                            @if($rank == 5)
+                                <input type="radio" name="rank" value="r1">1*
+                                <input type="radio" name="rank" value="r2">2*
+                                <input type="radio" name="rank" value="r3">3*
+                                <input type="radio" name="rank" value="r4">4*
+                                <input type="radio" name="rank" value="r5"checked>5*
+                            @endif
+                            <input type="submit" value="Altere sua Avaliação">
+                        </form>
+                    @endif
                     </div>
                     <div class="box-preco gap">
                         <p class="preco h3"><span class="lt">R$</span>{{ $livro->preco }}</p>
@@ -44,7 +87,11 @@
 
                     <div class="box-action">
                         <a href="{{ $livro->download }}" class="btn-comprar btn-principal">Fazer Download</a>
-                        <a href="#" class="btn-neutro favoritos"><i class="fas fa-heart"></i> Adicionar aos Favoritos</a>
+                        @if(is_null($cFav))
+                            <a href="{{ route('livros.favoritar', ['url_amigavel' => $livro->url_amigavel]) }}" class="btn-neutro favoritos"><i class="fas fa-heart"></i> Adicionar aos Favoritos</a>
+                        @else
+                            <a href="{{ route('livros.desfavoritar', ['url_amigavel' => $livro->url_amigavel]) }}" class="btn-neutro favoritos"><i class="fas fa-heart"></i> Tirar dos Favoritos</a>
+                        @endif
                     </div>
                 </div>
             </div>
