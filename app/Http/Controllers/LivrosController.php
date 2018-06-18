@@ -28,41 +28,52 @@ class LivrosController extends Controller
     public function livro($url_amigavel)
     {
         $user = Auth::user();
-        $userid = $user->id;
+        $userid = 0; //id ficticio
         $livro = Livros::carregarLivroUrl($url_amigavel);
         $livrosUsuario = Livros::livrosUsuario($livro->autor_id);
         $classpage = 'pagina-livro';
+        $livroid = $livro->id;
+        
+        $avgrank = RankingLivro::where('livro_id','=',$livroid)
+            ->avg('ranking');
+        $avgrank = number_format($avgrank, 1, '.', '');
+
         $livro_url = Livros::where('url_amigavel','=',$url_amigavel)
                 ->where('activated', '=', true)
                 ->first();
-        $livroid = $livro->id;
-        $avgrank = RankingLivro::where('livro_id','=',$livroid)
-                ->avg('ranking');
-        $avgrank = number_format($avgrank, 1, '.', '');
+
         $cFav = FavoritarLivro::where('usuario_id','=',$userid)
-                    ->where('livro_id','=',$livroid)
-                    ->first();
-        $nRank = RankingLivro::select('ranking')
-            ->where('usuario_id','=',$userid)
             ->where('livro_id','=',$livroid)
             ->first();
-            $rank = $nRank->ranking;
-            // dd($rank);
-        // if($nRank->ranking = 1){
-        //     $rank = 1;
-        // }elseif($nRank->ranking = 2){
-        //     $rank = 2;
-        // }elseif($nRank->ranking = 3){
-        //     $rank = 3;
-        // }elseif($nRank->ranking = 4){
-        //     $rank = 4;
-        // }elseif($nRank->ranking = 5){
-        //     $rank = 5;
-        // }
-        $cRank = RankingLivro::where('usuario_id','=',$userid)
-            ->where('livro_id','=',$livroid)
-            ->first();
-        return view('livros.livro', compact(['livrosUsuario','classpage', 'livro','avgrank','cFav','cRank','rank']));
+
+    $cRank = RankingLivro::where('usuario_id','=',$userid)
+        ->where('livro_id','=',$livroid)
+        ->first();
+        
+    $nRank = RankingLivro::select('ranking')
+        ->where('usuario_id','=',$userid)
+        ->where('livro_id','=',$livroid)
+        ->first();
+       
+
+    // $rank = $nRank->ranking;
+        if($user){
+            $userid = $user->id;
+
+            $cFav = FavoritarLivro::where('usuario_id','=',$userid)
+                ->where('livro_id','=',$livroid)
+                ->first();
+
+            $cRank = RankingLivro::where('usuario_id','=',$userid)
+                ->where('livro_id','=',$livroid)
+                ->first();
+
+            $nRank = RankingLivro::select('ranking')
+                ->where('usuario_id','=',$userid)
+                ->where('livro_id','=',$livroid)
+                ->first();
+        }
+        return view('livros.livro', compact(['livrosUsuario','classpage', 'livro','avgrank','cFav','cRank','nRank']));
     }
     
     public function livroBusca(Request $request)
