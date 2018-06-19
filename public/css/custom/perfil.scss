@@ -109,7 +109,7 @@
 				border-radius: 3px;
 
 				&.box-apresentacao {
-					width: 75%;
+					width: 68%;
 					margin: 0 25px 0 0;
 
 					.item-info {
@@ -118,7 +118,7 @@
 				}
 
 				&.box-contato {
-					width: 25%;
+					width: 38%;
 				}
 
 				> p.title {
@@ -133,6 +133,7 @@
 					align-items: flex-start;
 					border-bottom: 1px solid $cor-neutra-clara;
 					padding: 10px;
+					width: calc(100% - 25px);
 
 					&:last-child {
 						border-bottom: 0;
@@ -151,7 +152,7 @@
 			}
 
 			.sociais {
-				flex-wrap: wrap;
+
 				.item {
 					@include center-full;
 					justify-content: flex-start;

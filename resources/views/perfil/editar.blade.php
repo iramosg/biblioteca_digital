@@ -126,6 +126,19 @@ Editar Perfil
 				}
             }
         });
+
+        if($("#txtUrl").val() == ''){
+            var urlify = function(a) {
+                return a.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "-").replace(/^-+|-+$/g, '');
+            };
+
+            var nome = $("#txtNome").val();
+            var sobrenome = $("#txtSobrenome").val();
+            var url = nome + " " + sobrenome + Math.floor(Math.random() * 10);
+            var url_amigavel = urlify(url);
+            $("#txtUrl").val(url_amigavel);
+        }
+            
     });
     
     // Anima Upload
@@ -168,5 +181,7 @@ Editar Perfil
                 $('[data-img="'+i+'"]').attr('src', e.target.result);
 			}
             reader.readAsDataURL(file);
-		}
+        }
+        
+        
         @endsection

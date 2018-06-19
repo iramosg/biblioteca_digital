@@ -71,6 +71,13 @@ class Livros extends SuperModel
         ->get();
     }
 
+    public static function livrosUsuarioInterna($id)
+    {
+        return Livros::where('autor_id', $id)
+        ->where('activated', 1)
+        ->paginate(10);
+    }
+
     public static function ultimosLivros()
     {
         return Livros::orderBy('created', 'DESC')
@@ -102,7 +109,7 @@ class Livros extends SuperModel
         $validator = Validator::make($request->all(), [
             'titulo' => 'required|max:100',
             'ano' => 'required|max:4',
-            'sinopse' => 'required|max:140',
+            'sinopse' => 'required',
             'descricao' => 'required',
             'preco' => 'required|max:6',
             'categoria' => 'required',

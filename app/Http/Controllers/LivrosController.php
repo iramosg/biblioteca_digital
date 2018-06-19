@@ -30,7 +30,7 @@ class LivrosController extends Controller
         $user = Auth::user();
         $userid = 0; //id ficticio
         $livro = Livros::carregarLivroUrl($url_amigavel);
-        $livrosUsuario = Livros::livrosUsuario($livro->autor_id);
+        $livrosUsuario = Livros::livrosUsuarioInterna($livro->autor_id);
         $classpage = 'pagina-livro';
         $livroid = $livro->id;
         

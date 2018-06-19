@@ -175,4 +175,22 @@ $(function(){
         }
         reader.readAsDataURL(file);
     }
+
+    //URL Amigável
+
+   
+
+    
+   
+    
+
+    $("#txtNomeLivro").on("blur", function(){
+        var urlify = function(a) {
+            return a.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "-").replace(/^-+|-+$/g, '');
+        };
+        var url = $("#txtNomeLivro").val();
+        var url_amigavel = urlify(url);
+        var campo_url = $("#txtURL").val(url_amigavel);
+    });
+
     @endsection

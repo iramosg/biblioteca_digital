@@ -572,84 +572,85 @@ header {
   background-color: rgba(255, 255, 255, 0.7);
   box-shadow: 0px 10px 32px -15px rgba(0, 0, 0, 0.75);
   z-index: 1; }
-  /* line 69, _header.scss */
-  .index header .box-logo {
-    padding: 0.3rem 0; }
-  /* line 74, _header.scss */
-  .index header .menu .item-menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; }
-    /* line 77, _header.scss */
-    .index header .menu .item-menu .link {
-      margin: 0 1rem;
-      color: #575757;
-      padding: 1.8rem 0;
-      border-bottom: 2px solid transparent;
-      transition: all 0.3s; }
-      /* line 120, _tipografias.scss */
-      .index header .menu .item-menu .link:hover, .index header .menu .item-menu .link:focus {
-        color: #4b668b;
-        border-color: #4b668b; }
-      /* line 81, _header.scss */
-      .index header .menu .item-menu .link.cadastro {
-        top: -1.5px;
-        width: 100%;
-        position: relative;
-        top: 0;
-        padding: 1rem 2rem;
-        border: 1px solid;
-        border-radius: 3px !important;
-        outline: none;
-        text-align: center;
-        text-transform: uppercase;
-        cursor: pointer;
-        display: block;
-        background-color: #82a5d6;
-        border-color: #82a5d6;
-        box-shadow: 0 3px 0 #4b668b;
+
+/* line 72, _header.scss */
+.menu-logoff .box-logo {
+  padding: 0.3rem 0; }
+/* line 77, _header.scss */
+.menu-logoff .menu .item-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  /* line 80, _header.scss */
+  .menu-logoff .menu .item-menu .link {
+    margin: 0 1rem;
+    color: #575757;
+    padding: 1.8rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s; }
+    /* line 120, _tipografias.scss */
+    .menu-logoff .menu .item-menu .link:hover, .menu-logoff .menu .item-menu .link:focus {
+      color: #4b668b;
+      border-color: #4b668b; }
+    /* line 84, _header.scss */
+    .menu-logoff .menu .item-menu .link.cadastro {
+      top: -1.5px;
+      width: 100%;
+      position: relative;
+      top: 0;
+      padding: 1rem 2rem;
+      border: 1px solid;
+      border-radius: 3px !important;
+      outline: none;
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: block;
+      background-color: #82a5d6;
+      border-color: #82a5d6;
+      box-shadow: 0 3px 0 #4b668b;
+      color: #FFF; }
+      /* line 50, _vm-botoes.scss */
+      .menu-logoff .menu .item-menu .link.cadastro:hover, .menu-logoff .menu .item-menu .link.cadastro:focus {
+        background-color: #6b93cb;
+        border-color: #6b93cb;
+        box-shadow: #3b5981;
         color: #FFF; }
-        /* line 50, _vm-botoes.scss */
-        .index header .menu .item-menu .link.cadastro:hover, .index header .menu .item-menu .link.cadastro:focus {
-          background-color: #6b93cb;
-          border-color: #6b93cb;
-          box-shadow: #3b5981;
-          color: #FFF; }
-        /* line 58, _vm-botoes.scss */
-        .index header .menu .item-menu .link.cadastro:active {
-          top: 3px;
-          box-shadow: none; }
-      /* line 85, _header.scss */
-      .index header .menu .item-menu .link.entrar {
-        top: -1.5px;
-        width: 100%;
-        position: relative;
-        top: 0;
-        padding: 1rem 2rem;
-        border: 1px solid;
-        border-radius: 3px !important;
-        outline: none;
-        text-align: center;
-        text-transform: uppercase;
-        cursor: pointer;
-        display: block;
-        background-color: #63c3a0;
-        border-color: #63c3a0;
-        box-shadow: 0 3px 0 #308264;
+      /* line 58, _vm-botoes.scss */
+      .menu-logoff .menu .item-menu .link.cadastro:active {
+        top: 3px;
+        box-shadow: none; }
+    /* line 88, _header.scss */
+    .menu-logoff .menu .item-menu .link.entrar {
+      top: -1.5px;
+      width: 100%;
+      position: relative;
+      top: 0;
+      padding: 1rem 2rem;
+      border: 1px solid;
+      border-radius: 3px !important;
+      outline: none;
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: block;
+      background-color: #63c3a0;
+      border-color: #63c3a0;
+      box-shadow: 0 3px 0 #308264;
+      color: #FFF; }
+      /* line 24, _vm-botoes.scss */
+      .menu-logoff .menu .item-menu .link.entrar:hover, .menu-logoff .menu .item-menu .link.entrar:focus {
+        background-color: #4eb992;
+        border-color: #4eb992;
+        box-shadow: #217355;
         color: #FFF; }
-        /* line 24, _vm-botoes.scss */
-        .index header .menu .item-menu .link.entrar:hover, .index header .menu .item-menu .link.entrar:focus {
-          background-color: #4eb992;
-          border-color: #4eb992;
-          box-shadow: #217355;
-          color: #FFF; }
-        /* line 32, _vm-botoes.scss */
-        .index header .menu .item-menu .link.entrar:active {
-          top: 3px;
-          box-shadow: none; }
-  /* line 92, _header.scss */
-  .index header .top-bar-right {
-    margin: 0 -1rem; }
+      /* line 32, _vm-botoes.scss */
+      .menu-logoff .menu .item-menu .link.entrar:active {
+        top: 3px;
+        box-shadow: none; }
+/* line 95, _header.scss */
+.menu-logoff .top-bar-right {
+  margin: 0 -1rem; }
 
 /* line 1, _footer.scss */
 footer {

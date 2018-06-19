@@ -31,7 +31,7 @@ class CreateLivrosTable extends Migration
             $table->string('download_previo');            	
             $table->string('download');            	            
             $table->string('isbn', 13)->nullable();  
-            $table->string('url_amigavel', 50)->unique();  
+            $table->string('url_amigavel', 100)->unique();  
 
             
             $table->boolean('activated')->default(true);          	                       	            
