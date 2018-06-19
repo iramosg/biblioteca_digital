@@ -49,7 +49,7 @@
                                 <input type="submit" value="Envie sua Avaliação">
                             </form>
                         @else
-                            <form action="{{ route('livros.reranking', ['url_amigavel' => $livro->url_amigavel]) }}" method="post">
+                            <form action="{{ route('livros.reranking', ['url_amigavel' => $livro->url_amigavel]) }}" method="post" id="form-avaliacoes">
                                 {{ csrf_field() }}
                                 {{-- {{$rank}} --}}
                                 @if($nRank->ranking == 1)

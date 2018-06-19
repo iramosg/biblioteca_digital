@@ -304,17 +304,14 @@ Perfil de {{ $perfil->nome }}
                         </div>
                         
                         <div class="item-info sociais">
-                            <a href="#" class="item instagram">
+                            <a href="{{ $perfil->instagram }}" class="item instagram">
                                 <img src="{{ asset('images/icones/instagram.png') }}" alt="#">
-                                <span class="user">{{ $perfil->instagram }}</span>
                             </a>
-                            <a href="#" class="item facebook">
+                            <a href="{{ $perfil->facebook }}" class="item facebook">
                                 <img src="{{ asset('images/icones/facebook.png') }}" alt="#">
-                                <span class="user">{{ $perfil->facebook }}</span>
                             </a>
-                            <a href="#" class="item youtube">
+                            <a href="{{ $perfil->youtube }}" class="item youtube">
                                 <img src="{{ asset('images/icones/youtube.png') }}" alt="#">
-                                <span class="user">{{ $perfil->youtube }}</span>
                             </a>
                         </div>
                     </div>
