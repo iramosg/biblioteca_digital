@@ -95,8 +95,7 @@ Página Inicial
 			<div class="cabecalho-apresentacao gap">
 				<p class="h2">Seja um Produtor</p>
 				<p class="txt">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi excepturi totam dignissimos dolore quia quod ut, nisi odio saepe, fugit culpa sed. Aspernatur, tempora magni. Quas sed, neque ut quisquam!
-				</p>
+				A Biblioteka Digital é uma plataforma voltada à produtores e leitores de livros digitais. A idéia inicial é que os usuários façam suas próprias publicações sem precisar de uma editora em um processo simples e rápido, podendo contar com apoios dos usuários da plataforma para divulgar e melhorar os seus produtos.				</p>
 			</div>
 			
 			<div class="apresentacao gap">
@@ -144,7 +143,7 @@ Página Inicial
 			</div>
 			
 			<div class="action">
-				<a href="#" class="button btn-secundario">Quero ser um produtor!</a>
+				<a href="{{ route('escritor') }}" class="button btn-secundario">Quero ser um produtor!</a>
 			</div>
 		</div>
 	</section>
@@ -160,8 +159,7 @@ Página Inicial
 			<div class="cabecalho-apresentacao gap">
 				<p class="h2">Seja um Leitor</p>
 				<p class="txt">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi excepturi totam dignissimos dolore quia quod ut, nisi odio saepe, fugit culpa sed. Aspernatur, tempora magni. Quas sed, neque ut quisquam!
-				</p>
+				Conheça e viva novas experiências com nossa plataforma, acesse e divirta-se com as histórias dos produtores independentes que oferecem o melhor conteúdo, se você é fã de leitura veio ao lugar certo. Conhecimento, emoção, entretenimento e muita diversão é o que te esperam.				</p>
 			</div>
 			
 			<div class="apresentacao gap">
@@ -209,7 +207,7 @@ Página Inicial
 			</div>
 			
 			<div class="action">
-				<a href="#" class="button btn-secundario">Quero ser um produtor!</a>
+				<a href="{{ route('escritor') }}" class="button btn-secundario">Quero ser um produtor!</a>
 			</div>
 		</div>
 	</section>

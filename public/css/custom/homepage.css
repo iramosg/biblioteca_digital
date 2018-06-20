@@ -109,7 +109,12 @@ p {
   .cabecalho-apresentacao p {
     text-align: center;
     max-width: 780px;
-    font-family: 'Cookie', cursive !important; }
+    /* font-family: 'Cookie', cursive !important;  */
+  }
+
+  .cabecalho-apresentacao .h2 {
+    font-family: 'Cookie', cursive !important;
+  }
 
 /* line 49, _tipografias.scss */
 .box-title {
@@ -133,7 +138,8 @@ p {
   .box-title p {
     position: relative;
     color: #63c3a0 !important;
-    font-family: 'Cookie', cursive !important; }
+    /* font-family: 'Cookie', cursive !important;  */
+  }
   /* line 75, _tipografias.scss */
   .box-title.blue:before {
     background: -moz-radial-gradient(center, ellipse cover, #fff 25%, #82a5d6 100%);
@@ -539,7 +545,7 @@ header {
     justify-content: center; }
     /* line 22, _header.scss */
     header .search form .input-group {
-      width: 350px;
+      width: 260px;
       margin: 0; }
       /* line 26, _header.scss */
       header .search form .input-group input {
@@ -826,7 +832,7 @@ footer {
       .apresentacao-user .apresentacao .item .conteudo .txt {
         max-width: 290px;
         color: #FFF !important;
-        font-family: 'Cookie', cursive !important; }
+        /* font-family: 'Cookie', cursive !important;*/ }
     /* line 131, homepage.scss */
     .apresentacao-user .apresentacao .item:hover .icon img {
       -webkit-animation: swing 1s ease;
@@ -943,3 +949,7 @@ footer {
       /* line 277, homepage.scss */
       .planos .tipos-planos .item:hover {
         border-color: #000; }
+
+        .titulo-cursiva {
+          font-family: 'Cookie', cursive !important;
+        }

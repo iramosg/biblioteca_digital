@@ -29,6 +29,7 @@ class UsuariosController extends Controller
     //Salvar Usuario
     public function store(Request $request)
     {  
+        //dd($request);
         try{
             
             $usuarios = Usuarios::salvar($request, Auth::id());

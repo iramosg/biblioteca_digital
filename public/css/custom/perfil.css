@@ -456,7 +456,6 @@ p {
 .user-grid {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 -7.5px; }
   /* line 5, _vm-card-user.scss */
@@ -539,7 +538,7 @@ header {
     justify-content: center; }
     /* line 22, _header.scss */
     header .search form .input-group {
-      width: 350px;
+      width: 260px;
       margin: 0; }
       /* line 26, _header.scss */
       header .search form .input-group input {
@@ -823,7 +822,7 @@ footer {
   #perfil .conteudo .publish .item {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background: #FFF;
     border-radius: 3px;
     overflow: hidden;
@@ -865,3 +864,8 @@ footer {
     /* line 222, perfil.scss */
     #perfil .conteudo .content#publicacoes {
       display: block; }
+
+.publicacao {
+  display: flex;
+  align-items: flex-start;
+}

@@ -214,7 +214,7 @@ Perfil de {{ $perfil->nome }}
                 @if(!empty($publicacao))
                 @foreach($publicacao as $p)
                 <div class="item">
-                    <div>
+                    <div class="publicacao">
                         <div class="infos-user">
                             <div class="face">
                                 <img src="{{$url}}{{ $p->usuario["foto"] }}" alt="{{ $p->usuario->nome }}">
@@ -222,7 +222,12 @@ Perfil de {{ $perfil->nome }}
                         </div>
                         <div class="infos-post">
                             <div class="date">
-                                <p class="txt-date">{{ $p->created }}</p>
+                                <p class="txt-date">{{ $p->created }} <form action="{{ route('perfil.publicar.delete') }}" method="POST">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="id" value="{{ $p->id }}">
+                            <button class="button alert" type="submit">Deletar</button>
+                        </form></p>
+                                
                             </div>
                             <div class="user-identify gap">
                                 <p class="name">{{ $p->usuario->nome }}</p>
@@ -232,14 +237,10 @@ Perfil de {{ $perfil->nome }}
                                 <p class="txt">{!! $p->post !!}</p>
                             </div>
                         </div>
-                        <form action="{{ route('perfil.publicar.delete') }}" method="POST">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="id" value="{{ $p->id }}">
-                            <button class="button alert" type="submit">Deletar</button>
-                        </form>
+                        
                     </div>
+                    
                 </div>
-                
                 @endforeach
                 @endif
             </div>

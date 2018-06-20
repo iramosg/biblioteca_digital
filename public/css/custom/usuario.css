@@ -539,7 +539,7 @@ header {
     justify-content: center; }
     /* line 22, _header.scss */
     header .search form .input-group {
-      width: 350px;
+      width: 260px;
       margin: 0; }
       /* line 26, _header.scss */
       header .search form .input-group input {

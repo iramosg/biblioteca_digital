@@ -192,7 +192,6 @@ class Usuarios extends SuperModel implements AuthenticatableContract, CanResetPa
             $salvar->facebook = $request->facebook;
             $salvar->instagram = $request->instagram;
             $salvar->youtube = $request->youtube;
-            $salvar->senha = Hash::make($request->senha);
             $salvar->url_amigavel = $request->url_amigavel;
             $salvar->remember_token = str_random(50);
             $salvar->save();

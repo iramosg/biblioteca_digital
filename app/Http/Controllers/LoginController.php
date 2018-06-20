@@ -83,13 +83,13 @@ class LoginController extends Controller
     //Posts
     public function entrar(Request $request)
     {
-        //dd($request);
+        //dd($request->senha);
         try {
             
             $user = Usuarios::where('email', '=', $request->get('email'))
             ->where('activated', '=', true)
             ->first();
-            //dd($user);
+            //dd(Hash::check($request->get('senha'), $user->senha));
             
             if($user)
             {
